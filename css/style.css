@@ -1,0 +1,359 @@
+/* ============================================================
+   NEOPLASTICISMO — STYLESHEET
+   Laboratorio de Diseño II — Universidad de Palermo 2026
+   Autora: Marianela Javier
+/* ============================================================
+
+
+/* ============================================================
+   1. VARIABLES Y RESET
+/* ============================================================
+
+:root {
+    --color-rojo:     #D84315;
+    --color-amarillo: #F5C400;
+    --color-azul:     #1A5276;
+    --color-negro:    #000000;
+    --color-blanco:   #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DMSans', sans-serif;
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+    max-width: 1366px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+
+/* ============================================================
+   2. TIPOGRAFÍAS
+/* ============================================================
+
+@font-face {
+    font-family: 'ISOCPEUR';
+    src: url('../fonts/isocpeur.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ISOCPEUR';
+    src: url('../fonts/isocpeui.ttf') format('truetype');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'DMSans';
+    src: url('../fonts/DMSans-VariableFont_opsz_wght.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DMSans';
+    src: url('../fonts/DMSans-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+    font-style: italic;
+}
+
+h1, h2, h3 {
+    font-family: 'ISOCPEUR', sans-serif;
+}
+
+p, a, span, li {
+    font-family: 'DMSans', sans-serif;
+    text-align: justify;
+}
+
+
+/* ============================================================
+   3. HEADER
+/* ============================================================
+
+.header-principal {
+    background-color: var(--color-blanco);
+    border-bottom: 3px solid var(--color-negro);
+    padding: 10px 15px;
+}
+
+/* Logo */
+.logo-img {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+/* Buscador */
+.buscador-icono {
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-negro);
+    border-right: none;
+    border-radius: 0;
+}
+.icono-lupa {
+    height: 22px;
+    width: auto;
+}
+.buscador-input {
+    border: 2px solid var(--color-negro);
+    border-left: none;
+    border-radius: 0;
+    font-family: 'DMSans', sans-serif;
+}
+.buscador-input:focus {
+    box-shadow: none;
+    border-color: var(--color-negro);
+}
+
+/* Iconos navegación header */
+.icono-nav {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.icono-nav:hover {
+    transform: scale(1.2);
+}
+
+
+/* ============================================================
+   4. NAVBAR
+/* ============================================================
+
+.navbar-principal {
+    padding: 0;
+    border-top: 3px solid var(--color-negro);
+    border-bottom: 3px solid var(--color-negro);
+}
+
+.navbar-titulo {
+    font-family: 'DMSans', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--color-negro);
+    background-color: var(--color-blanco);
+    padding: 6px 15px;
+    display: inline-block;
+}
+
+.bloque-amarillo-nav {
+    background-color: var(--color-amarillo);
+    height: 30px;
+}
+
+
+/* ============================================================
+   5. HERO
+/* ============================================================
+
+.hero {
+    border-bottom: 3px solid var(--color-negro);
+}
+
+/* Bloque izquierdo texto */
+.hero-texto {
+    background-color: var(--color-rojo);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 380px;
+}
+
+.hero-titulo {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 72px;
+    color: var(--color-negro);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.hero-descripcion {
+    font-family: 'DMSans', sans-serif;
+    font-size: 14px;
+    color: var(--color-negro);
+    text-align: justify;
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+/* Bloque derecho carrusel */
+.hero-carrusel {
+    height: 380px;
+    background-color: var(--color-negro);
+}
+
+.hero-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Flechas carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--color-negro);
+    border-radius: 0;
+    padding: 10px;
+    transition: filter 0.3s ease;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    filter: brightness(0.75);
+}
+
+/* Dots carrusel */
+.carousel-indicators button {
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-negro);
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+}
+
+.carousel-indicators button.active {
+    background-color: var(--color-amarillo);
+}
+
+
+/* ============================================================
+   6. CARDS (De Stijl / Autores / Obras)
+/* ============================================================
+
+.seccion-cards {
+    border-bottom: 3px solid var(--color-negro);
+}
+
+.card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.card-neo {
+    padding: 35px 20px;
+    text-align: center;
+    border-right: 3px solid var(--color-negro);
+    transition: filter 0.3s ease;
+    cursor: pointer;
+}
+
+.card-neo:hover {
+    filter: brightness(0.75);
+}
+
+.card-amarillo {
+    background-color: var(--color-amarillo);
+}
+
+.card-blanco {
+    background-color: var(--color-blanco);
+    border-top: none;
+}
+
+.card-azul {
+    background-color: var(--color-azul);
+    border-right: none;
+}
+
+.card-neo-titulo {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 32px;
+    color: var(--color-blanco);
+    letter-spacing: 2px;
+}
+
+.card-titulo-negro {
+    color: var(--color-negro);
+}
+
+
+/* ============================================================
+   7. FOOTER
+/* ============================================================
+
+.footer {
+    border-top: 3px solid var(--color-negro);
+}
+
+.footer-bloque-azul {
+    background-color: var(--color-azul);
+    min-height: 120px;
+}
+
+.footer-bloque-rojo {
+    background-color: var(--color-rojo);
+    min-height: 120px;
+}
+
+.footer-nav {
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-link {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-negro);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--color-amarillo);
+    padding-left: 8px;
+}
+
+/* Ícono Instagram */
+.footer-instagram {
+    font-size: 28px;
+    color: var(--color-negro);
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-instagram:hover {
+    transform: scale(1.2);
+    color: var(--color-rojo);
+}
+
+/* Barra de contacto */
+.footer-contacto {
+    background-color: var(--color-negro);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.footer-contacto p {
+    color: var(--color-blanco);
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
