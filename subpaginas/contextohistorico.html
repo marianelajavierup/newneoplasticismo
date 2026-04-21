@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neoplasticismo — Contexto Histórico</title>
+
+        <!-- BOOTSTRAP CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- BOOTSTRAP ICONS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- CSS NEOPLASTICISMO -->
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <header class="header-principal">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <a href="../sitio/index.html">
+                            <img src="../img/a-img-icono-logo.png" alt="Logo Neoplasticismo" class="logo-img">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group buscador">
+                            <span class="input-group-text buscador-icono">
+                                <img src="../img/a-img-icono-buscar.png" alt="Buscar" class="icono-lupa">
+                            </span>
+                            <input type="text" class="form-control buscador-input" placeholder="Buscar...">
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="../subpaginas/contextohistorico.html">
+                            <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/destijl.html">
+                            <img src="../img/a-img-icono-destijl.png" alt="De Stijl" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/autores.html">
+                            <img src="../img/a-img-icono-autores.png" alt="Autores" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/obras.html">
+                            <img src="../img/a-img-icono-obras.png" alt="Obras" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/fotoypublicaciones.html">
+                            <img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVBAR -->
+        <nav class="navbar-principal">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-auto navbar-bloque-izquierda">
+                        <span class="navbar-titulo">NEOPLASTICISMO</span>
+                        <div class="navbar-bloques-color">
+                            <div class="navbar-bloque-azul"></div>
+                            <div class="navbar-bloque-rojo"></div>
+                        </div>
+                    </div>
+                    <div class="col navbar-bloque-blanco"></div>
+                    <div class="col-auto navbar-bloque-amarillo"></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO CONTEXTO HISTÓRICO -->
+        <section class="hero">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-7 hero-texto">
+                        <h1 class="hero-titulo">contexto histórico</h1>
+                        <p class="hero-descripcion">El Neoplasticismo surge en los Países Bajos entre 1917 y 1931, en un contexto posguerra. Este movimiento transforma las artes visuales con su enfoque en la abstracción y la reducción formal de elementos.</p>
+                    </div>
+                    <div class="col-5 p-0">
+                        <div id="carruselContexto" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../img/5-obras.disenoindustrial-sillarietveld.webp" class="hero-img" alt="Contexto Histórico">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
+
+        <!-- LÍNEA DE TIEMPO -->
+        <section class="seccion-timeline">
+            <div class="timeline-wrapper">
+                <div class="timeline-scroll">
+
+                    <!-- EVENTO 1 — contexto general -->
+                    <div class="timeline-item timeline-item-contexto">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1914 — Primera Guerra Mundial"
+                                class="timeline-img"
+                                onclick="abrirModal('1914 — Primera Guerra Mundial', 'El estallido de la Primera Guerra Mundial sacude Europa. El conflicto genera una profunda crisis cultural y social que impulsa a los artistas a buscar un nuevo lenguaje universal que supere el individualismo y el nacionalismo.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto"></div>
+                        <div class="timeline-anio">1914</div>
+                        <div class="timeline-desc">Primera Guerra Mundial</div>
+                    </div>
+
+                    <!-- EVENTO 2 — movimiento -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1917 — Fundación De Stijl"
+                                class="timeline-img"
+                                onclick="abrirModal('1917 — Fundación De Stijl', 'Theo van Doesburg funda la revista De Stijl en los Países Bajos junto a Piet Mondrian y otros artistas. Este momento marca el inicio formal del movimiento neoplasticista, estableciendo sus principios: abstracción, líneas rectas y colores primarios.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-rojo"></div>
+                        <div class="timeline-anio">1917</div>
+                        <div class="timeline-desc">Fundación De Stijl</div>
+                    </div>
+
+                    <!-- EVENTO 3 — manifiesto -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1917 — 1er Manifiesto"
+                                class="timeline-img"
+                                onclick="abrirModal('1917 — Primer Manifiesto De Stijl', 'Publicado en noviembre de 1917. Firmado por Theo van Doesburg, Piet Mondrian, Bart van der Leck y otros. Proclama la búsqueda de un arte nuevo basado en relaciones puras entre forma y color, superando el arte individual hacia un lenguaje universal.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-amarillo"></div>
+                        <div class="timeline-anio">1917</div>
+                        <div class="timeline-desc">1er Manifiesto De Stijl</div>
+                    </div>
+
+                    <!-- EVENTO 4 — movimiento -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1918 — Primeras obras neoplasticistas"
+                                class="timeline-img"
+                                onclick="abrirModal('1918 — Primeras obras neoplasticistas', 'Piet Mondrian comienza a desarrollar sus composiciones con grillas, líneas negras y colores primarios. Se consolida el lenguaje visual característico del neoplasticismo: planos de color puro delimitados por líneas rectas negras.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-rojo"></div>
+                        <div class="timeline-anio">1918</div>
+                        <div class="timeline-desc">Primeras obras neoplasticistas</div>
+                    </div>
+
+                    <!-- EVENTO 5 — contexto general -->
+                    <div class="timeline-item timeline-item-contexto">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1919 — Bauhaus"
+                                class="timeline-img"
+                                onclick="abrirModal('1919 — Fundación de la Bauhaus', 'Walter Gropius funda la Bauhaus en Weimar, Alemania. Aunque es una escuela independiente, comparte con el neoplasticismo la búsqueda de integrar arte, diseño y arquitectura bajo principios racionales y geométricos.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto"></div>
+                        <div class="timeline-anio">1919</div>
+                        <div class="timeline-desc">Fundación de la Bauhaus</div>
+                    </div>
+
+                    <!-- EVENTO 6 — manifiesto -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1920 — 2do Manifiesto"
+                                class="timeline-img"
+                                onclick="abrirModal('1920 — Segundo Manifiesto De Stijl', 'Publicado en 1920. Profundiza en los principios del movimiento y amplía su alcance a la arquitectura y el diseño. Van Doesburg expande la visión del neoplasticismo más allá de la pintura, hacia una estética total del entorno.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-amarillo"></div>
+                        <div class="timeline-anio">1920</div>
+                        <div class="timeline-desc">2do Manifiesto De Stijl</div>
+                    </div>
+
+                    <!-- EVENTO 7 — movimiento -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1923 — Exposición París"
+                                class="timeline-img"
+                                onclick="abrirModal('1923 — Exposición en París', 'De Stijl presenta su trabajo en París, alcanzando reconocimiento internacional. La exposición incluye proyectos arquitectónicos y obras de arte que muestran la coherencia visual del movimiento aplicada a diversas disciplinas.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-rojo"></div>
+                        <div class="timeline-anio">1923</div>
+                        <div class="timeline-desc">Exposición internacional París</div>
+                    </div>
+
+                    <!-- EVENTO 8 — movimiento -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1924 — Casa Schröder"
+                                class="timeline-img"
+                                onclick="abrirModal('1924 — Casa Schröder, Gerrit Rietveld', 'Gerrit Rietveld construye la Casa Schröder en Utrecht, Holanda. Considerada la obra arquitectónica más representativa del neoplasticismo, aplica los principios del movimiento al espacio habitable: planos, colores primarios y líneas rectas.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-rojo"></div>
+                        <div class="timeline-anio">1924</div>
+                        <div class="timeline-desc">Casa Schröder, Rietveld</div>
+                    </div>
+
+                    <!-- EVENTO 9 — manifiesto -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1926 — 3er Manifiesto"
+                                class="timeline-img"
+                                onclick="abrirModal('1926 — Tercer Manifiesto De Stijl', 'El tercer y último manifiesto amplía la visión del movimiento hacia un arte total que integre todas las disciplinas: pintura, escultura, arquitectura, diseño gráfico y tipografía. Representa la madurez conceptual del neoplasticismo.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-amarillo"></div>
+                        <div class="timeline-anio">1926</div>
+                        <div class="timeline-desc">3er Manifiesto De Stijl</div>
+                    </div>
+
+                    <!-- EVENTO 10 — contexto general -->
+                    <div class="timeline-item timeline-item-contexto">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1929 — Crisis mundial"
+                                class="timeline-img"
+                                onclick="abrirModal('1929 — Crisis económica mundial', 'El crack de Wall Street desencadena una crisis económica global. El contexto de crisis impacta en el mundo del arte y el diseño, aunque el neoplasticismo ya había consolidado su influencia en la arquitectura y el diseño moderno.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto"></div>
+                        <div class="timeline-anio">1929</div>
+                        <div class="timeline-desc">Crisis económica mundial</div>
+                    </div>
+
+                    <!-- EVENTO 11 — movimiento -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1931 — Disolución De Stijl"
+                                class="timeline-img"
+                                onclick="abrirModal('1931 — Disolución del grupo De Stijl', 'Tras la muerte de Theo van Doesburg, el movimiento comienza a disolverse. Aunque el grupo desaparece, su influencia continúa en el diseño y la arquitectura moderna hasta hoy.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-rojo"></div>
+                        <div class="timeline-anio">1931</div>
+                        <div class="timeline-desc">Disolución del grupo De Stijl</div>
+                    </div>
+
+                    <!-- EVENTO 12 — contexto general -->
+                    <div class="timeline-item timeline-item-contexto">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1939 — Segunda Guerra Mundial"
+                                class="timeline-img"
+                                onclick="abrirModal('1939 — Segunda Guerra Mundial', 'El estallido de la Segunda Guerra Mundial transforma radicalmente el mundo. Muchos artistas europeos emigran a Estados Unidos, llevando consigo la influencia del neoplasticismo que impactará profundamente en el diseño gráfico y la arquitectura norteamericana.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto"></div>
+                        <div class="timeline-anio">1939</div>
+                        <div class="timeline-desc">Segunda Guerra Mundial</div>
+                    </div>
+
+                    <!-- EVENTO 13 — movimiento -->
+                    <div class="timeline-item">
+                        <div class="timeline-img-wrap">
+                            <img src="../img/5-obras.disenoindustrial-sillarietveld.webp"
+                                alt="1944 — Fallecimiento de Mondrian"
+                                class="timeline-img"
+                                onclick="abrirModal('1944 — Fallecimiento de Piet Mondrian', 'Muere Piet Mondrian en Nueva York. Su obra ya había influido fuertemente en el arte moderno, el diseño gráfico y la arquitectura. Su legado sigue siendo referencia fundamental del arte abstracto geométrico del siglo XX.', '../img/5-obras.disenoindustrial-sillarietveld.webp')">
+                        </div>
+                        <div class="timeline-conector"></div>
+                        <div class="timeline-punto timeline-punto-rojo"></div>
+                        <div class="timeline-anio">1944</div>
+                        <div class="timeline-desc">Fallecimiento de Mondrian</div>
+                    </div>
+
+                </div>
+                <!-- LÍNEA HORIZONTAL -->
+                <div class="timeline-linea"></div>
+            </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-1 footer-bloque-azul"></div>
+                    <div class="col-1 footer-bloque-rojo"></div>
+                    <div class="col-10 footer-nav">
+                        <nav class="footer-links">
+                            <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
+                            <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
+                            <a href="../subpaginas/autores.html" class="footer-link">Autores</a>
+                            <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
+                            <a href="../subpaginas/fotoypublicaciones.html" class="footer-link">Publicaciones</a>
+                        </nav>
+                        <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contacto">
+                <p>© 2026 Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
+            </div>
+        </footer>
+
+        <!-- MODAL -->
+        <div id="modal-timeline" class="modal-timeline">
+            <div class="modal-timeline-contenido">
+                <button class="modal-timeline-cerrar" onclick="cerrarModal()">✕</button>
+                <img id="modal-img" src="" alt="" class="modal-timeline-img">
+                <div class="modal-timeline-info">
+                    <h2 id="modal-titulo" class="modal-timeline-titulo"></h2>
+                    <p id="modal-texto" class="modal-timeline-texto"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOTSTRAP JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- JS NEOPLASTICISMO -->
+            <script src="../js/script.js"></script>
+
+
+    </body>
+</html>

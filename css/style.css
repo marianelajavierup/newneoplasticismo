@@ -1,7 +1,6 @@
 /* ============================================================
    NEOPLASTICISMO — STYLESHEET
    Laboratorio de Diseño II — Universidad de Palermo 2026
-   Autora: Marianela Javier
  ============================================================ */
 
 /* ============================================================
@@ -29,6 +28,7 @@ body {
     width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
@@ -77,14 +77,14 @@ a, span, li {
 
 .header-principal {
     background-color: var(--color-blanco);
-    border-bottom: 6px solid var(--color-negro);
-    padding: 25px 40px;
-    min-height: 180px;
+    border-bottom: 4px solid var(--color-negro);
+    padding: 12px 30px;
+    min-height: 90px;
 }
 
 /* Logo */
 .logo-img {
-    height: 200px;
+    height: 70px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -95,23 +95,23 @@ a, span, li {
 /* Buscador */
 .buscador-icono {
     background-color: var(--color-blanco);
-    border: 3px solid var(--color-negro);
+    border: 2px solid var(--color-negro);
     border-right: none;
     border-radius: 0;
-    padding: 12px 16px;
+    padding: 8px 12px;
 }
 .icono-lupa {
-    height: 35px;
+    height: 20px;
     width: auto;
 }
 .buscador-input {
-    border: 3px solid var(--color-negro);
+    border: 2px solid var(--color-negro);
     border-left: none;
     border-radius: 0;
     font-family: 'DMSans', sans-serif;
-    font-size: 20px;
-    padding: 12px 18px;
-    height: 65px;
+    font-size: 15px;
+    padding: 8px 14px;
+    height: 42px;
 }
 .buscador-input:focus {
     box-shadow: none;
@@ -120,13 +120,14 @@ a, span, li {
 
 /* Iconos navegación header */
 .icono-nav {
-    height: 160px;
+    height: 65px;
     width: auto;
     transition: transform 0.3s ease;
 }
 .icono-nav:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
+
 
 /* ============================================================
    4. NAVBAR
@@ -134,24 +135,30 @@ a, span, li {
 
 .navbar-principal {
     padding: 0;
-    border-top: 6px solid var(--color-negro);
-    border-bottom: 6px solid var(--color-negro);
+    border-top: 4px solid var(--color-negro);
+    border-bottom: 4px solid var(--color-negro);
 }
 
 .navbar-bloque-izquierda {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
 
 .navbar-titulo {
     font-family: 'DMSans', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
+    font-weight: 700;
+    font-size: 11px;
     letter-spacing: 3px;
     color: var(--color-negro);
-    background-color: var(--color-blanco);
-    padding:10px 10px;
-    display: inside;
+    background-color: transparent;
+    padding: 3px 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    line-height: 1;
 }
 
 .navbar-bloques-color {
@@ -160,14 +167,14 @@ a, span, li {
 
 .navbar-bloque-azul {
     background-color: var(--color-azul);
-    width: 250px;
-    height: 25px;
+    width: 80px;
+    height: 28px;
 }
 
 .navbar-bloque-rojo {
     background-color: var(--color-rojo);
-    width: 250px;
-    height: 25px;
+    width: 80px;
+    height: 28px;
 }
 
 .navbar-bloque-blanco {
@@ -176,7 +183,7 @@ a, span, li {
 
 .navbar-bloque-amarillo {
     background-color: var(--color-amarillo);
-    width: 1000px;
+    width: 200px;
 }
 
 
@@ -185,45 +192,45 @@ a, span, li {
 ============================================================ */
 
 .hero {
-    border-bottom: 6px solid var(--color-negro);
+    border-bottom: 4px solid var(--color-negro);
 }
 
 /* Bloque izquierdo texto */
 .hero-texto {
     background-color: var(--color-rojo);
-    padding: 80px 70px;
+    padding: 50px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 620px;
+    min-height: 400px;
 }
 
 .hero-titulo {
     font-family: 'ISOCPEUR', sans-serif;
-    font-size: 130px;
+    font-size: 80px;
     color: var(--color-negro);
     line-height: 1;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .hero-descripcion {
     font-family: 'DMSans', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     color: var(--color-negro);
     text-align: justify;
-    line-height: 1.9;
-    max-width: 680px;
+    line-height: 1.8;
+    max-width: 560px;
 }
 
 /* Bloque derecho carrusel */
 .hero-carrusel {
-    height: 620px;
+    height: 400px;
     background-color: var(--color-negro);
 }
 
 .hero-img {
     width: 100%;
-    height: 620px;
+    height: 400px;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -232,7 +239,7 @@ a, span, li {
 /* Flechas carrusel */
 .carousel-control-prev,
 .carousel-control-next {
-    width: 50px;
+    width: 40px;
     opacity: 1;
 }
 
@@ -240,7 +247,7 @@ a, span, li {
 .carousel-control-next-icon {
     background-color: var(--color-negro);
     border-radius: 0;
-    padding: 12px;
+    padding: 10px;
     transition: filter 0.3s ease;
 }
 
@@ -253,8 +260,8 @@ a, span, li {
 .carousel-indicators button {
     background-color: var(--color-blanco);
     border: 2px solid var(--color-negro);
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     border-radius: 0;
 }
 
@@ -269,10 +276,10 @@ a, span, li {
 
 .separador-neo {
     width: 100%;
-    border-top: 8px solid var(--color-negro);
-    border-bottom: 8px solid var(--color-negro);
+    border-top: 6px solid var(--color-negro);
+    border-bottom: 6px solid var(--color-negro);
     background-color: var(--color-blanco);
-    height: 16px;
+    height: 14px;
 }
 
 
@@ -281,7 +288,7 @@ a, span, li {
 ============================================================ */
 
 .seccion-cards {
-    border-bottom: 6px solid var(--color-negro);
+    border-bottom: 4px solid var(--color-negro);
 }
 
 .card-link {
@@ -290,9 +297,9 @@ a, span, li {
 }
 
 .card-neo {
-    padding: 50px 20px;
+    padding: 35px 20px;
     text-align: center;
-    border-right: 6px solid var(--color-negro);
+    border-right: 4px solid var(--color-negro);
     transition: filter 0.3s ease;
     cursor: pointer;
 }
@@ -316,7 +323,7 @@ a, span, li {
 
 .card-neo-titulo {
     font-family: 'ISOCPEUR', sans-serif;
-    font-size: 42px;
+    font-size: 32px;
     color: var(--color-blanco);
     letter-spacing: 2px;
 }
@@ -331,21 +338,21 @@ a, span, li {
 ============================================================ */
 
 .footer {
-    border-top: 6px solid var(--color-negro);
+    border-top: 4px solid var(--color-negro);
 }
 
 .footer-bloque-azul {
     background-color: var(--color-azul);
-    min-height: 150px;
+    min-height: 120px;
 }
 
 .footer-bloque-rojo {
     background-color: var(--color-rojo);
-    min-height: 150px;
+    min-height: 120px;
 }
 
 .footer-nav {
-    padding: 35px 50px;
+    padding: 25px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -354,12 +361,12 @@ a, span, li {
 .footer-links {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .footer-link {
     font-family: 'DMSans', sans-serif;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--color-negro);
@@ -376,7 +383,7 @@ a, span, li {
 
 /* Ícono Instagram */
 .footer-instagram {
-    font-size: 100px;
+    font-size: 30px;
     color: var(--color-negro);
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -390,14 +397,264 @@ a, span, li {
 /* Barra de contacto */
 .footer-contacto {
     background-color: var(--color-negro);
-    padding: 12px 20px;
+    padding: 10px 20px;
     text-align: center;
 }
 
 .footer-contacto p {
     color: var(--color-blanco);
-    font-size: 20px;
+    font-size: 12px;
     margin: 0;
     text-align: center;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+}
+
+
+/* ============================================================
+   8. LÍNEA DE TIEMPO — CONTEXTO HISTÓRICO
+============================================================ */
+
+.seccion-timeline {
+    background-color: var(--color-blanco);
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.timeline-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    padding: 20px 40px 30px 40px;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-negro) var(--color-blanco);
+}
+
+.timeline-wrapper:active {
+    cursor: grabbing;
+}
+
+.timeline-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+.timeline-wrapper::-webkit-scrollbar-track {
+    background: var(--color-blanco);
+    border-top: 2px solid var(--color-negro);
+}
+.timeline-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-negro);
+}
+
+/* CONTENEDOR INTERNO */
+.timeline-scroll {
+    display: inline-flex;
+    align-items: flex-end;
+    position: relative;
+    padding-bottom: 55px;
+    min-width: max-content;
+}
+
+/* LÍNEA HORIZONTAL */
+.timeline-linea {
+    position: absolute;
+    bottom: 38px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-negro);
+    z-index: 0;
+}
+
+/* CADA ITEM */
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* IMAGEN — movimiento: 260px alto */
+.timeline-img-wrap {
+    width: 170px;
+    height: 260px;
+    overflow: hidden;
+    border: 4px solid var(--color-negro);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* IMAGEN — contexto general: 180px alto */
+.timeline-item-contexto .timeline-img-wrap {
+    height: 180px;
+    width: 140px;
+    border: 3px solid #888888;
+}
+
+.timeline-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.timeline-img:hover {
+    transform: scale(1.12);
+}
+
+/* CONECTOR VERTICAL */
+.timeline-conector {
+    width: 3px;
+    background-color: var(--color-negro);
+    z-index: 1;
+    flex-shrink: 0;
+    height: 25px;
+}
+
+.timeline-item-contexto .timeline-conector {
+    height: 105px;
+    background-color: #888888;
+}
+
+/* PUNTO BASE — contexto general */
+.timeline-punto {
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-negro);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+/* PUNTO AMARILLO — manifiestos */
+.timeline-punto-amarillo {
+    background-color: var(--color-amarillo);
+    border: 3px solid var(--color-negro);
+    width: 20px;
+    height: 20px;
+}
+
+/* PUNTO ROJO — eventos clave movimiento */
+.timeline-punto-rojo {
+    background-color: var(--color-rojo);
+    border: 3px solid var(--color-negro);
+    width: 20px;
+    height: 20px;
+}
+
+/* AÑO */
+.timeline-anio {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-negro);
+    margin-top: 6px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* DESCRIPCIÓN */
+.timeline-desc {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    color: var(--color-negro);
+    text-align: center;
+    width: 170px;
+    line-height: 1.3;
+    margin-top: 3px;
+}
+
+.timeline-item-contexto .timeline-anio {
+    font-size: 17px;
+    color: #888888;
+}
+
+.timeline-item-contexto .timeline-desc {
+    color: #888888;
+}
+
+
+/* ============================================================
+   9. MODAL LÍNEA DE TIEMPO
+============================================================ */
+
+.modal-timeline {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-timeline.activo {
+    display: flex;
+}
+
+.modal-timeline-contenido {
+    position: relative;
+    width: 650px;
+    max-width: 90%;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.modal-timeline-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-timeline-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(180, 180, 180, 0.75);
+    padding: 18px 22px;
+    backdrop-filter: blur(4px);
+}
+
+.modal-timeline-titulo {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 20px;
+    color: var(--color-negro);
+    margin-bottom: 6px;
+}
+
+.modal-timeline-texto {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    color: var(--color-negro);
+    text-align: justify;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.modal-timeline-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.modal-timeline-cerrar:hover {
+    background-color: var(--color-rojo);
 }
