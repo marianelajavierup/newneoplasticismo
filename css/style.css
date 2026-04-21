@@ -146,12 +146,12 @@ a, span, li {
 .navbar-titulo {
     font-family: 'DMSans', sans-serif;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 25px;
     letter-spacing: 3px;
     color: var(--color-negro);
     background-color: var(--color-blanco);
-    padding: 5px 15px;
-    display: block;
+    padding:10px 10px;
+    display: inside;
 }
 
 .navbar-bloques-color {
@@ -160,14 +160,14 @@ a, span, li {
 
 .navbar-bloque-azul {
     background-color: var(--color-azul);
-    width: 55px;
-    height: 14px;
+    width: 250px;
+    height: 25px;
 }
 
 .navbar-bloque-rojo {
     background-color: var(--color-rojo);
-    width: 55px;
-    height: 14px;
+    width: 250px;
+    height: 25px;
 }
 
 .navbar-bloque-blanco {
@@ -176,7 +176,7 @@ a, span, li {
 
 .navbar-bloque-amarillo {
     background-color: var(--color-amarillo);
-    width: 110px;
+    width: 1000px;
 }
 
 
@@ -359,7 +359,7 @@ a, span, li {
 
 .footer-link {
     font-family: 'DMSans', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--color-negro);
@@ -376,7 +376,7 @@ a, span, li {
 
 /* Ícono Instagram */
 .footer-instagram {
-    font-size: 34px;
+    font-size: 100px;
     color: var(--color-negro);
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -396,8 +396,8 @@ a, span, li {
 
 .footer-contacto p {
     color: var(--color-blanco);
-    font-size: 13px;
+    font-size: 20px;
     margin: 0;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
 }
