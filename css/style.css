@@ -332,6 +332,44 @@ a, span, li {
     color: var(--color-negro);
 }
 
+/* ============================================================
+   FLECHA SCROLL TOP
+============================================================ */
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  
+    font-size: 30px;
+    color: var(--color-amarillo);
+  
+    z-index: 999;
+  
+    /* estado oculto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  
+    transition: all 0.3s ease;
+  }
+  
+  /* cuando aparece */
+  .scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  /* hover (detalle de interacción) */
+  .scroll-to-top:hover {
+    transform: translateY(-3px);
+    color: var(--color-azul); 
+  }
 
 /* ============================================================
    7. FOOTER

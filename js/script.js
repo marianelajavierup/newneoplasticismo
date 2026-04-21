@@ -3,6 +3,20 @@
    Laboratorio de Diseño II — Universidad de Palermo 2026
 ============================================================ */
 
+/* A-HOME */
+window.addEventListener("scroll", function() {
+    const button = document.querySelector(".scroll-to-top");
+  
+    if (!button) return; // 👈 evita error   
+    if (window.scrollY > window.innerHeight / 2){
+      button.classList.add("show");
+    } else {
+      button.classList.remove("show");
+    }
+  });
+
+
+
 /* B-CONTEXTO HISTORICO */
 /* ============================================================
    LÍNEA DE TIEMPO — SCROLL HORIZONTAL

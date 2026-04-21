@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neoplasticismo</title>
+
+        <!-- BOOTSTRAP CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- BOOTSTRAP ICONS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- CSS NEOPLASTICISMO -->
+        <link rel="stylesheet" href="../css/style.css">
+
+    </head>
+    
+    <body>
+
+        <!-- HEADER -->
+        <header class="header-principal">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <!-- LOGO -->
+                    <div class="col-2">
+                        <a href="../sitio/index.html">
+                            <img src="../img/a-img-icono-logo.png" alt="Logo Neoplasticismo" class="logo-img">
+                        </a>
+                    </div>
+
+                    <!-- BARRA DE BÚSQUEDA -->
+                    <div class="col-6">
+                        <div class="input-group buscador">
+                            <span class="input-group-text buscador-icono">
+                                <img src="../img/a-img-icono-buscar.png" alt="Buscar" class="icono-lupa">
+                            </span>
+                            <input type="text" class="form-control buscador-input" placeholder="Buscar...">
+                        </div>
+                    </div>
+
+                    <!-- ICONOS NAVEGACIÓN -->
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="../subpaginas/contextohistorico.html">
+                            <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/destijl.html">
+                            <img src="../img/a-img-icono-destijl.png" alt="De Stijl" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/autores.html">
+                            <img src="../img/a-img-icono-autores.png" alt="Autores" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/obras.html">
+                            <img src="../img/a-img-icono-obras.png" alt="Obras" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/fotoypublicaciones.html">
+                            <img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVBAR -->
+        <nav class="navbar-principal">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- BLOQUE AZUL + ROJO con texto encima -->
+                    <div class="col-auto navbar-bloque-izquierda">
+                        <span class="navbar-titulo">NEOPLASTICISMO</span>
+                        <div class="navbar-bloques-color">
+                            <div class="navbar-bloque-azul"></div>
+                            <div class="navbar-bloque-rojo"></div>
+                        </div>
+                    </div>
+
+                    <!-- BLOQUE BLANCO (relleno) -->
+                    <div class="col navbar-bloque-blanco"></div>
+
+                    <!-- BLOQUE AMARILLO -->
+                    <div class="col-auto navbar-bloque-amarillo"></div>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- IZQUIERDA: TEXTO -->
+                    <div class="col-7 hero-texto">
+                        <h1 class="hero-titulo">neoplasticismo</h1>
+                        <p class="hero-descripcion">El Neoplasticismo es un movimiento artístico caracterizado por la abstracción y la reducción formal, utilizando líneas rectas y colores primarios para expresar una nueva estética visual y un lenguaje universal.</p>
+                    </div>
+
+                    <!-- DERECHA: CARRUSEL -->
+                    <div class="col-5 p-0">
+                        <div id="carruselHero" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
+
+                            <!-- IMÁGENES -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../img/5-obras.pintura-mondrian-03.png" class="hero-img" alt="Mondrian 03">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/5-obras.arquitectura-rietveldhouseschroderhuis-01.jpg" class="hero-img" alt="Casa Rietveld">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/5-obras.pintura-mondrian-02.jpg" class="hero-img" alt="Mondrian 02">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/5-obras.disenoindustrial-sillarietveld.webp" class="hero-img" alt="Silla Rietveld">
+                                </div>
+                            </div>
+
+                            <!-- FLECHAS -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselHero" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carruselHero" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+
+                            <!-- DOTS -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="3"></button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECCIÓN CARDS (De Stijl / Autores / Obras) -->
+        <!-- SEPARADOR CARDS -->
+        <div class="separador-neo"></div>        
+        
+        <section class="seccion-cards">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- CARD DE STIJL -->
+                    <div class="col-4">
+                        <a href="../subpaginas/destijl.html" class="card-link">
+                            <div class="card-neo card-amarillo">
+                                <span class="card-neo-titulo">DE Stijl</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- CARD AUTORES -->
+                    <div class="col-4">
+                        <a href="../subpaginas/autores.html" class="card-link">
+                            <div class="card-neo card-blanco">
+                                <span class="card-neo-titulo card-titulo-negro">Autores</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- CARD OBRAS -->
+                    <div class="col-4">
+                        <a href="../subpaginas/obras.html" class="card-link">
+                            <div class="card-neo card-azul">
+                                <span class="card-neo-titulo">Obras</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- REVISAR FLECHA SCROOL-->
+        <svg class="scroll-to-top-icon" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg"
+         width="15" height="15" viewBox="0 0 15 15"><rect width="15" height="15" fill="none"></rect>
+         <path fill="currentColor" d="M2,8.48l-.65-.65a.71.71,0,0,1,0-1L7,1.14a.72.72,0,0,1,1,0l5.69,5.7a.71.71,0,0,1,0,1L13,8.48a.71.71,0,0,1-1,0L8.67,4.94v8.42a.7.7,0,0,1-.7.7H7a.7.7,0,0,1-.7-.7V4.94L3,8.47a.7.7,0,0,1-1,0Z">
+         </path></svg>
+       
+        <!-- FOOTER -->
+        <!-- SEPARADOR FOOTER -->
+        <div class="separador-neo"></div>
+        
+        <footer class="footer">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- BLOQUES DE COLOR -->
+                    <div class="col-1 footer-bloque-azul"></div>
+                    <div class="col-1 footer-bloque-rojo"></div>
+
+                    <!-- NAVEGACIÓN + INSTAGRAM -->
+                    <div class="col-10 footer-nav">
+
+                        <nav class="footer-links">
+                            <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
+                            <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
+                            <a href="../subpaginas/autores.html" class="footer-link">Autores</a>
+                            <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
+                            <a href="../subpaginas/fotoypublicaciones.html" class="footer-link">Publicaciones</a>
+                        </nav>
+
+                        <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BARRA DE CONTACTO -->
+            <div class="footer-contacto">
+                <p>© 2026 LAVORATORIO DE DISEÑO II | Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
+            </div>
+
+        </footer>
+
+        <!-- BOOTSTRAP JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+         <!-- JS NEOPLASTICISMO -->
+         <script src="../js/script.js"></script>
+
+
+
+    </body>
+</html>
