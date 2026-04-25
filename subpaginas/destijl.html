@@ -3,34 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Neoplasticismo</title>
+        <title>Neoplasticismo — De Stijl</title>
 
         <!-- BOOTSTRAP CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
         <!-- BOOTSTRAP ICONS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
         <!-- CSS NEOPLASTICISMO -->
         <link rel="stylesheet" href="../css/style.css">
-
     </head>
-    
+
     <body>
 
         <!-- HEADER -->
         <header id="top" class="header-principal">
             <div class="container-fluid">
                 <div class="row align-items-center">
-
-                    <!-- LOGO -->
                     <div class="col-2">
                         <a href="../sitio/index.html">
                             <img src="../img/a-img-icono-logo.png" alt="Logo Neoplasticismo" class="logo-img">
                         </a>
                     </div>
-
-                    <!-- BARRA DE BÚSQUEDA -->
                     <div class="col-6">
                         <div class="input-group buscador">
                             <span class="input-group-text buscador-icono">
@@ -39,8 +32,6 @@
                             <input type="text" class="form-control buscador-input" placeholder="Buscar...">
                         </div>
                     </div>
-
-                    <!-- ICONOS NAVEGACIÓN -->
                     <div class="col-4 d-flex justify-content-end align-items-center gap-3">
                         <a href="../subpaginas/contextohistorico.html">
                             <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
@@ -58,7 +49,6 @@
                             <img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav">
                         </a>
                     </div>
-
                 </div>
             </div>
         </header>
@@ -67,8 +57,6 @@
         <nav class="navbar-principal">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <!-- BLOQUE AZUL + ROJO con texto encima -->
                     <div class="col-auto navbar-bloque-izquierda">
                         <span class="navbar-titulo">NEOPLASTICISMO</span>
                         <div class="navbar-bloques-color">
@@ -76,13 +64,8 @@
                             <div class="navbar-bloque-rojo"></div>
                         </div>
                     </div>
-
-                    <!-- BLOQUE BLANCO (relleno) -->
                     <div class="col navbar-bloque-blanco"></div>
-
-                    <!-- BLOQUE AMARILLO -->
                     <div class="col-auto navbar-bloque-amarillo"></div>
-
                 </div>
             </div>
         </nav>
@@ -91,51 +74,68 @@
         <section class="hero">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <!-- IZQUIERDA: TEXTO -->
                     <div class="col-7 hero-texto">
                         <h1 class="hero-titulo">DE Stijl</h1>
-                        <p class="hero-descripcion">El Neoplasticismo es un movimiento artístico caracterizado por la abstracción y la reducción formal, utilizando líneas rectas y colores primarios para expresar una nueva estética visual y un lenguaje universal.</p>
+                        <p class="hero-descripcion">Su propuesta buscaba alcanzar una forma de expresión universal a través de la reducción de los elementos visuales a lo esencial: líneas rectas, planos geométricos y el uso de colores primarios junto al blanco y negro. Más que un estilo, De Stijl representó una forma de pensar el arte y el diseño como sistemas ordenados, donde la armonía y el equilibrio se construyen a partir de relaciones puras entre forma y color.</p>
                     </div>
-
-                    <!-- DERECHA: CARRUSEL -->
                     <div class="col-5 p-0">
-                        <div id="carruselHero" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
-
-                            <!-- IMÁGENES -->
+                        <div id="carruselDestijl" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="../img/5-obras.pintura-mondrian-03.png" class="hero-img" alt="Mondrian 03">
+                                    <img src="../img/5-obras.disenoindustrial-sillarietveld.webp" class="hero-img" alt="De Stijl">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/5-obras.pintura-mondrian-02.jpg" class="hero-img" alt="Mondrian">
                                 </div>
                                 <div class="carousel-item">
                                     <img src="../img/5-obras.arquitectura-rietveldhouseschroderhuis-01.jpg" class="hero-img" alt="Casa Rietveld">
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="../img/5-obras.pintura-mondrian-02.jpg" class="hero-img" alt="Mondrian 02">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../img/5-obras.disenoindustrial-sillarietveld.webp" class="hero-img" alt="Silla Rietveld">
-                                </div>
                             </div>
-
-                            <!-- FLECHAS -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselHero" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestijl" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Anterior</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carruselHero" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carruselDestijl" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Siguiente</span>
                             </button>
-
-                            <!-- DOTS -->
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="0" class="active"></button>
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="1"></button>
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="2"></button>
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#carruselDestijl" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carruselDestijl" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carruselDestijl" data-bs-slide-to="2"></button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
+
+        <!-- CARDS MANIFIESTOS -->
+        <section class="seccion-cards">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- CARD 1er MANIFIESTO -->
+                    <div class="col-4">
+                        <div class="card-neo card-amarillo card-link" onclick="abrirManifiesto(1)">
+                            <span class="card-neo-titulo">1er Manifiesto</span>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2do MANIFIESTO -->
+                    <div class="col-4">
+                        <div class="card-neo card-blanco card-link" onclick="abrirManifiesto(2)">
+                            <span class="card-neo-titulo card-titulo-negro">2do Manifiesto</span>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3er MANIFIESTO -->
+                    <div class="col-4">
+                        <div class="card-neo card-azul card-link" onclick="abrirManifiesto(3)">
+                            <span class="card-neo-titulo">3er Manifiesto</span>
                         </div>
                     </div>
 
@@ -143,66 +143,60 @@
             </div>
         </section>
 
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
 
-        <!-- SECCIÓN CARDS (Manifiestos) -->
-        <!-- SEPARADOR CARDS -->
-        <div class="separador-neo"></div>        
-        
-        <section class="seccion-cards">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
+        <!-- MODAL MANIFIESTOS -->
+        <div id="modal-manifiesto" class="modal-manifiesto">
+            <div class="modal-manifiesto-contenido">
 
-                    <!-- CARD DE Manifiesto 1 -->
-                    <div class="col-4">
-                        <a href="../subpaginas/destijl.html" class="card-link">
-                            <div class="card-neo card-amarillo">
-                                <span class="card-neo-titulo">1er Manifiesto</span>
-                            </div>
-                        </a>
+                <!-- IMAGEN -->
+                <img id="manifiesto-img" src="" alt="" class="modal-manifiesto-img">
+
+                <!-- INFO TRANSLÚCIDA -->
+                <div class="modal-manifiesto-info">
+                    <div class="modal-manifiesto-header">
+                        <div>
+                            <h2 id="manifiesto-titulo" class="modal-manifiesto-titulo"></h2>
+                            <p id="manifiesto-anio" class="modal-manifiesto-anio"></p>
+                            <p id="manifiesto-autores" class="modal-manifiesto-autores"></p>
+                        </div>
+                        <!-- CRUZ CERRAR -->
+                        <button class="modal-manifiesto-cerrar" onclick="cerrarManifiesto()">✕</button>
                     </div>
-
-                    <!-- CARD Manifiesto 2 -->
-                    <div class="col-4">
-                        <a href="../subpaginas/autores.html" class="card-link">
-                            <div class="card-neo card-blanco">
-                                <span class="card-neo-titulo card-titulo-negro">2do Manifiesto</span>
-                            </div>
+                    <p id="manifiesto-texto" class="modal-manifiesto-texto"></p>
+                    <div class="modal-manifiesto-acciones">
+                        <!-- DESCARGAR PDF -->
+                        <a id="manifiesto-pdf" href="" download class="btn-manifiesto-pdf">
+                            <i class="bi bi-file-earmark-pdf-fill"></i> Descargar Manifiesto
                         </a>
+                        <!-- NAVEGACIÓN -->
+                        <div class="modal-manifiesto-nav">
+                            <button id="btn-anterior" class="btn-manifiesto-nav" onclick="navegarManifiesto(-1)">
+                                <i class="bi bi-arrow-left-square-fill"></i>
+                            </button>
+                            <button id="btn-siguiente" class="btn-manifiesto-nav" onclick="navegarManifiesto(1)">
+                                <i class="bi bi-arrow-right-square-fill"></i>
+                            </button>
+                        </div>
                     </div>
-
-                    <!-- CARD Manifiesto 3 -->
-                    <div class="col-4">
-                        <a href="../subpaginas/obras.html" class="card-link">
-                            <div class="card-neo card-azul">
-                                <span class="card-neo-titulo">3er Manifiesto</span>
-                            </div>
-                        </a>
-                    </div>
-
                 </div>
+
             </div>
-        </section>
-        
-        <!-- REVISAR FLECHA SCROOL-->
+        </div>
+
+        <!-- FLECHA SCROLL TOP -->
         <a href="#top" class="scroll-to-top">
             <i class="bi bi-arrow-up-square-fill"></i>
         </a>
-        
+
         <!-- FOOTER -->
-        <!-- SEPARADOR FOOTER -->
-        <div class="separador-neo"></div>
-        
         <footer class="footer">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <!-- BLOQUES DE COLOR -->
                     <div class="col-1 footer-bloque-azul"></div>
                     <div class="col-1 footer-bloque-rojo"></div>
-
-                    <!-- NAVEGACIÓN + INSTAGRAM -->
                     <div class="col-10 footer-nav">
-
                         <nav class="footer-links">
                             <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
                             <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
@@ -210,30 +204,21 @@
                             <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
                             <a href="../subpaginas/fotoypublicaciones.html" class="footer-link">Publicaciones</a>
                         </nav>
-
                         <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
                             <i class="bi bi-instagram"></i>
                         </a>
-
                     </div>
-
                 </div>
             </div>
-
-            <!-- BARRA DE CONTACTO -->
             <div class="footer-contacto">
-                <p>© 2026 LAVORATORIO DE DISEÑO II | Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
+                <p>© 2026 Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
             </div>
-
         </footer>
 
         <!-- BOOTSTRAP JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-         <!-- JS NEOPLASTICISMO -->
-         <script src="../js/script.js"></script>
-
-
+        <!-- JS NEOPLASTICISMO -->
+        <script src="../js/script.js"></script>
 
     </body>
 </html>

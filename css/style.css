@@ -338,31 +338,32 @@ a, span, li {
 
 html {
     scroll-behavior: smooth;
-  }
-  
-  .scroll-to-top {
+}
+
+.scroll-to-top {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-  
-    font-size: 30px;
+    bottom: 30px;
+    right: 30px;
+    font-size: 40px;
     color: var(--color-amarillo);
-  
     z-index: 999;
-  }
-  
-  /* visible */
-  .scroll-to-top.show {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.scroll-to-top.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-  }
-  
-  /* hover (detalle de interacción) */
-  .scroll-to-top:hover {
-    transform: translateY(-3px);
-    color: var(--color-azul); 
-  }
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-4px);
+    color: var(--color-azul);
+}
 
 /* ============================================================
    7. FOOTER
@@ -687,5 +688,162 @@ html {
 }
 
 .modal-timeline-cerrar:hover {
+    background-color: var(--color-rojo);
+}
+
+/* ============================================================
+   10. MODAL MANIFIESTOS — DE STIJL
+============================================================ */
+
+.modal-manifiesto {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.80);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-manifiesto.activo {
+    display: flex;
+}
+
+.modal-manifiesto-contenido {
+    position: relative;
+    width: 750px;
+    max-width: 92%;
+    overflow: hidden;
+}
+
+.modal-manifiesto-img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-manifiesto-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(160, 160, 160, 0.80);
+    padding: 18px 22px;
+    backdrop-filter: blur(5px);
+}
+
+.modal-manifiesto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.modal-manifiesto-titulo {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 22px;
+    color: var(--color-negro);
+    margin: 0 0 3px 0;
+}
+
+.modal-manifiesto-anio {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-negro);
+    margin: 0;
+    text-align: left;
+}
+
+.modal-manifiesto-autores {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: var(--color-negro);
+    margin: 0;
+    text-align: left;
+}
+
+.modal-manifiesto-texto {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    color: var(--color-negro);
+    text-align: justify;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+}
+
+.modal-manifiesto-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BOTÓN PDF */
+.btn-manifiesto-pdf {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
+    padding: 8px 16px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-manifiesto-pdf:hover {
+    background-color: var(--color-rojo);
+    color: var(--color-blanco);
+}
+
+/* FLECHAS NAVEGACIÓN */
+.modal-manifiesto-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-manifiesto-nav {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--color-negro);
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+}
+
+.btn-manifiesto-nav:hover {
+    color: var(--color-amarillo);
+    transform: scale(1.15);
+}
+
+.btn-manifiesto-nav:disabled {
+    color: #aaaaaa;
+    cursor: default;
+    transform: none;
+}
+
+/* CERRAR */
+.modal-manifiesto-cerrar {
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.modal-manifiesto-cerrar:hover {
     background-color: var(--color-rojo);
 }
