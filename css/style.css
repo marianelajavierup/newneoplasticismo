@@ -349,16 +349,9 @@ html {
     color: var(--color-amarillo);
   
     z-index: 999;
-  
-    /* estado oculto */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-  
-    transition: all 0.3s ease;
   }
   
-  /* cuando aparece */
+  /* visible */
   .scroll-to-top.show {
     opacity: 1;
     visibility: visible;
@@ -465,7 +458,7 @@ html {
     padding: 20px 40px 30px 40px;
     cursor: grab;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-negro) var(--color-blanco);
+    scrollbar-color: var(--color-azul) var(--color-blanco);
 }
 
 .timeline-wrapper:active {
