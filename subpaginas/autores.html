@@ -72,7 +72,7 @@
                 <div class="row g-0">
                     <div class="col-7 hero-texto">
                         <h1 class="hero-titulo">Autores</h1>
-                        <p class="hero-descripcion">Este movimiento fue impulsado por artistas innovadores como Mondrian y Van Doesburg, quienes establecieron las bases de la abstracción moderna y la armonía visual en el arte. Hacé click sobre cada autor para conocer su historia y obra.</p>
+                        <p class="hero-descripcion">Este movimiento fue impulsado por artistas innovadores que establecieron las bases de la abstracción moderna y la armonía visual en el arte. Pasá el mouse sobre cada autor para descubrir su historia, y hacé click para acceder a su ficha completa.</p>
                     </div>
                     <div class="col-5 p-0">
                         <div id="carruselAutores" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
@@ -107,98 +107,152 @@
         <!-- SEPARADOR -->
         <div class="separador-neo"></div>
 
-        <!-- SECCIÓN CUBOS AUTORES -->
-        <section class="seccion-autores">
-            <div class="autores-grid">
+        <!-- GRILLA MONDRIAN — AUTORES -->
+        <section class="seccion-autores-mondrian">
+            <div class="mondrian-grid">
 
-                <!-- MONDRIAN -->
-                <div class="cubo-escena" onclick="abrirAutor('mondrian')">
-                    <div class="cubo cubo-rojo">
+                <!-- MONDRIAN — grande, rojo -->
+                <div class="mondrian-celda celda-mondrian"
+                     onclick="abrirAutor('mondrian')">
+                    <div class="mondrian-cubo cubo-color-rojo">
                         <div class="cubo-cara cubo-frente">
                             <img src="../img/c-autores-piet-mondrian-01.webp" alt="Piet Mondrian">
                         </div>
-                        <div class="cubo-cara cubo-derecha"></div>
-                        <div class="cubo-cara cubo-izquierda"></div>
-                        <div class="cubo-cara cubo-arriba"></div>
+                        <div class="cubo-cara cubo-derecha">
+                            <span class="cubo-texto-cara">Piet Mondrian</span>
+                        </div>
+                        <div class="cubo-cara cubo-izquierda">
+                            <span class="cubo-texto-cara">1872 — 1944<br>Países Bajos</span>
+                        </div>
+                        <div class="cubo-cara cubo-arriba">
+                            <span class="cubo-texto-cara">Pintura</span>
+                        </div>
                         <div class="cubo-cara cubo-abajo"></div>
                         <div class="cubo-cara cubo-atras"></div>
                     </div>
-                    <p class="cubo-nombre">Piet Mondrian</p>
+                    <div class="mondrian-overlay">
+                        <span>Piet Mondrian</span>
+                    </div>
                 </div>
 
-                <!-- DOESBURG -->
-                <div class="cubo-escena" onclick="abrirAutor('doesburg')">
-                    <div class="cubo cubo-amarillo">
+                <!-- DOESBURG — grande, amarillo -->
+                <div class="mondrian-celda celda-doesburg"
+                     onclick="abrirAutor('doesburg')">
+                    <div class="mondrian-cubo cubo-color-amarillo">
                         <div class="cubo-cara cubo-frente">
                             <img src="../img/c-autores-theo-van-doesburg-01.webp" alt="Theo van Doesburg">
                         </div>
-                        <div class="cubo-cara cubo-derecha"></div>
-                        <div class="cubo-cara cubo-izquierda"></div>
-                        <div class="cubo-cara cubo-arriba"></div>
-                        <div class="cubo-cara cubo-abajo"></div>
-                        <div class="cubo-cara cubo-atras"></div>
-                    </div>
-                    <p class="cubo-nombre">Theo van Doesburg</p>
-                </div>
-
-                <!-- RIETVELD -->
-                <div class="cubo-escena" onclick="abrirAutor('rietveld')">
-                    <div class="cubo cubo-azul">
-                        <div class="cubo-cara cubo-frente">
-                            <img src="../img/c-autores-gerrit-rietveld-01.jfif" alt="Gerrit Rietveld">
+                        <div class="cubo-cara cubo-derecha">
+                            <span class="cubo-texto-cara">Theo van Doesburg</span>
                         </div>
-                        <div class="cubo-cara cubo-derecha"></div>
-                        <div class="cubo-cara cubo-izquierda"></div>
-                        <div class="cubo-cara cubo-arriba"></div>
+                        <div class="cubo-cara cubo-izquierda">
+                            <span class="cubo-texto-cara">1883 — 1931<br>Países Bajos</span>
+                        </div>
+                        <div class="cubo-cara cubo-arriba">
+                            <span class="cubo-texto-cara">Pintura<br>Arquitectura</span>
+                        </div>
                         <div class="cubo-cara cubo-abajo"></div>
                         <div class="cubo-cara cubo-atras"></div>
                     </div>
-                    <p class="cubo-nombre">Gerrit Rietveld</p>
+                    <div class="mondrian-overlay">
+                        <span>Theo van Doesburg</span>
+                    </div>
                 </div>
 
-                <!-- HUSZÁR -->
-                <div class="cubo-escena" onclick="abrirAutor('huszar')">
-                    <div class="cubo cubo-rojo">
+                <!-- HUSZÁR — chico, rojo -->
+                <div class="mondrian-celda celda-huszar"
+                     onclick="abrirAutor('huszar')">
+                    <div class="mondrian-cubo cubo-color-rojo">
                         <div class="cubo-cara cubo-frente">
                             <img src="../img/c-autores-vilmos-huszar-01.jpg" alt="Vilmos Huszár">
                         </div>
-                        <div class="cubo-cara cubo-derecha"></div>
-                        <div class="cubo-cara cubo-izquierda"></div>
-                        <div class="cubo-cara cubo-arriba"></div>
+                        <div class="cubo-cara cubo-derecha">
+                            <span class="cubo-texto-cara">Vilmos Huszár</span>
+                        </div>
+                        <div class="cubo-cara cubo-izquierda">
+                            <span class="cubo-texto-cara">1884 — 1960<br>Hungría</span>
+                        </div>
+                        <div class="cubo-cara cubo-arriba">
+                            <span class="cubo-texto-cara">Diseño Gráfico</span>
+                        </div>
                         <div class="cubo-cara cubo-abajo"></div>
                         <div class="cubo-cara cubo-atras"></div>
                     </div>
-                    <p class="cubo-nombre">Vilmos Huszár</p>
+                    <div class="mondrian-overlay">
+                        <span>Vilmos Huszár</span>
+                    </div>
                 </div>
 
-                <!-- VAN DER LECK -->
-                <div class="cubo-escena" onclick="abrirAutor('vanderleck')">
-                    <div class="cubo cubo-amarillo">
+                <!-- RIETVELD — mediano, azul -->
+                <div class="mondrian-celda celda-rietveld"
+                     onclick="abrirAutor('rietveld')">
+                    <div class="mondrian-cubo cubo-color-azul">
+                        <div class="cubo-cara cubo-frente">
+                            <img src="../img/c-autores-gerrit-rietveld-01.jfif" alt="Gerrit Rietveld">
+                        </div>
+                        <div class="cubo-cara cubo-derecha">
+                            <span class="cubo-texto-cara">Gerrit Rietveld</span>
+                        </div>
+                        <div class="cubo-cara cubo-izquierda">
+                            <span class="cubo-texto-cara">1888 — 1964<br>Países Bajos</span>
+                        </div>
+                        <div class="cubo-cara cubo-arriba">
+                            <span class="cubo-texto-cara">Arquitectura<br>Diseño Industrial</span>
+                        </div>
+                        <div class="cubo-cara cubo-abajo"></div>
+                        <div class="cubo-cara cubo-atras"></div>
+                    </div>
+                    <div class="mondrian-overlay">
+                        <span>Gerrit Rietveld</span>
+                    </div>
+                </div>
+
+                <!-- VAN DER LECK — chico, amarillo -->
+                <div class="mondrian-celda celda-vanderleck"
+                     onclick="abrirAutor('vanderleck')">
+                    <div class="mondrian-cubo cubo-color-amarillo">
                         <div class="cubo-cara cubo-frente">
                             <img src="../img/c-autores-bart-van-der-leck-01.jpg" alt="Bart van der Leck">
                         </div>
-                        <div class="cubo-cara cubo-derecha"></div>
-                        <div class="cubo-cara cubo-izquierda"></div>
-                        <div class="cubo-cara cubo-arriba"></div>
+                        <div class="cubo-cara cubo-derecha">
+                            <span class="cubo-texto-cara">Bart van der Leck</span>
+                        </div>
+                        <div class="cubo-cara cubo-izquierda">
+                            <span class="cubo-texto-cara">1876 — 1958<br>Países Bajos</span>
+                        </div>
+                        <div class="cubo-cara cubo-arriba">
+                            <span class="cubo-texto-cara">Pintura<br>Diseño Textil</span>
+                        </div>
                         <div class="cubo-cara cubo-abajo"></div>
                         <div class="cubo-cara cubo-atras"></div>
                     </div>
-                    <p class="cubo-nombre">Bart van der Leck</p>
+                    <div class="mondrian-overlay">
+                        <span>Bart van der Leck</span>
+                    </div>
                 </div>
 
-                <!-- OUD -->
-                <div class="cubo-escena" onclick="abrirAutor('oud')">
-                    <div class="cubo cubo-azul">
+                <!-- OUD — mediano, azul -->
+                <div class="mondrian-celda celda-oud"
+                     onclick="abrirAutor('oud')">
+                    <div class="mondrian-cubo cubo-color-azul">
                         <div class="cubo-cara cubo-frente">
                             <img src="../img/c-autores-jacobus-johannes-pieter-oud-01.jpg" alt="J.J.P. Oud">
                         </div>
-                        <div class="cubo-cara cubo-derecha"></div>
-                        <div class="cubo-cara cubo-izquierda"></div>
-                        <div class="cubo-cara cubo-arriba"></div>
+                        <div class="cubo-cara cubo-derecha">
+                            <span class="cubo-texto-cara">J.J.P. Oud</span>
+                        </div>
+                        <div class="cubo-cara cubo-izquierda">
+                            <span class="cubo-texto-cara">1890 — 1963<br>Países Bajos</span>
+                        </div>
+                        <div class="cubo-cara cubo-arriba">
+                            <span class="cubo-texto-cara">Arquitectura</span>
+                        </div>
                         <div class="cubo-cara cubo-abajo"></div>
                         <div class="cubo-cara cubo-atras"></div>
                     </div>
-                    <p class="cubo-nombre">J.J.P. Oud</p>
+                    <div class="mondrian-overlay">
+                        <span>J.J.P. Oud</span>
+                    </div>
                 </div>
 
             </div>
@@ -210,13 +264,8 @@
         <!-- MODAL AUTOR -->
         <div id="modal-autor" class="modal-autor">
             <div class="modal-autor-contenido">
-
-                <!-- CERRAR -->
                 <button class="modal-autor-cerrar" onclick="cerrarAutor()">✕</button>
-
                 <div class="modal-autor-body">
-
-                    <!-- CARRUSEL FOTOS -->
                     <div class="modal-autor-carrusel">
                         <div id="carruselModalAutor" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
                             <div class="carousel-inner" id="carrusel-autor-inner"></div>
@@ -228,8 +277,6 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- FICHA -->
                     <div class="modal-autor-ficha">
                         <h2 id="autor-nombre" class="modal-autor-nombre"></h2>
                         <p id="autor-fechas" class="modal-autor-fechas"></p>
@@ -240,7 +287,6 @@
                             <i class="bi bi-grid-fill"></i> Ver obras del autor
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -157,7 +157,7 @@ if (modalManifiesto) {
 
 /* C-AUTORES */
 /* ============================================================
-   CUBOS Y MODAL AUTORES
+   GRILLA MONDRIAN + MODAL AUTORES
 ============================================================ */
 
 const autoresData = {
@@ -166,7 +166,7 @@ const autoresData = {
         fechas: '1872 — 1944',
         pais: 'Países Bajos',
         formacion: 'Academia de Bellas Artes de Ámsterdam',
-        resena: 'Considerado el principal representante del Neoplasticismo, Mondrian desarrolló un lenguaje visual abstracto basado en líneas horizontales y verticales negras y planos de colores primarios. Dentro del movimiento sus obras más significativas son las series Composición con Rojo, Azul y Amarillo. Fuera del neoplasticismo exploró el cubismo en sus inicios y hacia el final de su vida desarrolló el estilo Broadway Boogie-Woogie, incorporando ritmos dinámicos influenciados por el jazz neoyorquino.',
+        resena: 'Considerado el principal representante del Neoplasticismo, Mondrian desarrolló un lenguaje visual abstracto basado en líneas horizontales y verticales negras y planos de colores primarios. Sus obras más significativas dentro del movimiento son las series Composición con Rojo, Azul y Amarillo. Fuera del neoplasticismo exploró el cubismo en sus inicios y hacia el final de su vida desarrolló el estilo Broadway Boogie-Woogie, incorporando ritmos dinámicos influenciados por el jazz neoyorquino.',
         fotos: [
             '../img/c-autores-piet-mondrian-01.webp',
             '../img/c-autores-piet-mondrian-02.webp',
@@ -214,7 +214,7 @@ const autoresData = {
         fechas: '1876 — 1958',
         pais: 'Países Bajos',
         formacion: 'Escuela de Artes Aplicadas de Ámsterdam',
-        resena: 'Van der Leck aportó al neoplasticismo su particular uso del color plano y la geometría simple. Sus composiciones dentro del movimiento se caracterizan por figuras fragmentadas en formas rectangulares de colores primarios sobre fondo blanco. Fuera del neoplasticismo, abandonó el grupo relativamente pronto para desarrollar un estilo propio más figurativo, aplicado también al diseño textil y la cerámica.',
+        resena: 'Van der Leck aportó al neoplasticismo su particular uso del color plano y la geometría simple. Sus composiciones dentro del movimiento se caracterizan por figuras fragmentadas en formas rectangulares de colores primarios sobre fondo blanco. Fuera del neoplasticismo abandonó el grupo relativamente pronto para desarrollar un estilo propio más figurativo, aplicado también al diseño textil y la cerámica.',
         fotos: [
             '../img/c-autores-bart-van-der-leck-01.jpg',
             '../img/c-autores-bart-van-der-leck-02.jpg',
@@ -245,7 +245,6 @@ function abrirAutor(id) {
     document.getElementById('autor-formacion').textContent = autor.formacion;
     document.getElementById('autor-resena').textContent = autor.resena;
 
-    // Cargar fotos en carrusel
     const inner = document.getElementById('carrusel-autor-inner');
     inner.innerHTML = '';
     autor.fotos.forEach((foto, i) => {

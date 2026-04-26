@@ -850,51 +850,69 @@ html {
 
 /* C- AUTORES */
 /* ============================================================
-   11. CUBOS AUTORES
+   11. GRILLA MONDRIAN — AUTORES
 ============================================================ */
 
-.seccion-autores {
-    background-color: var(--color-blanco);
-    padding: 60px 80px;
+.seccion-autores-mondrian {
+    width: 100%;
+    border-bottom: 4px solid var(--color-negro);
 }
 
-.autores-grid {
+.mondrian-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px 80px;
-    justify-items: center;
+    width: 100%;
+    height: 600px;
+    grid-template-columns: 3fr 2fr 1.5fr;
+    grid-template-rows: 1.8fr 1fr;
+    border-top: 4px solid var(--color-negro);
+    gap: 0;
 }
 
-/* ESCENA 3D */
-.cubo-escena {
-    width: 260px;
-    height: 260px;
-    perspective: 800px;
+/* POSICIÓN DE CADA CELDA */
+.celda-mondrian   { grid-column: 1; grid-row: 1; }
+.celda-doesburg   { grid-column: 2; grid-row: 1; }
+.celda-huszar     { grid-column: 3; grid-row: 1; }
+.celda-rietveld   { grid-column: 1; grid-row: 2; }
+.celda-vanderleck { grid-column: 2; grid-row: 2; }
+.celda-oud        { grid-column: 3; grid-row: 2; }
+
+/* CELDA BASE */
+.mondrian-celda {
+    position: relative;
+    overflow: hidden;
+    border-right: 4px solid var(--color-negro);
+    border-bottom: 4px solid var(--color-negro);
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    perspective: 1000px;
 }
 
-.cubo {
-    width: 260px;
-    height: 260px;
+.mondrian-celda:last-child {
+    border-right: none;
+}
+
+/* CUBO */
+.mondrian-cubo {
+    width: 100%;
+    height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transform: rotateY(-15deg) rotateX(10deg);
-    transition: transform 0.6s ease;
+    transform: rotateY(0deg) rotateX(0deg);
+    transition: transform 0.7s ease;
 }
 
-.cubo-escena:hover .cubo {
-    transform: rotateY(-35deg) rotateX(15deg);
+.mondrian-celda:hover .mondrian-cubo {
+    transform: rotateY(40deg) rotateX(15deg);
 }
 
-/* CARAS */
+/* CARAS DEL CUBO */
 .cubo-cara {
     position: absolute;
-    width: 260px;
-    height: 260px;
-    border: 4px solid var(--color-negro);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
     overflow: hidden;
 }
 
@@ -905,48 +923,82 @@ html {
     display: block;
 }
 
-.cubo-frente  { transform: translateZ(130px); }
-.cubo-atras   { transform: rotateY(180deg) translateZ(130px); }
-.cubo-derecha { transform: rotateY(90deg)  translateZ(130px); }
-.cubo-izquierda{ transform: rotateY(-90deg) translateZ(130px); }
-.cubo-arriba  { transform: rotateX(90deg)  translateZ(130px); }
-.cubo-abajo   { transform: rotateX(-90deg) translateZ(130px); }
+.cubo-frente    { transform: translateZ(0px); }
+.cubo-derecha   { transform: rotateY(90deg) translateZ(0px);
+                  transform-origin: right center; }
+.cubo-izquierda { transform: rotateY(-90deg) translateZ(0px);
+                  transform-origin: left center; }
+.cubo-arriba    { transform: rotateX(90deg) translateZ(0px);
+                  transform-origin: top center; }
+.cubo-abajo     { transform: rotateX(-90deg) translateZ(0px);
+                  transform-origin: bottom center; }
+.cubo-atras     { transform: rotateY(180deg); }
 
-/* COLORES POR AUTOR */
-.cubo-rojo .cubo-derecha,
-.cubo-rojo .cubo-izquierda,
-.cubo-rojo .cubo-arriba,
-.cubo-rojo .cubo-abajo,
-.cubo-rojo .cubo-atras {
+/* COLORES DE LAS CARAS LATERALES */
+.cubo-color-rojo .cubo-derecha,
+.cubo-color-rojo .cubo-izquierda,
+.cubo-color-rojo .cubo-arriba,
+.cubo-color-rojo .cubo-abajo,
+.cubo-color-rojo .cubo-atras {
     background-color: var(--color-rojo);
 }
 
-.cubo-amarillo .cubo-derecha,
-.cubo-amarillo .cubo-izquierda,
-.cubo-amarillo .cubo-arriba,
-.cubo-amarillo .cubo-abajo,
-.cubo-amarillo .cubo-atras {
+.cubo-color-amarillo .cubo-derecha,
+.cubo-color-amarillo .cubo-izquierda,
+.cubo-color-amarillo .cubo-arriba,
+.cubo-color-amarillo .cubo-abajo,
+.cubo-color-amarillo .cubo-atras {
     background-color: var(--color-amarillo);
 }
 
-.cubo-azul .cubo-derecha,
-.cubo-azul .cubo-izquierda,
-.cubo-azul .cubo-arriba,
-.cubo-azul .cubo-abajo,
-.cubo-azul .cubo-atras {
+.cubo-color-azul .cubo-derecha,
+.cubo-color-azul .cubo-izquierda,
+.cubo-color-azul .cubo-arriba,
+.cubo-color-azul .cubo-abajo,
+.cubo-color-azul .cubo-atras {
     background-color: var(--color-azul);
 }
 
-/* NOMBRE DEBAJO DEL CUBO */
-.cubo-nombre {
+/* TEXTO EN CARAS LATERALES */
+.cubo-texto-cara {
     font-family: 'ISOCPEUR', sans-serif;
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: var(--color-negro);
-    margin-top: 16px;
+    font-size: 18px;
+    color: var(--color-blanco);
     text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    padding: 10px;
+}
+
+.cubo-color-amarillo .cubo-texto-cara {
+    color: var(--color-negro);
+}
+
+/* OVERLAY CON NOMBRE */
+.mondrian-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 10px 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.mondrian-celda:hover .mondrian-overlay {
+    opacity: 1;
+}
+
+.mondrian-overlay span {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 15px;
+    color: var(--color-blanco);
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
+
 
 /* ============================================================
    12. MODAL AUTOR
@@ -1001,7 +1053,6 @@ html {
     display: flex;
 }
 
-/* CARRUSEL LATERAL */
 .modal-autor-carrusel {
     width: 340px;
     flex-shrink: 0;
@@ -1009,18 +1060,18 @@ html {
 
 .modal-autor-carrusel .carousel,
 .modal-autor-carrusel .carousel-inner,
-.modal-autor-carrusel .carousel-item,
+.modal-autor-carrusel .carousel-item {
+    width: 340px;
+    height: 440px;
+}
+
 .modal-autor-carrusel .carousel-item img {
     width: 340px;
     height: 440px;
     object-fit: cover;
-}
-
-.modal-autor-carrusel .carousel-item img {
     display: block;
 }
 
-/* FICHA */
 .modal-autor-ficha {
     padding: 30px 28px;
     display: flex;
@@ -1032,7 +1083,7 @@ html {
 
 .modal-autor-nombre {
     font-family: 'ISOCPEUR', sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     color: var(--color-negro);
     margin: 0;
     line-height: 1.1;
