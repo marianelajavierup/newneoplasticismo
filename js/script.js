@@ -154,3 +154,125 @@ if (modalManifiesto) {
         if (e.target === this) cerrarManifiesto();
     });
 }
+
+/* C-AUTORES */
+/* ============================================================
+   CUBOS Y MODAL AUTORES
+============================================================ */
+
+const autoresData = {
+    mondrian: {
+        nombre: 'Piet Mondrian',
+        fechas: '1872 — 1944',
+        pais: 'Países Bajos',
+        formacion: 'Academia de Bellas Artes de Ámsterdam',
+        resena: 'Considerado el principal representante del Neoplasticismo, Mondrian desarrolló un lenguaje visual abstracto basado en líneas horizontales y verticales negras y planos de colores primarios. Dentro del movimiento sus obras más significativas son las series Composición con Rojo, Azul y Amarillo. Fuera del neoplasticismo exploró el cubismo en sus inicios y hacia el final de su vida desarrolló el estilo Broadway Boogie-Woogie, incorporando ritmos dinámicos influenciados por el jazz neoyorquino.',
+        fotos: [
+            '../img/c-autores-piet-mondrian-01.webp',
+            '../img/c-autores-piet-mondrian-02.webp',
+            '../img/c-autores-piet-mondrian-03.jpg'
+        ]
+    },
+    doesburg: {
+        nombre: 'Theo van Doesburg',
+        fechas: '1883 — 1931',
+        pais: 'Países Bajos',
+        formacion: 'Autodidacta, estudió pintura y crítica de arte',
+        resena: 'Fundador y motor intelectual del movimiento De Stijl, Van Doesburg redactó los tres manifiestos del grupo y editó la revista homónima. Sus obras dentro del neoplasticismo incluyen composiciones geométricas de gran rigor formal. Fuera del movimiento desarrolló el Elementarismo, incorporando diagonales que rompían con la ortogonalidad estricta de Mondrian, generando tensión y dinamismo visual.',
+        fotos: [
+            '../img/c-autores-theo-van-doesburg-01.webp',
+            '../img/c-autores-theo-van-doesburg-02.jpg',
+            '../img/c-autores-theo-van-doesburg-03.jpg'
+        ]
+    },
+    rietveld: {
+        nombre: 'Gerrit Rietveld',
+        fechas: '1888 — 1964',
+        pais: 'Países Bajos',
+        formacion: 'Ebanista y arquitecto autodidacta',
+        resena: 'Rietveld tradujo los principios neoplasticistas al diseño de mobiliario y la arquitectura. Su obra más icónica dentro del movimiento es la Silla Roja y Azul (1917) y la Casa Schröder en Utrecht (1924), declarada Patrimonio de la Humanidad. Fuera del neoplasticismo continuó ejerciendo la arquitectura desarrollando proyectos de vivienda social y museos, incluyendo el Museo Van Gogh en Ámsterdam.',
+        fotos: [
+            '../img/c-autores-gerrit-rietveld-01.jfif',
+            '../img/c-autores-gerrit-rietveld-02.jpg',
+            '../img/c-autores-gerrit-rietveld-03.jpg'
+        ]
+    },
+    huszar: {
+        nombre: 'Vilmos Huszár',
+        fechas: '1884 — 1960',
+        pais: 'Hungría / Países Bajos',
+        formacion: 'Academia de Bellas Artes de Budapest y Munich',
+        resena: 'Huszár fue uno de los miembros fundadores de De Stijl y diseñó el logotipo de la revista del movimiento. Sus obras más destacadas dentro del neoplasticismo son sus composiciones pictóricas con figuras geométricas y trabajos de diseño gráfico de gran austeridad formal. Fuera del movimiento se orientó hacia el diseño de interiores y las artes aplicadas, siendo pionero en la integración del arte y el espacio habitable.',
+        fotos: [
+            '../img/c-autores-vilmos-huszar-01.jpg',
+            '../img/c-autores-vilmos-huszar-02.jpg',
+            '../img/c-autores-vilmos-huszar-03.jpg'
+        ]
+    },
+    vanderleck: {
+        nombre: 'Bart van der Leck',
+        fechas: '1876 — 1958',
+        pais: 'Países Bajos',
+        formacion: 'Escuela de Artes Aplicadas de Ámsterdam',
+        resena: 'Van der Leck aportó al neoplasticismo su particular uso del color plano y la geometría simple. Sus composiciones dentro del movimiento se caracterizan por figuras fragmentadas en formas rectangulares de colores primarios sobre fondo blanco. Fuera del neoplasticismo, abandonó el grupo relativamente pronto para desarrollar un estilo propio más figurativo, aplicado también al diseño textil y la cerámica.',
+        fotos: [
+            '../img/c-autores-bart-van-der-leck-01.jpg',
+            '../img/c-autores-bart-van-der-leck-02.jpg',
+            '../img/c-autores-bart-van-der-leck-03.jpg'
+        ]
+    },
+    oud: {
+        nombre: 'Jacobus Johannes Pieter Oud',
+        fechas: '1890 — 1963',
+        pais: 'Países Bajos',
+        formacion: 'Escuela de Artes Aplicadas de Ámsterdam y Munich',
+        resena: 'J.J.P. Oud fue el principal arquitecto del movimiento De Stijl junto a Rietveld. Sus obras neoplasticistas incluyen complejos de vivienda social en Rotterdam donde aplicó los principios de la forma pura y el color primario a la arquitectura urbana. Fuera del movimiento se alejó hacia un clasicismo moderno más ornamental, generando controversia entre sus contemporáneos del Movimiento Moderno.',
+        fotos: [
+            '../img/c-autores-jacobus-johannes-pieter-oud-01.jpg',
+            '../img/c-autores-jacobus-johannes-pieter-oud-02.jpg',
+            '../img/c-autores-jacobus-johannes-pieter-oud-03.jpg'
+        ]
+    }
+};
+
+function abrirAutor(id) {
+    const autor = autoresData[id];
+    if (!autor) return;
+
+    document.getElementById('autor-nombre').textContent = autor.nombre;
+    document.getElementById('autor-fechas').textContent = autor.fechas;
+    document.getElementById('autor-pais').textContent = autor.pais;
+    document.getElementById('autor-formacion').textContent = autor.formacion;
+    document.getElementById('autor-resena').textContent = autor.resena;
+
+    // Cargar fotos en carrusel
+    const inner = document.getElementById('carrusel-autor-inner');
+    inner.innerHTML = '';
+    autor.fotos.forEach((foto, i) => {
+        inner.innerHTML += `
+            <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                <img src="${foto}" alt="${autor.nombre}">
+            </div>`;
+    });
+
+    const modal = document.getElementById('modal-autor');
+    if (modal) {
+        modal.classList.add('activo');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function cerrarAutor() {
+    const modal = document.getElementById('modal-autor');
+    if (modal) {
+        modal.classList.remove('activo');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+const modalAutor = document.getElementById('modal-autor');
+if (modalAutor) {
+    modalAutor.addEventListener('click', function(e) {
+        if (e.target === this) cerrarAutor();
+    });
+}
