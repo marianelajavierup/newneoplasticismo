@@ -1232,7 +1232,7 @@ html {
     border-bottom: 4px solid var(--color-negro);
 }
 
-.obras-seccion-h2 {
+.obras-seccion-h1 {
     font-family: 'ISOCPEUR', sans-serif;
     font-size: 52px;
     color: var(--color-negro);
@@ -1252,7 +1252,7 @@ html {
     font-family: 'DMSans', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: var(--color-rojo);
+    color: var(--color-amarillo);
 }
 
 /* Leyenda de ramas */
