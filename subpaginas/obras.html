@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Obras — Neoplasticismo</title>
+
+        <!-- BOOTSTRAP CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- BOOTSTRAP ICONS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- CSS NEOPLASTICISMO -->
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+
+    <body>
+
+        <!-- HEADER (igual al home) -->
+        <header id="top" class="header-principal">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <a href="../sitio/index.html">
+                            <img src="../img/a-img-icono-logo.png" alt="Logo Neoplasticismo" class="logo-img">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group buscador">
+                            <span class="input-group-text buscador-icono">
+                                <img src="../img/a-img-icono-buscar.png" alt="Buscar" class="icono-lupa">
+                            </span>
+                            <input type="text" class="form-control buscador-input" placeholder="Buscar...">
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="../subpaginas/contextohistorico.html">
+                            <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/destijl.html">
+                            <img src="../img/a-img-icono-destijl.png" alt="De Stijl" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/autores.html">
+                            <img src="../img/a-img-icono-autores.png" alt="Autores" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/obras.html">
+                            <img src="../img/a-img-icono-obras.png" alt="Obras" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/fotoypublicaciones.html">
+                            <img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVBAR -->
+        <nav class="navbar-principal">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-auto navbar-bloque-izquierda">
+                        <span class="navbar-titulo">NEOPLASTICISMO</span>
+                        <div class="navbar-bloques-color">
+                            <div class="navbar-bloque-azul"></div>
+                            <div class="navbar-bloque-rojo"></div>
+                        </div>
+                    </div>
+                    <div class="col navbar-bloque-blanco"></div>
+                    <div class="col-auto navbar-bloque-amarillo"></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- TÍTULO SECCIÓN -->
+        <div class="separador-neo"></div>
+
+        <section class="obras-titulo-seccion">
+            <div class="container-fluid px-5 py-4">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h2 class="obras-seccion-h2">obras</h2>
+                        <p class="obras-seccion-desc">Explorá las obras del Neoplasticismo. Hacé clic en los <span class="obras-hint-plus">+</span> para descubrir cada pieza.</p>
+                    </div>
+                    <!-- LEYENDA RAMAS -->
+                    <div class="col-auto d-flex gap-4 align-items-center">
+                        <div class="obras-leyenda-item">
+                            <img src="../img/a-img-icono-pintura.png" alt="Pintura" class="obras-leyenda-icono">
+                            <span>Pintura</span>
+                        </div>
+                        <div class="obras-leyenda-item">
+                            <img src="../img/a-img-icono-arquitectura.png" alt="Arquitectura" class="obras-leyenda-icono">
+                            <span>Arquitectura</span>
+                        </div>
+                        <div class="obras-leyenda-item">
+                            <img src="../img/a-img-icono-disenoindustrial.png" alt="Diseño Industrial" class="obras-leyenda-icono">
+                            <span>Diseño Industrial</span>
+                        </div>
+                        <div class="obras-leyenda-item">
+                            <img src="../img/a-img-icono-disenografico.png" alt="Diseño Gráfico" class="obras-leyenda-icono">
+                            <span>Diseño Gráfico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SALA DE OBRAS — IMAGEN PANORÁMICA CON HOTSPOTS -->
+        <section class="obras-sala">
+            <div class="obras-sala-wrapper">
+                <img src="../img/5-obras.museo-01.png" alt="Sala de obras Neoplasticismo" class="obras-sala-img" id="sala-img">
+
+                <!-- 
+                    HOTSPOTS — posiciones en % (left / top)
+                    Ajustá los valores left/top según donde están
+                    las obras en tu imagen 5-obras.museo-01.png
+                    Los valores de ejemplo están distribuidos en la imagen.
+                    Modificá data-obra="id" para que coincida con el JS.
+                -->
+
+                <!-- PINTURAS (pared izquierda/centro) -->
+                <button class="obras-hotspot" style="left:12%; top:30%;" data-obra="mondrian-01" aria-label="Ver Composición con Rojo Azul y Amarillo"></button>
+                <button class="obras-hotspot" style="left:24%; top:28%;" data-obra="mondrian-02" aria-label="Ver Tableau I"></button>
+                <button class="obras-hotspot" style="left:36%; top:32%;" data-obra="mondrian-03" aria-label="Ver Composición II en Rojo Azul y Amarillo"></button>
+
+                <!-- ARQUITECTURA (pared fondo) -->
+                <button class="obras-hotspot" style="left:48%; top:25%;" data-obra="casa-schroder" aria-label="Ver Casa Schröder"></button>
+                <button class="obras-hotspot" style="left:57%; top:30%;" data-obra="cafe-aubette" aria-label="Ver Café Aubette"></button>
+                <button class="obras-hotspot" style="left:65%; top:28%;" data-obra="maison-particuliere" aria-label="Ver Maison Particulière"></button>
+
+                <!-- DISEÑO INDUSTRIAL (pared derecha) -->
+                <button class="obras-hotspot" style="left:76%; top:30%;" data-obra="silla-rietveld-01" aria-label="Ver Silla Roja y Azul"></button>
+                <button class="obras-hotspot" style="left:84%; top:26%;" data-obra="silla-rietveld-02" aria-label="Ver Silla Berlín"></button>
+
+                <!-- DISEÑO GRÁFICO (sobre la mesa, inferior derecho) -->
+                <button class="obras-hotspot" style="left:80%; top:68%;" data-obra="disenografico-01" aria-label="Ver Revista De Stijl Portada"></button>
+                <button class="obras-hotspot" style="left:87%; top:72%;" data-obra="disenografico-02" aria-label="Ver Tipografía Universal"></button>
+
+                <!-- PINTURAS ADICIONALES -->
+                <button class="obras-hotspot" style="left:20%; top:55%;" data-obra="mondrian-04" aria-label="Ver Composición en Negro Blanco y Gris"></button>
+                <button class="obras-hotspot" style="left:42%; top:58%;" data-obra="casa-schroder-02" aria-label="Ver Vista Interior Casa Schröder"></button>
+
+            </div>
+        </section>
+
+        <div class="separador-neo"></div>
+
+        <!-- MODAL OBRA -->
+        <div class="modal-obra" id="modal-obra">
+            <div class="modal-obra-contenido">
+
+                <!-- CERRAR -->
+                <button class="modal-obra-cerrar" onclick="cerrarObra()" aria-label="Cerrar">✕</button>
+
+                <!-- IMAGEN CARRUSEL -->
+                <div class="modal-obra-carrusel">
+                    <div id="carruselObra" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner" id="carrusel-obra-inner"></div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselObra" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselObra" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="carousel-indicators" id="carrusel-obra-dots"></div>
+                    </div>
+                </div>
+
+                <!-- FICHA -->
+                <div class="modal-obra-ficha">
+
+                    <!-- LOGO RAMA -->
+                    <div class="modal-obra-rama">
+                        <img src="" alt="" id="obra-rama-icono" class="modal-obra-rama-icono">
+                        <span id="obra-rama-nombre" class="modal-obra-rama-texto"></span>
+                    </div>
+
+                    <h3 class="modal-obra-titulo" id="obra-titulo"></h3>
+                    <p class="modal-obra-autor" id="obra-autor"></p>
+                    <p class="modal-obra-anio" id="obra-anio"></p>
+                    <p class="modal-obra-tecnica" id="obra-tecnica"></p>
+                    <p class="modal-obra-resena" id="obra-resena"></p>
+
+                    <a href="#" class="btn-ver-mas" id="obra-btn-mas">
+                        Más información <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- FLECHA SCROLL TOP -->
+        <a href="#top" class="scroll-to-top">
+            <i class="bi bi-arrow-up-square-fill"></i>
+        </a>
+
+        <!-- SEPARADOR FOOTER -->
+        <div class="separador-neo"></div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-1 footer-bloque-azul"></div>
+                    <div class="col-1 footer-bloque-rojo"></div>
+                    <div class="col-10 footer-nav">
+                        <nav class="footer-links">
+                            <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
+                            <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
+                            <a href="../subpaginas/autores.html" class="footer-link">Autores</a>
+                            <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
+                            <a href="../subpaginas/fotoypublicaciones.html" class="footer-link">Publicaciones</a>
+                        </nav>
+                        <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contacto">
+                <p>© 2026 LAVORATORIO DE DISEÑO II | Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
+            </div>
+        </footer>
+
+        <!-- BOOTSTRAP JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- JS NEOPLASTICISMO -->
+        <script src="../js/script.js"></script>
+
+    </body>
+</html>

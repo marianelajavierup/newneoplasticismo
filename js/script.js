@@ -275,3 +275,239 @@ if (modalAutor) {
         if (e.target === this) cerrarAutor();
     });
 }
+
+/* D-OBRAS */
+/* ============================================================
+   SALA DE OBRAS — HOTSPOTS + MODAL
+============================================================ */
+
+const obrasData = {
+
+    /* --- PINTURA --- */
+    'mondrian-01': {
+        rama: 'pintura',
+        ramaLabel: 'Pintura',
+        ramaIcono: '../img/a-img-icono-pintura.png',
+        titulo: 'Composición con Rojo, Azul y Amarillo',
+        autor: 'Piet Mondrian',
+        anio: '1930',
+        tecnica: 'Óleo sobre tela — 46 × 46 cm',
+        resena: 'Una de las obras más emblemáticas del Neoplasticismo. Mondrian reduce la pintura a sus elementos esenciales: líneas negras ortogonales y planos de colores primarios sobre fondo blanco, expresando una armonía universal y absoluta.',
+        fotos: ['../img/5-obras.pintura-mondrian-01.jpg'],
+        link: '#'
+    },
+    'mondrian-02': {
+        rama: 'pintura',
+        ramaLabel: 'Pintura',
+        ramaIcono: '../img/a-img-icono-pintura.png',
+        titulo: 'Tableau I',
+        autor: 'Piet Mondrian',
+        anio: '1921',
+        tecnica: 'Óleo sobre tela — 103 × 100 cm',
+        resena: 'En Tableau I Mondrian consolida su vocabulario visual neoplasticista: planos rectangulares delimitados por gruesas líneas negras que estructuran el espacio pictórico según una lógica de equilibrio dinámico.',
+        fotos: ['../img/5-obras.pintura-mondrian-02.jpg'],
+        link: '#'
+    },
+    'mondrian-03': {
+        rama: 'pintura',
+        ramaLabel: 'Pintura',
+        ramaIcono: '../img/a-img-icono-pintura.png',
+        titulo: 'Composición II en Rojo, Azul y Amarillo',
+        autor: 'Piet Mondrian',
+        anio: '1929',
+        tecnica: 'Óleo sobre tela — 40,3 × 32,1 cm',
+        resena: 'Obra de madurez del movimiento. La asimetría controlada entre los bloques de color y el espacio blanco genera una tensión visual que Mondrian denominó "equilibrio dinámico".',
+        fotos: ['../img/5-obras.pintura-mondrian-04.jpg'],
+        link: '#'
+    },
+    'mondrian-04': {
+        rama: 'pintura',
+        ramaLabel: 'Pintura',
+        ramaIcono: '../img/a-img-icono-pintura.png',
+        titulo: 'Composición en Negro, Blanco y Gris',
+        autor: 'Piet Mondrian',
+        anio: '1939',
+        tecnica: 'Óleo sobre tela — 80,7 × 73,5 cm',
+        resena: 'Periodo de transición en la obra de Mondrian, donde prescinde de los colores primarios para explorar la pura relación entre línea y plano neutro, anticipando el dinamismo de sus obras neoyorquinas.',
+        fotos: ['../img/5-obras.pintura-mondrian-01.jpg'],
+        link: '#'
+    },
+
+    /* --- ARQUITECTURA --- */
+    'casa-schroder': {
+        rama: 'arquitectura',
+        ramaLabel: 'Arquitectura',
+        ramaIcono: '../img/a-img-icono-arquitectura.png',
+        titulo: 'Casa Schröder',
+        autor: 'Gerrit Rietveld',
+        anio: '1924',
+        tecnica: 'Arquitectura residencial — Utrecht, Países Bajos',
+        resena: 'Declarada Patrimonio de la Humanidad por la UNESCO, la Casa Schröder es la materialización tridimensional del Neoplasticismo. Sus planos de colores primarios, líneas precisas y espacios flexibles definen el programa doméstico moderno.',
+        fotos: [
+            '../img/5-obras.arquitectura-rietveldhouseschroderhuis-01.jpg',
+            '../img/5-obras.arquitectura-rietveldhouseschroderhuis-02.jpg'
+        ],
+        link: '#'
+    },
+    'casa-schroder-02': {
+        rama: 'arquitectura',
+        ramaLabel: 'Arquitectura',
+        ramaIcono: '../img/a-img-icono-arquitectura.png',
+        titulo: 'Casa Schröder — Interior',
+        autor: 'Gerrit Rietveld',
+        anio: '1924',
+        tecnica: 'Vista interior — Utrecht, Países Bajos',
+        resena: 'El interior de la Casa Schröder introduce paneles corredizos que permiten transformar el espacio según las necesidades del habitante. La planta libre y los colores primarios aplicados a la carpintería son fieles al principio neoplasticista.',
+        fotos: [
+            '../img/5-obras.arquitectura-rietveldhouseschroderhuis-02.jpg',
+            '../img/5-obras.arquitectura-rietveldhouseschroderhuis-01.jpg'
+        ],
+        link: '#'
+    },
+    'cafe-aubette': {
+        rama: 'arquitectura',
+        ramaLabel: 'Arquitectura',
+        ramaIcono: '../img/a-img-icono-arquitectura.png',
+        titulo: 'Café Aubette — Salón de Baile',
+        autor: 'Theo van Doesburg',
+        anio: '1928',
+        tecnica: 'Interiorismo — Estrasburgo, Francia',
+        resena: 'El Café Aubette es una de las intervenciones de diseño total del Neoplasticismo. Van Doesburg aplicó su Elementarismo —con diagonales dinámicas— a paredes, techos y pisos, creando un entorno visual integrado y envolvente.',
+        fotos: ['../img/5-obras.arquitectura-cafeaubette-01.jpg'],
+        link: '#'
+    },
+    'maison-particuliere': {
+        rama: 'arquitectura',
+        ramaLabel: 'Arquitectura',
+        ramaIcono: '../img/a-img-icono-arquitectura.png',
+        titulo: 'Proyecto Maison Particulière',
+        autor: 'Theo van Doesburg',
+        anio: '1923',
+        tecnica: 'Proyecto arquitectónico — París, Francia',
+        resena: 'Proyecto de vivienda particular desarrollado en colaboración con Cornelis van Eesteren. Representa la transición del Neoplasticismo de la pintura a la arquitectura, aplicando los principios de color y forma al espacio tridimensional habitable.',
+        fotos: ['../img/5-obras.arquitectura-proyectomaison particuliére1923-theovandoesburg-01.jpg'],
+        link: '#'
+    },
+
+    /* --- DISEÑO INDUSTRIAL --- */
+    'silla-rietveld-01': {
+        rama: 'disenoindustrial',
+        ramaLabel: 'Diseño Industrial',
+        ramaIcono: '../img/a-img-icono-disenoindustrial.png',
+        titulo: 'Silla Roja y Azul',
+        autor: 'Gerrit Rietveld',
+        anio: '1917',
+        tecnica: 'Madera lacada — 86,5 × 66 × 83,5 cm',
+        resena: 'La Silla Roja y Azul es el primer objeto de diseño industrial del Neoplasticismo. Su estructura de listones perpendiculares y planos de color primario traduce literalmente al espacio tridimensional los principios formales de De Stijl.',
+        fotos: [
+            '../img/5-obras.disenoindustrial-sillarietveld.webp',
+            '../img/5-obras.disenoindustrial-sillarietveld2.png',
+            '../img/5-obras.disenoindustrial-sillarietveld3.jpg'
+        ],
+        link: '#'
+    },
+    'silla-rietveld-02': {
+        rama: 'disenoindustrial',
+        ramaLabel: 'Diseño Industrial',
+        ramaIcono: '../img/a-img-icono-disenoindustrial.png',
+        titulo: 'Silla Berlín',
+        autor: 'Gerrit Rietveld',
+        anio: '1923',
+        tecnica: 'Madera — 84 × 61,5 × 78 cm',
+        resena: 'La Silla Berlín (Beugels stoel) es una versión más depurada del lenguaje formal de Rietveld, eliminando el color para concentrarse en la estructura. La pureza constructiva y la economía de medios anticipan el diseño racionalista posterior.',
+        fotos: [
+            '../img/5-obras.disenoindustrial-sillarietveld2.png',
+            '../img/5-obras.disenoindustrial-sillarietveld.webp'
+        ],
+        link: '#'
+    },
+
+    /* --- DISEÑO GRÁFICO --- */
+    'disenografico-01': {
+        rama: 'disenografico',
+        ramaLabel: 'Diseño Gráfico',
+        ramaIcono: '../img/a-img-icono-disenografico.png',
+        titulo: 'Portada De Stijl N°1',
+        autor: 'Theo van Doesburg / Vilmos Huszár',
+        anio: '1917',
+        tecnica: 'Diseño editorial — Revista De Stijl',
+        resena: 'La portada del primer número de la revista De Stijl sienta las bases del diseño gráfico neoplasticista. Tipografía de palo seco, composición reticular estricta y colores primarios definen una identidad visual que influiría en toda la modernidad gráfica occidental.',
+        fotos: ['../img/5-obras.disenoindustrial-sillarietveld.webp'],
+        link: '#'
+    },
+    'disenografico-02': {
+        rama: 'disenografico',
+        ramaLabel: 'Diseño Gráfico',
+        ramaIcono: '../img/a-img-icono-disenografico.png',
+        titulo: 'Tipografía Universal',
+        autor: 'Theo van Doesburg',
+        anio: '1919',
+        tecnica: 'Diseño tipográfico — Alfabeto De Stijl',
+        resena: 'El alfabeto diseñado por Van Doesburg aplica la gramática geométrica del Neoplasticismo al campo tipográfico: cada letra se construye a partir de una grilla cuadrada modular, eliminando toda curva y ornamento en favor de la abstracción pura.',
+        fotos: ['../img/5-obras.disenoindustrial-sillarietveld2.png'],
+        link: '#'
+    }
+};
+
+/* Abrir modal obra */
+function abrirObra(id) {
+    const obra = obrasData[id];
+    if (!obra) return;
+
+    /* Rama */
+    document.getElementById('obra-rama-icono').src = obra.ramaIcono;
+    document.getElementById('obra-rama-icono').alt = obra.ramaLabel;
+    document.getElementById('obra-rama-nombre').textContent = obra.ramaLabel;
+
+    /* Datos */
+    document.getElementById('obra-titulo').textContent = obra.titulo;
+    document.getElementById('obra-autor').textContent = obra.autor;
+    document.getElementById('obra-anio').textContent = obra.anio;
+    document.getElementById('obra-tecnica').textContent = obra.tecnica;
+    document.getElementById('obra-resena').textContent = obra.resena;
+    document.getElementById('obra-btn-mas').href = obra.link;
+
+    /* Carrusel */
+    const inner = document.getElementById('carrusel-obra-inner');
+    const dots  = document.getElementById('carrusel-obra-dots');
+    inner.innerHTML = '';
+    dots.innerHTML  = '';
+
+    obra.fotos.forEach(function(foto, i) {
+        inner.innerHTML += `
+            <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                <img src="${foto}" alt="${obra.titulo}">
+            </div>`;
+        dots.innerHTML += `
+            <button type="button" data-bs-target="#carruselObra" data-bs-slide-to="${i}" 
+                ${i === 0 ? 'class="active"' : ''} aria-label="Imagen ${i + 1}"></button>`;
+    });
+
+    /* Reiniciar carrusel Bootstrap */
+    const carruselEl = document.getElementById('carruselObra');
+    const carruselInstance = bootstrap.Carousel.getOrCreateInstance(carruselEl);
+    carruselInstance.to(0);
+
+    /* Abrir */
+    document.getElementById('modal-obra').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+/* Cerrar modal obra */
+function cerrarObra() {
+    document.getElementById('modal-obra').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+/* Cerrar al click fuera del contenido */
+document.getElementById('modal-obra').addEventListener('click', function(e) {
+    if (e.target === this) cerrarObra();
+});
+
+/* Asignar listeners a los hotspots */
+document.querySelectorAll('.obras-hotspot').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        const id = this.getAttribute('data-obra');
+        abrirObra(id);
+    });
+});
