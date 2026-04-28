@@ -1485,21 +1485,27 @@ function renderizarTrack(rama) {
 
     pubs.forEach(function(pub, i) {
         const redes = construirRedesCard(pub);
-        const card  = document.createElement('div');
+
+        const card = document.createElement('div');
         card.className = 'foro-card' + (i === 0 ? ' activo' : '');
-        card.style.backgroundImage = 'url("' + pub.portada + '")';
-        card.setAttribute('data-id', pub.id);
+
+        /* Imagen de fondo */
+        card.style.backgroundImage  = 'url("' + pub.portada + '")';
+        card.style.backgroundSize   = 'cover';
+        card.style.backgroundPosition = 'center center';
+
+        card.setAttribute('data-id',   pub.id);
         card.setAttribute('data-rama', rama);
 
-        card.innerHTML = `
-            <div class="foro-card-desc">
-                <span class="foro-card-alias">${pub.alias}</span>
-                <p class="foro-card-texto">${pub.descripcion}</p>
-                <div class="foro-card-redes">${redes}</div>
-                <button class="foro-card-btn-mas" onclick="abrirPub('${pub.id}', '${rama}')">
-                    más información <i class="bi bi-arrow-right"></i>
-                </button>
-            </div>`;
+        card.innerHTML =
+            '<div class="foro-card-desc">' +
+                '<span class="foro-card-alias">' + pub.alias + '</span>' +
+                '<p class="foro-card-texto">' + pub.descripcion + '</p>' +
+                '<div class="foro-card-redes">' + redes + '</div>' +
+                '<button class="foro-card-btn-mas" onclick="abrirPub(\'' + pub.id + '\', \'' + rama + '\')">' +
+                    'más información <i class="bi bi-arrow-right"></i>' +
+                '</button>' +
+            '</div>';
 
         card.addEventListener('click', function(e) {
             if (e.target.closest('.foro-card-btn-mas')) return;

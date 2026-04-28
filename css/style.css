@@ -2551,40 +2551,69 @@ html {
 }
 
 /* ============================================================
-   19. FORO — CARRUSEL TIPO GAME (Owl Carousel)
+   19. FORO — CARRUSEL TIPO GAME
 ============================================================ */
 
 .foro-galeria {
     background-color: var(--color-negro);
-    padding: 40px 30px 50px 30px;
+    padding: 40px 0 50px 0;
     overflow: hidden;
+    width: 100%;
 }
 
-/* Track */
 .foro-track-wrapper {
-    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-amarillo) var(--color-negro);
+    padding: 10px 30px 20px 30px;
+    box-sizing: border-box;
+}
+
+.foro-track-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+.foro-track-wrapper::-webkit-scrollbar-track {
+    background: var(--color-negro);
+}
+.foro-track-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-amarillo);
+}
+
+.foro-track {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0;
+    min-width: max-content;
+    padding-bottom: 10px;
 }
 
 /* CARD individual */
 .foro-card {
-    margin: 0 12px;
-    width: 280px;
+    margin: 0 10px;
+    width: 240px;
     height: 380px;
+    flex-shrink: 0;
     display: flex;
     align-items: flex-end;
-    background: #1a1a1a no-repeat center center / cover;
+    background-color: #1a1a1a;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     overflow: hidden;
     position: relative;
-    transition: all 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out, border-color 0.3s ease;
     cursor: pointer;
-    flex-shrink: 0;
     border: 3px solid transparent;
+    box-sizing: border-box;
 }
 
 .foro-card.activo {
-    width: 440px;
+    width: 420px;
     border-color: var(--color-amarillo);
-    box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 12px 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Gradiente inferior */
@@ -2596,48 +2625,52 @@ html {
     width: 100%;
     left: 0;
     top: 0;
-    background: linear-gradient(rgba(0,0,0,0) 30%, rgba(0,0,0,0.95) 100%);
+    background: linear-gradient(rgba(0,0,0,0) 25%, rgba(0,0,0,0.97) 100%);
     pointer-events: none;
+    z-index: 0;
 }
 
 /* Descripción dentro de la card */
 .foro-card-desc {
-    padding: 0 20px 14px;
+    padding: 0 18px 14px 18px;
     color: var(--color-blanco);
     position: relative;
     z-index: 1;
-    overflow: hidden;
-    transform: translateY(calc(100% - 50px));
-    transition: all 0.4s ease-in-out;
     width: 100%;
+    transform: translateY(calc(100% - 46px));
+    transition: transform 0.4s ease-in-out;
+    overflow: hidden;
 }
 
 .foro-card.activo .foro-card-desc {
-    transform: none;
+    transform: translateY(0);
 }
 
-/* Alias */
+/* Alias — siempre visible */
 .foro-card-alias {
     font-family: 'ISOCPEUR', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 2px;
     color: var(--color-amarillo);
-    margin: 0 0 4px 0;
+    margin: 0 0 6px 0;
     display: block;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Descripción breve */
+/* Descripción breve — aparece al expandir */
 .foro-card-texto {
     font-family: 'DMSans', sans-serif;
     font-size: 12px;
     color: var(--color-blanco);
     line-height: 1.5;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     text-align: left;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease-in-out 0.15s;
+    transform: translateY(14px);
+    transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
 }
 
 .foro-card.activo .foro-card-texto {
@@ -2651,8 +2684,9 @@ html {
     gap: 8px;
     align-items: center;
     opacity: 0;
-    transform: translateY(16px);
-    transition: all 0.4s ease-in-out 0.2s;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease 0.18s, transform 0.35s ease 0.18s;
+    margin-bottom: 6px;
 }
 
 .foro-card.activo .foro-card-redes {
@@ -2661,7 +2695,7 @@ html {
 }
 
 .foro-card-red-icono {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--color-blanco);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -2685,11 +2719,9 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    margin-top: 8px;
-    transition: background-color 0.25s ease;
     opacity: 0;
-    transform: translateY(16px);
-    transition: all 0.4s ease-in-out 0.25s;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease 0.25s, transform 0.35s ease 0.25s, background-color 0.2s ease;
 }
 
 .foro-card.activo .foro-card-btn-mas {
