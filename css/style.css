@@ -2455,3 +2455,579 @@ html {
     text-align: center;
 }
 
+/* ============================================================
+   17. FORO Y PUBLICACIONES — CARDS FILTRO DE RAMA
+============================================================ */
+
+.foro-cards-rama {
+    border-bottom: 4px solid var(--color-negro);
+}
+
+.foro-card-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 12px;
+    border: none;
+    border-right: 4px solid var(--color-negro);
+    cursor: pointer;
+    transition: filter 0.25s ease, transform 0.2s ease;
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--color-blanco);
+    position: relative;
+}
+
+.foro-card-btn:last-child {
+    border-right: none;
+}
+
+.foro-card-btn:hover {
+    filter: brightness(0.82);
+}
+
+.foro-card-btn.activo {
+    filter: brightness(0.85);
+    outline: 4px solid var(--color-negro);
+    outline-offset: -4px;
+    z-index: 1;
+}
+
+.foro-card-btn.activo::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--color-negro);
+    z-index: 2;
+}
+
+.foro-card-amarillo { background-color: var(--color-amarillo); }
+.foro-card-blanco   { background-color: var(--color-blanco); border: none; border-right: 4px solid var(--color-negro); }
+.foro-card-azul     { background-color: var(--color-azul); }
+.foro-card-rojo     { background-color: var(--color-rojo); }
+
+.foro-span-negro { color: var(--color-negro); }
+
+.foro-card-icono {
+    height: 48px;
+    width: auto;
+    pointer-events: none;
+}
+
+/* ============================================================
+   18. FORO — HEADER RAMA ACTIVA
+============================================================ */
+
+.foro-rama-activa {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 40px;
+    border-bottom: 4px solid var(--color-negro);
+    background-color: var(--color-blanco);
+}
+
+.foro-rama-activa-icono {
+    height: 44px;
+    width: auto;
+}
+
+.foro-rama-activa-nombre {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 36px;
+    color: var(--color-negro);
+    margin: 0;
+    line-height: 1;
+}
+
+/* ============================================================
+   19. FORO — CARRUSEL TIPO GAME (Owl Carousel)
+============================================================ */
+
+.foro-galeria {
+    background-color: var(--color-negro);
+    padding: 40px 30px 50px 30px;
+    overflow: hidden;
+}
+
+/* Track */
+.foro-track-wrapper {
+    overflow: hidden;
+}
+
+/* CARD individual */
+.foro-card {
+    margin: 0 12px;
+    width: 280px;
+    height: 380px;
+    display: flex;
+    align-items: flex-end;
+    background: #1a1a1a no-repeat center center / cover;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: 3px solid transparent;
+}
+
+.foro-card.activo {
+    width: 440px;
+    border-color: var(--color-amarillo);
+    box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Gradiente inferior */
+.foro-card::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(rgba(0,0,0,0) 30%, rgba(0,0,0,0.95) 100%);
+    pointer-events: none;
+}
+
+/* Descripción dentro de la card */
+.foro-card-desc {
+    padding: 0 20px 14px;
+    color: var(--color-blanco);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transform: translateY(calc(100% - 50px));
+    transition: all 0.4s ease-in-out;
+    width: 100%;
+}
+
+.foro-card.activo .foro-card-desc {
+    transform: none;
+}
+
+/* Alias */
+.foro-card-alias {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--color-amarillo);
+    margin: 0 0 4px 0;
+    display: block;
+    line-height: 1.2;
+}
+
+/* Descripción breve */
+.foro-card-texto {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: var(--color-blanco);
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease-in-out 0.15s;
+}
+
+.foro-card.activo .foro-card-texto {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Redes inline */
+.foro-card-redes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all 0.4s ease-in-out 0.2s;
+}
+
+.foro-card.activo .foro-card-redes {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.foro-card-red-icono {
+    font-size: 16px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.foro-card-red-icono:hover {
+    color: var(--color-amarillo);
+}
+
+/* Botón más info */
+.foro-card-btn-mas {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-negro);
+    background-color: var(--color-amarillo);
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    transition: background-color 0.25s ease;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all 0.4s ease-in-out 0.25s;
+}
+
+.foro-card.activo .foro-card-btn-mas {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.foro-card-btn-mas:hover {
+    background-color: var(--color-blanco);
+}
+
+/* ============================================================
+   20. MODAL PUBLICACIÓN
+============================================================ */
+
+.modal-pub {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-pub.activo {
+    display: flex;
+}
+
+.modal-pub-contenido {
+    position: relative;
+    width: 940px;
+    max-width: 96%;
+    max-height: 92vh;
+    background-color: var(--color-blanco);
+    border: 4px solid var(--color-negro);
+    display: flex;
+    overflow: hidden;
+}
+
+.modal-pub-cerrar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease;
+}
+
+.modal-pub-cerrar:hover {
+    background-color: var(--color-rojo);
+}
+
+/* Carrusel modal pub */
+.modal-pub-carrusel {
+    width: 400px;
+    flex-shrink: 0;
+}
+
+.modal-pub-carrusel .carousel,
+.modal-pub-carrusel .carousel-inner,
+.modal-pub-carrusel .carousel-item {
+    width: 400px;
+    height: 100%;
+    min-height: 500px;
+}
+
+.modal-pub-carrusel .carousel-item img {
+    width: 400px;
+    height: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-pub-carrusel .carousel-indicators button {
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-negro);
+    width: 10px;
+    height: 10px;
+    border-radius: 0;
+}
+
+.modal-pub-carrusel .carousel-indicators button.active {
+    background-color: var(--color-amarillo);
+}
+
+/* Ficha */
+.modal-pub-ficha {
+    padding: 30px 26px;
+    overflow-y: auto;
+    flex: 1;
+    border-left: 4px solid var(--color-negro);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-negro) var(--color-blanco);
+}
+
+.modal-pub-ficha::-webkit-scrollbar { width: 4px; }
+.modal-pub-ficha::-webkit-scrollbar-thumb { background: var(--color-negro); }
+
+/* Tag rama */
+.modal-pub-rama-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-negro);
+}
+
+.modal-pub-rama-icono {
+    height: 32px;
+    width: auto;
+}
+
+.modal-pub-rama-texto {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-negro);
+}
+
+.modal-pub-alias {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 22px;
+    color: var(--color-negro);
+    margin: 0;
+}
+
+.modal-pub-nombre-completo {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-negro);
+    margin: 0;
+}
+
+.modal-pub-pais {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: #666666;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-pub-resena {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    color: var(--color-negro);
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0;
+}
+
+/* Redes en modal */
+.modal-pub-redes {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.modal-pub-red-link {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-negro);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 2px solid var(--color-negro);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.modal-pub-red-link:hover {
+    color: var(--color-rojo);
+    border-color: var(--color-rojo);
+}
+
+/* Valoración */
+.modal-pub-valoracion {
+    background-color: #f5f5f5;
+    border-left: 4px solid var(--color-amarillo);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-pub-valoracion-label {
+    font-family: 'DMSans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888888;
+    margin: 0;
+}
+
+/* Estrellas input */
+.estrellas-input {
+    display: flex;
+    gap: 4px;
+}
+
+.estrella-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: #cccccc;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.estrella-btn:hover,
+.estrella-btn.activo {
+    color: var(--color-amarillo);
+    transform: scale(1.2);
+}
+
+.estrellas-promedio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.estrellas-promedio-num {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 20px;
+    color: var(--color-negro);
+}
+
+.estrellas-promedio-cant {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    color: #888888;
+}
+
+/* Comentarios */
+.modal-pub-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 2px solid var(--color-negro);
+    padding-top: 12px;
+}
+
+.comentarios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 160px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-negro) var(--color-blanco);
+}
+
+.comentario-item {
+    background-color: #f5f5f5;
+    padding: 8px 10px;
+    border-left: 3px solid var(--color-azul);
+}
+
+.comentario-item-alias {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-azul);
+    margin: 0 0 3px 0;
+}
+
+.comentario-item-texto {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: var(--color-negro);
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.comentario-textarea {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    color: var(--color-negro);
+    border: 2px solid var(--color-negro);
+    border-radius: 0;
+    padding: 8px 10px;
+    width: 100%;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.comentario-textarea:focus {
+    border-color: var(--color-azul);
+}
+
+.comentario-btn {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.25s ease;
+}
+
+.comentario-btn:hover {
+    background-color: var(--color-azul);
+}
+
+.comentario-login-aviso {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: #888888;
+    margin: 0;
+}
+

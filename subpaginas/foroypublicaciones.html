@@ -3,34 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Neoplasticismo</title>
+        <title>Foro y Publicaciones — Neoplasticismo</title>
 
         <!-- BOOTSTRAP CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
         <!-- BOOTSTRAP ICONS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
         <!-- CSS NEOPLASTICISMO -->
         <link rel="stylesheet" href="../css/style.css">
-
     </head>
-    
+
     <body>
 
         <!-- HEADER -->
         <header id="top" class="header-principal">
             <div class="container-fluid">
                 <div class="row align-items-center">
-
-                    <!-- LOGO -->
                     <div class="col-2">
                         <a href="../sitio/index.html">
                             <img src="../img/a-img-icono-logo.png" alt="Logo Neoplasticismo" class="logo-img">
                         </a>
                     </div>
-
-                    <!-- BARRA DE BÚSQUEDA -->
                     <div class="col-6">
                         <div class="input-group buscador">
                             <span class="input-group-text buscador-icono">
@@ -39,26 +32,13 @@
                             <input type="text" class="form-control buscador-input" placeholder="Buscar...">
                         </div>
                     </div>
-
-                    <!-- ICONOS NAVEGACIÓN -->
                     <div class="col-4 d-flex justify-content-end align-items-center gap-3">
-                        <a href="../subpaginas/contextohistorico.html">
-                            <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
-                        </a>
-                        <a href="../subpaginas/destijl.html">
-                            <img src="../img/a-img-icono-destijl.png" alt="De Stijl" class="icono-nav">
-                        </a>
-                        <a href="../subpaginas/autores.html">
-                            <img src="../img/a-img-icono-autores.png" alt="Autores" class="icono-nav">
-                        </a>
-                        <a href="../subpaginas/obras.html">
-                            <img src="../img/a-img-icono-obras.png" alt="Obras" class="icono-nav">
-                        </a>
-                        <a href="../subpaginas/fotoypublicaciones.html">
-                            <img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav">
-                        </a>
+                        <a href="../subpaginas/contextohistorico.html"><img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav"></a>
+                        <a href="../subpaginas/destijl.html"><img src="../img/a-img-icono-destijl.png" alt="De Stijl" class="icono-nav"></a>
+                        <a href="../subpaginas/autores.html"><img src="../img/a-img-icono-autores.png" alt="Autores" class="icono-nav"></a>
+                        <a href="../subpaginas/obras.html"><img src="../img/a-img-icono-obras.png" alt="Obras" class="icono-nav"></a>
+                        <a href="../subpaginas/fotoypublicaciones.html"><img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav"></a>
                     </div>
-
                 </div>
             </div>
         </header>
@@ -67,8 +47,6 @@
         <nav class="navbar-principal">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <!-- BLOQUE AZUL + ROJO con texto encima -->
                     <div class="col-auto navbar-bloque-izquierda">
                         <span class="navbar-titulo">NEOPLASTICISMO</span>
                         <div class="navbar-bloques-color">
@@ -76,255 +54,212 @@
                             <div class="navbar-bloque-rojo"></div>
                         </div>
                     </div>
-
-                    <!-- BLOQUE BLANCO (relleno) -->
                     <div class="col navbar-bloque-blanco"></div>
-
-                    <!-- BLOQUE AMARILLO — botón ingresar o estado usuario -->
                     <div class="col-auto navbar-bloque-amarillo d-flex align-items-center justify-content-center">
-
-                        <!-- Estado: NO logueado -->
-                        <button class="navbar-btn-ingresar" id="btn-abrir-auth" onclick="abrirAuth('login')">
-                            ingresar
-                        </button>
-
-                        <!-- Estado: logueado (oculto por defecto) -->
+                        <button class="navbar-btn-ingresar" id="btn-abrir-auth" onclick="abrirAuth('login')">ingresar</button>
                         <div class="navbar-usuario" id="navbar-usuario" style="display:none;">
                             <img src="../img/a-img-icono-autores.png" alt="Usuario" class="navbar-usuario-icono">
                             <span class="navbar-usuario-nombre" id="navbar-usuario-nombre"></span>
                             <button class="navbar-btn-salir" onclick="cerrarSesion()" title="Cerrar sesión">✕</button>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </nav>
 
-        <!-- ============================================================
-            PANEL AUTH — LOGIN / REGISTRO
-        ============================================================ -->
-        <div class="auth-overlay" id="auth-overlay" onclick="cerrarAuthOverlay(event)">
-            <div class="auth-panel" id="auth-panel">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-7 hero-texto">
+                        <h1 class="hero-titulo">foro y publicaciones</h1>
+                        <p class="hero-descripcion">Una vidriera de artistas contemporáneos que exploran, interpretan y expanden los principios del Neoplasticismo en todas las disciplinas creativas.</p>
+                    </div>
+                    <div class="col-5 p-0">
+                        <div id="carruselHeroForo" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../img/6-foroypublicaciones.pintura-01.jpg" class="hero-img" alt="Pintura">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/6-foroypublicaciones.arquitectura-02.jpg" class="hero-img" alt="Arquitectura">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/6-foroypublicaciones.indumentaria-01.jpg" class="hero-img" alt="Indumentaria">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../img/6-foroypublicaciones.disenografico-01.jpg" class="hero-img" alt="Diseño Gráfico">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselHeroForo" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carruselHeroForo" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="3"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <!-- CERRAR -->
-                <button class="auth-cerrar" onclick="cerrarAuth()" aria-label="Cerrar">✕</button>
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
 
-                <!-- TABS -->
-                <div class="auth-tabs">
-                    <button class="auth-tab activo" id="tab-login" onclick="switchTab('login')">ingresar</button>
-                    <button class="auth-tab" id="tab-registro" onclick="switchTab('registro')">registrarse</button>
+        <!-- CARDS FILTRO DE RAMA (6 botones) -->
+        <section class="foro-cards-rama">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <div class="col-2">
+                        <button class="foro-card-btn foro-card-amarillo activo" onclick="filtrarRama('pintura', this)">
+                            <img src="../img/a-img-icono-pintura.png" alt="Pintura" class="foro-card-icono">
+                            <span>pintura</span>
+                        </button>
+                    </div>
+
+                    <div class="col-2">
+                        <button class="foro-card-btn foro-card-blanco" onclick="filtrarRama('arquitectura', this)">
+                            <img src="../img/a-img-icono-arquitectura.png" alt="Arquitectura" class="foro-card-icono">
+                            <span class="foro-span-negro">arquitectura</span>
+                        </button>
+                    </div>
+
+                    <div class="col-2">
+                        <button class="foro-card-btn foro-card-azul" onclick="filtrarRama('disenoindustrial', this)">
+                            <img src="../img/a-img-icono-disenoindustrial.png" alt="Diseño Industrial" class="foro-card-icono">
+                            <span>diseño industrial</span>
+                        </button>
+                    </div>
+
+                    <div class="col-2">
+                        <button class="foro-card-btn foro-card-rojo" onclick="filtrarRama('disenografico', this)">
+                            <img src="../img/a-img-icono-disenografico.png" alt="Diseño Gráfico" class="foro-card-icono">
+                            <span>diseño gráfico</span>
+                        </button>
+                    </div>
+
+                    <div class="col-2">
+                        <button class="foro-card-btn foro-card-amarillo" onclick="filtrarRama('indumentaria', this)">
+                            <img src="../img/a-img-icono-disenoindustrial.png" alt="Indumentaria" class="foro-card-icono">
+                            <span>indumentaria</span>
+                        </button>
+                    </div>
+
+                    <div class="col-2">
+                        <button class="foro-card-btn foro-card-blanco" onclick="filtrarRama('otros', this)">
+                            <img src="../img/a-img-icono-disenografico.png" alt="Otros" class="foro-card-icono">
+                            <span class="foro-span-negro">otros</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
+
+        <!-- HEADER DE RAMA ACTIVA -->
+        <div class="foro-rama-activa" id="foro-rama-activa">
+            <img src="../img/a-img-icono-pintura.png" alt="" id="foro-rama-icono" class="foro-rama-activa-icono">
+            <h2 class="foro-rama-activa-nombre" id="foro-rama-nombre">pintura</h2>
+        </div>
+
+        <!-- CARRUSEL TIPO GAME — PUBLICACIONES -->
+        <section class="foro-galeria" id="foro-galeria">
+            <div class="foro-track-wrapper">
+                <div class="foro-track" id="foro-track">
+                    <!-- Las cards se inyectan por JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separador-neo"></div>
+
+        <!-- MODAL PUBLICACIÓN -->
+        <div class="modal-pub" id="modal-pub">
+            <div class="modal-pub-contenido">
+
+                <button class="modal-pub-cerrar" onclick="cerrarPub()" aria-label="Cerrar">✕</button>
+
+                <!-- Carrusel de imágenes -->
+                <div class="modal-pub-carrusel">
+                    <div id="carruselPub" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner" id="carrusel-pub-inner"></div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselPub" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselPub" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                        <div class="carousel-indicators" id="carrusel-pub-dots"></div>
+                    </div>
                 </div>
 
-                <!-- ---- FORMULARIO LOGIN ---- -->
-                <form class="auth-form" id="form-login" onsubmit="handleLogin(event)" novalidate>
+                <!-- Ficha artista -->
+                <div class="modal-pub-ficha">
 
-                    <div class="auth-campo">
-                        <label for="login-usuario">usuario o email</label>
-                        <input type="text" id="login-usuario" placeholder="tu alias o email" autocomplete="username">
-                        <span class="auth-error" id="err-login-usuario"></span>
+                    <div class="modal-pub-rama-tag">
+                        <img src="" alt="" id="pub-rama-icono" class="modal-pub-rama-icono">
+                        <span id="pub-rama-label" class="modal-pub-rama-texto"></span>
                     </div>
 
-                    <div class="auth-campo">
-                        <label for="login-pass">contraseña</label>
-                        <div class="auth-input-pass">
-                            <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password">
-                            <button type="button" class="auth-toggle-pass" onclick="togglePass('login-pass', this)">
-                                <i class="bi bi-eye"></i>
-                            </button>
-                        </div>
-                        <span class="auth-error" id="err-login-pass"></span>
-                    </div>
+                    <h3 class="modal-pub-alias" id="pub-alias"></h3>
+                    <p class="modal-pub-nombre-completo" id="pub-nombre"></p>
+                    <p class="modal-pub-pais" id="pub-pais"></p>
+                    <p class="modal-pub-resena" id="pub-resena"></p>
 
-                    <p class="auth-forgot">¿Olvidaste tu contraseña?
-                        <button type="button" class="auth-link-btn" onclick="switchTab('recuperar')">Restablecela</button>
-                    </p>
+                    <!-- Redes -->
+                    <div class="modal-pub-redes" id="pub-redes"></div>
 
-                    <button type="submit" class="auth-submit">ingresar</button>
-
-                    <p class="auth-switch">¿No tenés cuenta?
-                        <button type="button" class="auth-link-btn" onclick="switchTab('registro')">Registrate aquí</button>
-                    </p>
-
-                </form>
-
-                <!-- ---- FORMULARIO REGISTRO ---- -->
-                <form class="auth-form" id="form-registro" onsubmit="handleRegistro(event)" novalidate style="display:none;">
-
-                    <div class="auth-grid-2">
-                        <div class="auth-campo">
-                            <label for="reg-nombre">nombre <span class="auth-req">*</span></label>
-                            <input type="text" id="reg-nombre" placeholder="tu nombre">
-                            <span class="auth-error" id="err-reg-nombre"></span>
-                        </div>
-                        <div class="auth-campo">
-                            <label for="reg-apellido">apellido <span class="auth-req">*</span></label>
-                            <input type="text" id="reg-apellido" placeholder="tu apellido">
-                            <span class="auth-error" id="err-reg-apellido"></span>
+                    <!-- Valoración -->
+                    <div class="modal-pub-valoracion">
+                        <p class="modal-pub-valoracion-label">valoración</p>
+                        <div class="estrellas-input" id="estrellas-input" data-pub-id=""></div>
+                        <div class="estrellas-promedio">
+                            <span class="estrellas-promedio-num" id="pub-promedio"></span>
+                            <span class="estrellas-promedio-cant" id="pub-cant-votos"></span>
                         </div>
                     </div>
 
-                    <div class="auth-campo">
-                        <label for="reg-alias">alias / username <span class="auth-req">*</span></label>
-                        <input type="text" id="reg-alias" placeholder="cómo querés que te llamen">
-                        <span class="auth-error" id="err-reg-alias"></span>
-                    </div>
-
-                    <div class="auth-grid-2">
-                        <div class="auth-campo">
-                            <label for="reg-nacionalidad">nacionalidad <span class="auth-req">*</span></label>
-                            <input type="text" id="reg-nacionalidad" placeholder="tu país">
-                            <span class="auth-error" id="err-reg-nacionalidad"></span>
+                    <!-- Comentarios -->
+                    <div class="modal-pub-comentarios">
+                        <p class="modal-pub-valoracion-label">comentarios</p>
+                        <div class="comentarios-lista" id="comentarios-lista"></div>
+                        <div class="comentario-form" id="comentario-form">
+                            <textarea id="comentario-input" class="comentario-textarea" placeholder="Dejá tu comentario..." maxlength="300" rows="3"></textarea>
+                            <button class="comentario-btn" onclick="enviarComentario()">publicar</button>
                         </div>
-                        <div class="auth-campo">
-                            <label for="reg-nacimiento">fecha de nacimiento <span class="auth-req">*</span></label>
-                            <input type="date" id="reg-nacimiento" max="">
-                            <span class="auth-error" id="err-reg-nacimiento"></span>
-                        </div>
+                        <p class="comentario-login-aviso" id="comentario-aviso" style="display:none;">
+                            <button class="auth-link-btn" onclick="abrirAuth('login')">Iniciá sesión</button> para comentar.
+                        </p>
                     </div>
 
-                    <div class="auth-campo">
-                        <label for="reg-email">email <span class="auth-req">*</span></label>
-                        <input type="email" id="reg-email" placeholder="tu@email.com" autocomplete="email">
-                        <span class="auth-error" id="err-reg-email"></span>
-                    </div>
-
-                    <div class="auth-campo">
-                        <label for="reg-email-confirm">confirmá tu email <span class="auth-req">*</span></label>
-                        <input type="email" id="reg-email-confirm" placeholder="repetí tu email">
-                        <span class="auth-error" id="err-reg-email-confirm"></span>
-                    </div>
-
-                    <div class="auth-campo">
-                        <label for="reg-telefono">teléfono <span class="auth-opcional">(opcional)</span></label>
-                        <input type="tel" id="reg-telefono" placeholder="+54 341 000-0000">
-                    </div>
-
-                    <div class="auth-grid-2">
-                        <div class="auth-campo">
-                            <label for="reg-instagram">instagram <span class="auth-opcional">(opcional)</span></label>
-                            <input type="text" id="reg-instagram" placeholder="@usuario">
-                        </div>
-                        <div class="auth-campo">
-                            <label for="reg-behance">behance <span class="auth-opcional">(opcional)</span></label>
-                            <input type="text" id="reg-behance" placeholder="behance.net/usuario">
-                        </div>
-                    </div>
-
-                    <div class="auth-campo">
-                        <label for="reg-rama">rama artística <span class="auth-req">*</span></label>
-                        <select id="reg-rama">
-                            <option value="" disabled selected>seleccioná una rama</option>
-                            <option value="pintura">Pintura</option>
-                            <option value="arquitectura">Arquitectura / Diseño Interior</option>
-                            <option value="disenoindustrial">Diseño Industrial</option>
-                            <option value="disenografico">Diseño Gráfico</option>
-                            <option value="indumentaria">Diseño de Indumentaria</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                        <span class="auth-error" id="err-reg-rama"></span>
-                    </div>
-
-                    <!-- Campo "otro" que aparece si eligen Otro -->
-                    <div class="auth-campo" id="campo-rama-otro" style="display:none;">
-                        <label for="reg-rama-otro">especificá tu rama</label>
-                        <input type="text" id="reg-rama-otro" placeholder="escribí tu disciplina">
-                    </div>
-
-                    <div class="auth-campo">
-                        <label for="reg-pass">contraseña <span class="auth-req">*</span></label>
-                        <div class="auth-input-pass">
-                            <input type="password" id="reg-pass" placeholder="mín. 6 car. con mayúsc. y símbolo" autocomplete="new-password">
-                            <button type="button" class="auth-toggle-pass" onclick="togglePass('reg-pass', this)">
-                                <i class="bi bi-eye"></i>
-                            </button>
-                        </div>
-                        <div class="auth-pass-requisitos">
-                            <span id="req-largo" class="req">6+ caracteres</span>
-                            <span id="req-mayus" class="req">1 mayúscula</span>
-                            <span id="req-numero" class="req">1 número</span>
-                            <span id="req-especial" class="req">1 carácter especial</span>
-                        </div>
-                        <span class="auth-error" id="err-reg-pass"></span>
-                    </div>
-
-                    <div class="auth-campo">
-                        <label for="reg-pass-confirm">confirmá contraseña <span class="auth-req">*</span></label>
-                        <div class="auth-input-pass">
-                            <input type="password" id="reg-pass-confirm" placeholder="repetí tu contraseña" autocomplete="new-password">
-                            <button type="button" class="auth-toggle-pass" onclick="togglePass('reg-pass-confirm', this)">
-                                <i class="bi bi-eye"></i>
-                            </button>
-                        </div>
-                        <span class="auth-error" id="err-reg-pass-confirm"></span>
-                    </div>
-
-                    <div class="auth-campo auth-consentimiento">
-                        <label class="auth-checkbox-label">
-                            <input type="checkbox" id="reg-consentimiento">
-                            <span>Acepto que mis datos sean guardados y utilizados en esta base de datos educativa.</span>
-                        </label>
-                        <span class="auth-error" id="err-reg-consentimiento"></span>
-                    </div>
-
-                    <button type="submit" class="auth-submit">crear cuenta</button>
-
-                    <p class="auth-switch">¿Ya tenés cuenta?
-                        <button type="button" class="auth-link-btn" onclick="switchTab('login')">Ingresá aquí</button>
-                    </p>
-
-                </form>
-
-                <!-- ---- FORMULARIO RECUPERAR CONTRASEÑA ---- -->
-                <form class="auth-form" id="form-recuperar" onsubmit="handleRecuperar(event)" novalidate style="display:none;">
-
-                    <p class="auth-recuperar-desc">Ingresá tu email y te enviaremos las instrucciones para restablecer tu contraseña.</p>
-
-                    <div class="auth-campo">
-                        <label for="rec-email">email registrado <span class="auth-req">*</span></label>
-                        <input type="email" id="rec-email" placeholder="tu@email.com">
-                        <span class="auth-error" id="err-rec-email"></span>
-                    </div>
-
-                    <button type="submit" class="auth-submit">enviar instrucciones</button>
-
-                    <p class="auth-switch">
-                        <button type="button" class="auth-link-btn" onclick="switchTab('login')">← Volver al inicio</button>
-                    </p>
-
-                </form>
-
-                <!-- ---- MENSAJE ÉXITO REGISTRO ---- -->
-                <div class="auth-exito" id="auth-exito" style="display:none;">
-                    <div class="auth-exito-icono">✓</div>
-                    <h3 class="auth-exito-titulo">¡bienvenido/a!</h3>
-                    <p class="auth-exito-texto" id="auth-exito-texto"></p>
-                    <button class="auth-submit" onclick="cerrarAuth()">comenzar</button>
                 </div>
-
             </div>
         </div>
 
         <!-- FLECHA SCROLL TOP -->
-        <a href="#top" class="scroll-to-top">
-            <i class="bi bi-arrow-up-square-fill"></i>
-        </a>
-        
-        <!-- FOOTER -->
+        <a href="#top" class="scroll-to-top"><i class="bi bi-arrow-up-square-fill"></i></a>
+
         <!-- SEPARADOR FOOTER -->
         <div class="separador-neo"></div>
-        
+
+        <!-- FOOTER -->
         <footer class="footer">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <!-- BLOQUES DE COLOR -->
                     <div class="col-1 footer-bloque-azul"></div>
                     <div class="col-1 footer-bloque-rojo"></div>
-
-                    <!-- NAVEGACIÓN + INSTAGRAM -->
                     <div class="col-10 footer-nav">
-
                         <nav class="footer-links">
                             <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
                             <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
@@ -332,29 +267,101 @@
                             <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
                             <a href="../subpaginas/fotoypublicaciones.html" class="footer-link">Publicaciones</a>
                         </nav>
-
                         <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
                             <i class="bi bi-instagram"></i>
                         </a>
-
                     </div>
-
                 </div>
             </div>
-
-            <!-- BARRA DE CONTACTO -->
             <div class="footer-contacto">
                 <p>© 2026 LAVORATORIO DE DISEÑO II | Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
             </div>
-
         </footer>
 
+        <!-- AUTH PANEL (igual al de todas las páginas) -->
+        <div class="auth-overlay" id="auth-overlay" onclick="cerrarAuthOverlay(event)">
+            <div class="auth-panel" id="auth-panel">
+                <button class="auth-cerrar" onclick="cerrarAuth()">✕</button>
+                <div class="auth-tabs">
+                    <button class="auth-tab activo" id="tab-login" onclick="switchTab('login')">ingresar</button>
+                    <button class="auth-tab" id="tab-registro" onclick="switchTab('registro')">registrarse</button>
+                </div>
+                <form class="auth-form" id="form-login" onsubmit="handleLogin(event)" novalidate>
+                    <div class="auth-campo">
+                        <label for="login-usuario">usuario o email</label>
+                        <input type="text" id="login-usuario" placeholder="tu alias o email" autocomplete="username">
+                        <span class="auth-error" id="err-login-usuario"></span>
+                    </div>
+                    <div class="auth-campo">
+                        <label for="login-pass">contraseña</label>
+                        <div class="auth-input-pass">
+                            <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password">
+                            <button type="button" class="auth-toggle-pass" onclick="togglePass('login-pass', this)"><i class="bi bi-eye"></i></button>
+                        </div>
+                        <span class="auth-error" id="err-login-pass"></span>
+                    </div>
+                    <p class="auth-forgot">¿Olvidaste tu contraseña? <button type="button" class="auth-link-btn" onclick="switchTab('recuperar')">Restablecela</button></p>
+                    <button type="submit" class="auth-submit">ingresar</button>
+                    <p class="auth-switch">¿No tenés cuenta? <button type="button" class="auth-link-btn" onclick="switchTab('registro')">Registrate aquí</button></p>
+                </form>
+                <form class="auth-form" id="form-registro" onsubmit="handleRegistro(event)" novalidate style="display:none;">
+                    <div class="auth-grid-2">
+                        <div class="auth-campo"><label for="reg-nombre">nombre <span class="auth-req">*</span></label><input type="text" id="reg-nombre" placeholder="tu nombre"><span class="auth-error" id="err-reg-nombre"></span></div>
+                        <div class="auth-campo"><label for="reg-apellido">apellido <span class="auth-req">*</span></label><input type="text" id="reg-apellido" placeholder="tu apellido"><span class="auth-error" id="err-reg-apellido"></span></div>
+                    </div>
+                    <div class="auth-campo"><label for="reg-alias">alias / username <span class="auth-req">*</span></label><input type="text" id="reg-alias" placeholder="cómo querés que te llamen"><span class="auth-error" id="err-reg-alias"></span></div>
+                    <div class="auth-grid-2">
+                        <div class="auth-campo"><label for="reg-nacionalidad">nacionalidad <span class="auth-req">*</span></label><input type="text" id="reg-nacionalidad" placeholder="tu país"><span class="auth-error" id="err-reg-nacionalidad"></span></div>
+                        <div class="auth-campo"><label for="reg-nacimiento">fecha de nacimiento <span class="auth-req">*</span></label><input type="date" id="reg-nacimiento" max=""><span class="auth-error" id="err-reg-nacimiento"></span></div>
+                    </div>
+                    <div class="auth-campo"><label for="reg-email">email <span class="auth-req">*</span></label><input type="email" id="reg-email" placeholder="tu@email.com"><span class="auth-error" id="err-reg-email"></span></div>
+                    <div class="auth-campo"><label for="reg-email-confirm">confirmá tu email <span class="auth-req">*</span></label><input type="email" id="reg-email-confirm" placeholder="repetí tu email"><span class="auth-error" id="err-reg-email-confirm"></span></div>
+                    <div class="auth-campo"><label for="reg-telefono">teléfono <span class="auth-opcional">(opcional)</span></label><input type="tel" id="reg-telefono" placeholder="+54 341 000-0000"></div>
+                    <div class="auth-grid-2">
+                        <div class="auth-campo"><label for="reg-instagram">instagram <span class="auth-opcional">(opcional)</span></label><input type="text" id="reg-instagram" placeholder="@usuario"></div>
+                        <div class="auth-campo"><label for="reg-behance">behance <span class="auth-opcional">(opcional)</span></label><input type="text" id="reg-behance" placeholder="behance.net/usuario"></div>
+                    </div>
+                    <div class="auth-campo"><label for="reg-rama">rama artística <span class="auth-req">*</span></label>
+                        <select id="reg-rama"><option value="" disabled selected>seleccioná una rama</option><option value="pintura">Pintura</option><option value="arquitectura">Arquitectura / Diseño Interior</option><option value="disenoindustrial">Diseño Industrial</option><option value="disenografico">Diseño Gráfico</option><option value="indumentaria">Diseño de Indumentaria</option><option value="otro">Otro</option></select>
+                        <span class="auth-error" id="err-reg-rama"></span>
+                    </div>
+                    <div class="auth-campo" id="campo-rama-otro" style="display:none;"><label for="reg-rama-otro">especificá tu rama</label><input type="text" id="reg-rama-otro" placeholder="escribí tu disciplina"></div>
+                    <div class="auth-campo"><label for="reg-pass">contraseña <span class="auth-req">*</span></label>
+                        <div class="auth-input-pass"><input type="password" id="reg-pass" placeholder="mín. 6 car. con mayúsc. y símbolo" autocomplete="new-password"><button type="button" class="auth-toggle-pass" onclick="togglePass('reg-pass', this)"><i class="bi bi-eye"></i></button></div>
+                        <div class="auth-pass-requisitos"><span id="req-largo" class="req">6+ caracteres</span><span id="req-mayus" class="req">1 mayúscula</span><span id="req-numero" class="req">1 número</span><span id="req-especial" class="req">1 carácter especial</span></div>
+                        <span class="auth-error" id="err-reg-pass"></span>
+                    </div>
+                    <div class="auth-campo"><label for="reg-pass-confirm">confirmá contraseña <span class="auth-req">*</span></label>
+                        <div class="auth-input-pass"><input type="password" id="reg-pass-confirm" placeholder="repetí tu contraseña" autocomplete="new-password"><button type="button" class="auth-toggle-pass" onclick="togglePass('reg-pass-confirm', this)"><i class="bi bi-eye"></i></button></div>
+                        <span class="auth-error" id="err-reg-pass-confirm"></span>
+                    </div>
+                    <div class="auth-campo auth-consentimiento"><label class="auth-checkbox-label"><input type="checkbox" id="reg-consentimiento"><span>Acepto que mis datos sean guardados y utilizados en esta base de datos educativa.</span></label><span class="auth-error" id="err-reg-consentimiento"></span></div>
+                    <button type="submit" class="auth-submit">crear cuenta</button>
+                    <p class="auth-switch">¿Ya tenés cuenta? <button type="button" class="auth-link-btn" onclick="switchTab('login')">Ingresá aquí</button></p>
+                </form>
+                <form class="auth-form" id="form-recuperar" onsubmit="handleRecuperar(event)" novalidate style="display:none;">
+                    <p class="auth-recuperar-desc">Ingresá tu email y te enviaremos las instrucciones para restablecer tu contraseña.</p>
+                    <div class="auth-campo"><label for="rec-email">email registrado <span class="auth-req">*</span></label><input type="email" id="rec-email" placeholder="tu@email.com"><span class="auth-error" id="err-rec-email"></span></div>
+                    <button type="submit" class="auth-submit">enviar instrucciones</button>
+                    <p class="auth-switch"><button type="button" class="auth-link-btn" onclick="switchTab('login')">← Volver al inicio</button></p>
+                </form>
+                <div class="auth-exito" id="auth-exito" style="display:none;">
+                    <div class="auth-exito-icono">✓</div>
+                    <h3 class="auth-exito-titulo">¡bienvenido/a!</h3>
+                    <p class="auth-exito-texto" id="auth-exito-texto"></p>
+                    <button class="auth-submit" onclick="cerrarAuth()">comenzar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (requerido por Owl Carousel) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
         <!-- BOOTSTRAP JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-         <!-- JS NEOPLASTICISMO -->
-         <script src="../js/script.js"></script>
-
+        <!-- JS NEOPLASTICISMO -->
+        <script src="../js/script.js"></script>
 
     </body>
 </html>
