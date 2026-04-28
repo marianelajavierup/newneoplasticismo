@@ -886,583 +886,90 @@ function verificarSesionAlCargar() {
     }
 };
 
-/* F-FORO Y PUBLICACIONES */
 /* ============================================================
-   DATOS DE PUBLICACIONES POR RAMA
+   F — FORO Y PUBLICACIONES
 ============================================================ */
 
 const publicacionesData = {
-
     pintura: [
-        {
-            id: 'pintura-01',
-            alias: '@neo.pigmento',
-            nombre: 'Lucía Ferreyra',
-            pais: 'Argentina',
-            descripcion: 'Serie de acrílicos sobre tela explorando la grilla ortogonal y el color puro como lenguaje emocional.',
-            resena: 'Lucía trabaja desde Rosario con técnicas mixtas que dialogan con la tradición de Mondrian, reinterpretando el equilibrio dinámico desde una perspectiva latinoamericana contemporánea.',
-            instagram: '@neo.pigmento',
-            behance: '',
-            portada: '../img/6-foroypublicaciones.pintura-01.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-01.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-02',
-            alias: '@planos.primarios',
-            nombre: 'Martín Solá',
-            pais: 'Uruguay',
-            descripcion: 'Díptico que explora la tensión entre planos de color y el espacio en blanco como silencio visual.',
-            resena: 'Martín estudió Bellas Artes en Montevideo y desarrolla su práctica en torno al lenguaje geométrico abstracto, con énfasis en la relación entre formato y composición.',
-            instagram: '@planos.primarios',
-            behance: 'behance.net/martinsolarte',
-            portada: '../img/6-foroypublicaciones.pintura-02a.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-02a.jpg', '../img/6-foroypublicaciones.pintura-02b.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-03',
-            alias: '@grid.studio',
-            nombre: 'Valentina Cruz',
-            pais: 'Chile',
-            descripcion: 'Experimentación con proporciones áureas y paleta primaria sobre soporte de gran formato.',
-            resena: 'Valentina combina el rigor matemático del Neoplasticismo con procesos gestálticos de composición. Sus obras investigan la percepción del equilibrio en formatos murales.',
-            instagram: '@grid.studio',
-            behance: '',
-            portada: '../img/6-foroypublicaciones.pintura-03.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-03.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-04',
-            alias: '@lienzo.recto',
-            nombre: 'Andrés Blanco',
-            pais: 'España',
-            descripcion: 'Reducción formal al plano negro: una investigación sobre la ausencia del color en el sistema neoplasticista.',
-            resena: 'Andrés explora los límites del vocabulario De Stijl mediante la eliminación progresiva del color, poniendo en tensión la línea y el fondo en su serie "Vaciado".',
-            instagram: '',
-            behance: 'behance.net/andresblanco',
-            portada: '../img/6-foroypublicaciones.pintura-04.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-04.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-05',
-            alias: '@atlas.color',
-            nombre: 'Inés Rodríguez',
-            pais: 'México',
-            descripcion: 'Serie fotográfica-pictórica que fusiona el archivo documental con la intervención geométrica.',
-            resena: 'Inés trabaja en la intersección de la fotografía y la pintura geométrica. Su práctica parte del archivo visual latinoamericano para construir narrativas abstractas con rigor formal neoplasticista.',
-            instagram: '@atlas.color',
-            behance: 'behance.net/inesrodriguez',
-            portada: '../img/6-foroypublicaciones.pintura-05a.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-05a.jpg', '../img/6-foroypublicaciones.pintura-05b.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-06',
-            alias: '@forma.pura',
-            nombre: 'Diego Méndez',
-            pais: 'Colombia',
-            descripcion: 'Exploración de la diagonal prohibida: tensión entre el dogma ortogonal y el dinamismo visual.',
-            resena: 'Diego dialoga abiertamente con el Elementarismo de Van Doesburg, incorporando la diagonal como elemento disruptivo dentro de una composición de base neoplasticista.',
-            instagram: '@forma.pura',
-            behance: '',
-            portada: '../img/6-foroypublicaciones.pintura-06.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-06.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-07',
-            alias: '@retina.roja',
-            nombre: 'Florencia Aibar',
-            pais: 'Argentina',
-            descripcion: 'Serie de monocromos con intervención lineal negra. El color como campo de investigación.',
-            resena: 'Florencia es egresada de la UNA y trabaja la pintura como sistema. Su investigación sobre el monocromo dentro de la tradición geométrica la ha llevado a explorar las posibilidades del rojo en diferentes soportes y escalas.',
-            instagram: '@retina.roja',
-            behance: 'behance.net/florenciaaibar',
-            portada: '../img/6-foroypublicaciones.pintura-07.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-07.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-08',
-            alias: '@amarillo.norte',
-            nombre: 'Rodrigo Suárez',
-            pais: 'Perú',
-            descripcion: 'El amarillo como protagonista: variaciones de valor y relación con el blanco en serie de 12 piezas.',
-            resena: 'Rodrigo investiga la psicología del color dentro del marco formal del Neoplasticismo, tomando el amarillo como eje conductor de una serie pictórica que explora sus variaciones perceptivas.',
-            instagram: '@amarillo.norte',
-            behance: '',
-            portada: '../img/6-foroypublicaciones.pintura-08.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-08.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-09',
-            alias: '@azul.fijo',
-            nombre: 'Camila Torres',
-            pais: 'Argentina',
-            descripcion: 'Composición en torno al azul primario y su relación con el peso visual de la grilla negra.',
-            resena: 'Camila es estudiante avanzada de Diseño Gráfico y desarrolla esta serie pictórica como exploración extracurricular, investigando la intersección entre diseño y pintura abstracta geométrica.',
-            instagram: '@azul.fijo',
-            behance: 'behance.net/camilatorres',
-            portada: '../img/6-foroypublicaciones.pintura-09.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-09.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        },
-        {
-            id: 'pintura-10',
-            alias: '@campo.blanco',
-            nombre: 'Pablo Herrera',
-            pais: 'Bolivia',
-            descripcion: 'El blanco como espacio activo: investigación sobre la relación figura-fondo en la tradición De Stijl.',
-            resena: 'Pablo trabaja en La Paz con acrílicos y pintura industrial sobre madera cruda. Su práctica dialoga con la tradición neoplasticista desde una mirada contemporánea que incorpora materiales locales.',
-            instagram: '',
-            behance: 'behance.net/pabloherrera',
-            portada: '../img/6-foroypublicaciones.pintura-10.jpg',
-            fotos: ['../img/6-foroypublicaciones.pintura-10.jpg'],
-            rama: 'pintura', ramaLabel: 'Pintura', ramaIcono: '../img/a-img-icono-pintura.png'
-        }
+        { id:'pintura-01', alias:'@neo.pigmento', nombre:'Lucía Ferreyra', pais:'Argentina', descripcion:'Serie de acrílicos sobre tela explorando la grilla ortogonal y el color puro como lenguaje emocional.', resena:'Lucía trabaja desde Rosario con técnicas mixtas que dialogan con la tradición de Mondrian, reinterpretando el equilibrio dinámico desde una perspectiva latinoamericana contemporánea.', instagram:'@neo.pigmento', behance:'', portada:'../img/6-foroypublicaciones.pintura-01.jpg', fotos:['../img/6-foroypublicaciones.pintura-01.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-02', alias:'@planos.primarios', nombre:'Martín Solá', pais:'Uruguay', descripcion:'Díptico que explora la tensión entre planos de color y el espacio en blanco como silencio visual.', resena:'Martín estudió Bellas Artes en Montevideo y desarrolla su práctica en torno al lenguaje geométrico abstracto.', instagram:'@planos.primarios', behance:'behance.net/martinsolarte', portada:'../img/6-foroypublicaciones.pintura-02a.jpg', fotos:['../img/6-foroypublicaciones.pintura-02a.jpg','../img/6-foroypublicaciones.pintura-02b.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-03', alias:'@grid.studio', nombre:'Valentina Cruz', pais:'Chile', descripcion:'Experimentación con proporciones áureas y paleta primaria sobre soporte de gran formato.', resena:'Valentina combina el rigor matemático del Neoplasticismo con procesos gestálticos de composición.', instagram:'@grid.studio', behance:'', portada:'../img/6-foroypublicaciones.pintura-03.jpg', fotos:['../img/6-foroypublicaciones.pintura-03.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-04', alias:'@lienzo.recto', nombre:'Andrés Blanco', pais:'España', descripcion:'Reducción formal al plano negro: investigación sobre la ausencia del color en el sistema neoplasticista.', resena:'Andrés explora los límites del vocabulario De Stijl mediante la eliminación progresiva del color.', instagram:'', behance:'behance.net/andresblanco', portada:'../img/6-foroypublicaciones.pintura-04.jpg', fotos:['../img/6-foroypublicaciones.pintura-04.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-05', alias:'@atlas.color', nombre:'Inés Rodríguez', pais:'México', descripcion:'Serie fotográfica-pictórica que fusiona el archivo documental con la intervención geométrica.', resena:'Inés trabaja en la intersección de la fotografía y la pintura geométrica.', instagram:'@atlas.color', behance:'behance.net/inesrodriguez', portada:'../img/6-foroypublicaciones.pintura-05a.jpg', fotos:['../img/6-foroypublicaciones.pintura-05a.jpg','../img/6-foroypublicaciones.pintura-05b.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-06', alias:'@forma.pura', nombre:'Diego Méndez', pais:'Colombia', descripcion:'Exploración de la diagonal prohibida: tensión entre el dogma ortogonal y el dinamismo visual.', resena:'Diego dialoga con el Elementarismo de Van Doesburg, incorporando la diagonal como elemento disruptivo.', instagram:'@forma.pura', behance:'', portada:'../img/6-foroypublicaciones.pintura-06.jpg', fotos:['../img/6-foroypublicaciones.pintura-06.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-07', alias:'@retina.roja', nombre:'Florencia Aibar', pais:'Argentina', descripcion:'Serie de monocromos con intervención lineal negra. El color como campo de investigación.', resena:'Florencia es egresada de la UNA y trabaja la pintura como sistema.', instagram:'@retina.roja', behance:'behance.net/florenciaaibar', portada:'../img/6-foroypublicaciones.pintura-07.jpg', fotos:['../img/6-foroypublicaciones.pintura-07.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-08', alias:'@amarillo.norte', nombre:'Rodrigo Suárez', pais:'Perú', descripcion:'El amarillo como protagonista: variaciones de valor y relación con el blanco en serie de 12 piezas.', resena:'Rodrigo investiga la psicología del color dentro del marco formal del Neoplasticismo.', instagram:'@amarillo.norte', behance:'', portada:'../img/6-foroypublicaciones.pintura-08.jpg', fotos:['../img/6-foroypublicaciones.pintura-08.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-09', alias:'@azul.fijo', nombre:'Camila Torres', pais:'Argentina', descripcion:'Composición en torno al azul primario y su relación con el peso visual de la grilla negra.', resena:'Camila es estudiante avanzada de Diseño Gráfico.', instagram:'@azul.fijo', behance:'behance.net/camilatorres', portada:'../img/6-foroypublicaciones.pintura-09.jpg', fotos:['../img/6-foroypublicaciones.pintura-09.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' },
+        { id:'pintura-10', alias:'@campo.blanco', nombre:'Pablo Herrera', pais:'Bolivia', descripcion:'El blanco como espacio activo: investigación sobre la relación figura-fondo en la tradición De Stijl.', resena:'Pablo trabaja en La Paz con acrílicos y pintura industrial sobre madera cruda.', instagram:'', behance:'behance.net/pabloherrera', portada:'../img/6-foroypublicaciones.pintura-10.jpg', fotos:['../img/6-foroypublicaciones.pintura-10.jpg'], rama:'pintura', ramaLabel:'Pintura', ramaIcono:'../img/a-img-icono-pintura.png' }
     ],
-
     arquitectura: [
-        {
-            id: 'arq-01',
-            alias: '@espacio.neo',
-            nombre: 'Sebastián Mira',
-            pais: 'Países Bajos',
-            descripcion: 'Vivienda colectiva en Utrecht con fachadas articuladas mediante planos de color primario y estructura ortogonal.',
-            resena: 'Sebastián es arquitecto graduado en la TU Delft. Su proyecto de vivienda colectiva recupera los principios del Neoplasticismo aplicados a la arquitectura residencial contemporánea.',
-            instagram: '@espacio.neo',
-            behance: 'behance.net/sebastianmira',
-            portada: '../img/6-foroypublicaciones.arquitectura-01a.avif',
-            fotos: [
-                '../img/6-foroypublicaciones.arquitectura-01a.avif',
-                '../img/6-foroypublicaciones.arquitectura-01b.jpg',
-                '../img/6-foroypublicaciones.arquitectura-01c.jpg',
-                '../img/6-foroypublicaciones.arquitectura-01d.jpg'
-            ],
-            rama: 'arquitectura', ramaLabel: 'Arquitectura', ramaIcono: '../img/a-img-icono-arquitectura.png'
-        },
-        {
-            id: 'arq-02',
-            alias: '@planta.libre',
-            nombre: 'Ana Kovács',
-            pais: 'Hungría',
-            descripcion: 'Análisis y reinterpretación de la planta libre en la Casa Schröder aplicada a hábitat mínimo contemporáneo.',
-            resena: 'Ana investiga la planta libre como concepto y su vigencia en el diseño de hábitat mínimo. Su proyecto reformula los paneles corredizos de Rietveld con tecnología de particiones actuales.',
-            instagram: '@planta.libre',
-            behance: '',
-            portada: '../img/6-foroypublicaciones.arquitectura-02.jpg',
-            fotos: ['../img/6-foroypublicaciones.arquitectura-02.jpg'],
-            rama: 'arquitectura', ramaLabel: 'Arquitectura', ramaIcono: '../img/a-img-icono-arquitectura.png'
-        },
-        {
-            id: 'arq-03',
-            alias: '@muro.primario',
-            nombre: 'Lucas Ferreira',
-            pais: 'Brasil',
-            descripcion: 'Interiorismo de local comercial con aplicación de los cuatro colores neoplasticistas sobre planos ortogonales.',
-            resena: 'Lucas trabaja en São Paulo como diseñador de interiores. Este proyecto de local comercial en Vila Madalena aplica rigurosamente el vocabulario formal del Neoplasticismo al espacio de retail.',
-            instagram: '@muro.primario',
-            behance: 'behance.net/lucasferreira',
-            portada: '../img/6-foroypublicaciones.arquitectura-03.jpg',
-            fotos: ['../img/6-foroypublicaciones.arquitectura-03.jpg'],
-            rama: 'arquitectura', ramaLabel: 'Arquitectura', ramaIcono: '../img/a-img-icono-arquitectura.png'
-        },
-        {
-            id: 'arq-04',
-            alias: '@linea.constructiva',
-            nombre: 'María José Ríos',
-            pais: 'Argentina',
-            descripcion: 'Propuesta para pabellón cultural efímero: estructura de acero y vidrio con planos de color primario desmontables.',
-            resena: 'María José es arquitecta e investiga la arquitectura efímera como espacio de experimentación formal. Su pabellón fue presentado como proyecto final de posgrado en la UBA.',
-            instagram: '',
-            behance: 'behance.net/mjrios',
-            portada: '../img/6-foroypublicaciones.arquitectura-04.jpg',
-            fotos: ['../img/6-foroypublicaciones.arquitectura-04.jpg'],
-            rama: 'arquitectura', ramaLabel: 'Arquitectura', ramaIcono: '../img/a-img-icono-arquitectura.png'
-        },
-        {
-            id: 'arq-05',
-            alias: '@tectonica.neo',
-            nombre: 'Johan Bakker',
-            pais: 'Bélgica',
-            descripcion: 'Análisis tectónico de la obra de J.J.P. Oud aplicado a un conjunto de vivienda social en Amberes.',
-            resena: 'Johan es investigador y arquitecto. Su trabajo retoma la metodología proyectual de Oud —vivienda social, prefabricación, color aplicado— para desarrollar un conjunto habitacional en el barrio de Borgerhout.',
-            instagram: '@tectonica.neo',
-            behance: 'behance.net/johanbakker',
-            portada: '../img/6-foroypublicaciones.arquitectura-05.jpg',
-            fotos: ['../img/6-foroypublicaciones.arquitectura-05.jpg'],
-            rama: 'arquitectura', ramaLabel: 'Arquitectura', ramaIcono: '../img/a-img-icono-arquitectura.png'
-        },
-        {
-            id: 'arq-06',
-            alias: '@cubierta.roja',
-            nombre: 'Sofía Andrade',
-            pais: 'Ecuador',
-            descripcion: 'Casa unifamiliar en Quito: volumetría ortogonal, cubierta plana y fachada articulada con los tres colores primarios.',
-            resena: 'Sofía desarrolló esta vivienda unifamiliar como proyecto de tesis, explorando la aplicabilidad del lenguaje neoplasticista en el contexto climático y cultural ecuatoriano.',
-            instagram: '@cubierta.roja',
-            behance: '',
-            portada: '../img/6-foroypublicaciones.arquitectura-06.jpg',
-            fotos: ['../img/6-foroypublicaciones.arquitectura-06.jpg'],
-            rama: 'arquitectura', ramaLabel: 'Arquitectura', ramaIcono: '../img/a-img-icono-arquitectura.png'
-        }
+        { id:'arq-01', alias:'@espacio.neo', nombre:'Sebastián Mira', pais:'Países Bajos', descripcion:'Vivienda colectiva en Utrecht con fachadas articuladas mediante planos de color primario.', resena:'Sebastián es arquitecto graduado en la TU Delft.', instagram:'@espacio.neo', behance:'behance.net/sebastianmira', portada:'../img/6-foroypublicaciones.arquitectura-01a.avif', fotos:['../img/6-foroypublicaciones.arquitectura-01a.avif','../img/6-foroypublicaciones.arquitectura-01b.jpg','../img/6-foroypublicaciones.arquitectura-01c.jpg','../img/6-foroypublicaciones.arquitectura-01d.jpg'], rama:'arquitectura', ramaLabel:'Arquitectura', ramaIcono:'../img/a-img-icono-arquitectura.png' },
+        { id:'arq-02', alias:'@planta.libre', nombre:'Ana Kovács', pais:'Hungría', descripcion:'Análisis y reinterpretación de la planta libre en la Casa Schröder.', resena:'Ana investiga la planta libre como concepto y su vigencia en el diseño de hábitat mínimo.', instagram:'@planta.libre', behance:'', portada:'../img/6-foroypublicaciones.arquitectura-02.jpg', fotos:['../img/6-foroypublicaciones.arquitectura-02.jpg'], rama:'arquitectura', ramaLabel:'Arquitectura', ramaIcono:'../img/a-img-icono-arquitectura.png' },
+        { id:'arq-03', alias:'@muro.primario', nombre:'Lucas Ferreira', pais:'Brasil', descripcion:'Interiorismo de local comercial con aplicación de los cuatro colores neoplasticistas.', resena:'Lucas trabaja en São Paulo como diseñador de interiores.', instagram:'@muro.primario', behance:'behance.net/lucasferreira', portada:'../img/6-foroypublicaciones.arquitectura-03.jpg', fotos:['../img/6-foroypublicaciones.arquitectura-03.jpg'], rama:'arquitectura', ramaLabel:'Arquitectura', ramaIcono:'../img/a-img-icono-arquitectura.png' },
+        { id:'arq-04', alias:'@linea.constructiva', nombre:'María José Ríos', pais:'Argentina', descripcion:'Propuesta para pabellón cultural efímero con planos de color primario desmontables.', resena:'María José es arquitecta e investiga la arquitectura efímera.', instagram:'', behance:'behance.net/mjrios', portada:'../img/6-foroypublicaciones.arquitectura-04.jpg', fotos:['../img/6-foroypublicaciones.arquitectura-04.jpg'], rama:'arquitectura', ramaLabel:'Arquitectura', ramaIcono:'../img/a-img-icono-arquitectura.png' },
+        { id:'arq-05', alias:'@tectonica.neo', nombre:'Johan Bakker', pais:'Bélgica', descripcion:'Análisis tectónico de la obra de J.J.P. Oud aplicado a un conjunto de vivienda social.', resena:'Johan es investigador y arquitecto.', instagram:'@tectonica.neo', behance:'behance.net/johanbakker', portada:'../img/6-foroypublicaciones.arquitectura-05.jpg', fotos:['../img/6-foroypublicaciones.arquitectura-05.jpg'], rama:'arquitectura', ramaLabel:'Arquitectura', ramaIcono:'../img/a-img-icono-arquitectura.png' },
+        { id:'arq-06', alias:'@cubierta.roja', nombre:'Sofía Andrade', pais:'Ecuador', descripcion:'Casa unifamiliar en Quito con fachada articulada con los tres colores primarios.', resena:'Sofía desarrolló esta vivienda unifamiliar como proyecto de tesis.', instagram:'@cubierta.roja', behance:'', portada:'../img/6-foroypublicaciones.arquitectura-06.jpg', fotos:['../img/6-foroypublicaciones.arquitectura-06.jpg'], rama:'arquitectura', ramaLabel:'Arquitectura', ramaIcono:'../img/a-img-icono-arquitectura.png' }
     ],
-
     disenoindustrial: [
-        {
-            id: 'di-01', alias: '@objeto.neo', nombre: 'Felipe Crespo', pais: 'España',
-            descripcion: 'Lámpara de mesa con estructura modular ortogonal y difusor en los tres colores primarios.',
-            resena: 'Felipe es diseñador industrial graduado en Barcelona. Su lámpara modular explora la estructura portante visible como elemento compositivo, en diálogo directo con la Silla Roja y Azul de Rietveld.',
-            instagram: '@objeto.neo', behance: 'behance.net/felipecrespo',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-01.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-01.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-02', alias: '@grid.product', nombre: 'Tamara Bloch', pais: 'Alemania',
-            descripcion: 'Mesa auxiliar de madera maciza: geometría pura, color primario en los planos de apoyo.',
-            resena: 'Tamara diseña desde Berlín objetos de mobiliario que reinterpretan la tradición De Stijl con materiales y procesos de producción contemporáneos.',
-            instagram: '', behance: 'behance.net/tamarabloch',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-02.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-02.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-03', alias: '@forma.util', nombre: 'Nicolás Paz', pais: 'Argentina',
-            descripcion: 'Set de vajilla con decoración geométrica neoplasticista: línea negra y planos de color en cerámica.',
-            resena: 'Nicolás trabaja en Mendoza con cerámica artesanal. Su set de vajilla traslada el vocabulario formal del Neoplasticismo al objeto cotidiano, democratizando el acceso a la estética del movimiento.',
-            instagram: '@forma.util', behance: '',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-03.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-03.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-04', alias: '@estructura.visible', nombre: 'Clara Muñoz', pais: 'Colombia',
-            descripcion: 'Silla de líneas ortogonales en varilla metálica: la estructura como ornamento.',
-            resena: 'Clara investiga la relación entre estructura y forma en el mobiliario. Su silla de varilla metálica expone el esqueleto constructivo como elemento estético central, en la tradición de la Silla Berlín de Rietveld.',
-            instagram: '@estructura.visible', behance: 'behance.net/claramunoz',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-04.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-04.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-05', alias: '@modulo.rojo', nombre: 'Agustín Vera', pais: 'Chile',
-            descripcion: 'Sistema modular de estantería con piezas intercambiables en los cuatro colores neoplasticistas.',
-            resena: 'Agustín desarrolló este sistema como proyecto de tesis de diseño industrial, explorando la flexibilidad y adaptabilidad del objeto a distintos contextos habitacionales.',
-            instagram: '@modulo.rojo', behance: '',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-05.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-05.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-06', alias: '@plano.tactil', nombre: 'Renata Souza', pais: 'Brasil',
-            descripcion: 'Colección de almohadones y textiles con pattern neoplasticista para tapicería de interiores.',
-            resena: 'Renata diseña textiles en São Paulo. Su colección de almohadones y tapicería traslada el lenguaje geométrico del Neoplasticismo al plano textil, explorando la textura como variable visual.',
-            instagram: '@plano.tactil', behance: 'behance.net/renatasouza',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-06.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-06.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-07', alias: '@neo.objeto', nombre: 'Emilio Fonseca', pais: 'Portugal',
-            descripcion: 'Luminaria de techo en acero lacado: composición de planos de colores primarios suspendidos.',
-            resena: 'Emilio trabaja en Lisboa en el campo del diseño de iluminación. Su luminaria suspendida recupera la lógica compositiva de Mondrian en un objeto tridimensional funcional.',
-            instagram: '@neo.objeto', behance: '',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-07.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-07.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-08', alias: '@cubo.util', nombre: 'Mariana Lopes', pais: 'México',
-            descripcion: 'Juego de escritorio con organizador modular ortogonal en madera natural y color primario.',
-            resena: 'Mariana diseña objetos de escritorio en Ciudad de México. Su organizador modular aplica los principios del sistema De Stijl al producto de oficina, combinando madera natural con acabados en color primario.',
-            instagram: '@cubo.util', behance: 'behance.net/marianalopes',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-08.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-08.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-09', alias: '@eje.vertical', nombre: 'Ricardo Alves', pais: 'Venezuela',
-            descripcion: 'Perchero de pie con estructura de varillas en ángulo recto y perillas de color primario.',
-            resena: 'Ricardo trabaja el diseño de mobiliario desde Caracas. Su perchero es un objeto funcional que, como la Silla Roja y Azul, exhibe con orgullo su estructura como lenguaje formal.',
-            instagram: '', behance: 'behance.net/ricardoalves',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-09.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-09.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-10', alias: '@trama.neo', nombre: 'Julia Navarro', pais: 'Uruguay',
-            descripcion: 'Alfombra tejida en lana con composición geométrica neoplasticista de 200×200 cm.',
-            resena: 'Julia combina la tradición artesanal del tejido uruguayo con el lenguaje formal del Neoplasticismo. Su alfombra es pieza única, tejida a mano en telar de cuatro marcos.',
-            instagram: '@trama.neo', behance: '',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-10.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-10.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-11', alias: '@volumen.primario', nombre: 'Pablo Sáez', pais: 'Argentina',
-            descripcion: 'Escultura funcional: mesa de centro en acrílico de colores primarios con estructura de acero negro.',
-            resena: 'Pablo trabaja en la intersección del diseño industrial y la escultura. Su mesa de centro cuestiona los límites entre objeto funcional y obra de arte, dentro del marco formal del Neoplasticismo.',
-            instagram: '@volumen.primario', behance: 'behance.net/pablosaez',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-11.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-11.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-13', alias: '@linea.objeto', nombre: 'Carla Medina', pais: 'Paraguay',
-            descripcion: 'Juego de portarretratos modulares en madera y acrílico con sistema de ensamble sin tornillos.',
-            resena: 'Carla diseña en Asunción objetos para el hogar que dialogan con la tradición geométrica europea desde una producción local y artesanal.',
-            instagram: '@linea.objeto', behance: '',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-13.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-13.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-14', alias: '@neo.mueble', nombre: 'Hernán Giménez', pais: 'Argentina',
-            descripcion: 'Biblioteca de pared en módulos de madera con frentes pintados en color primario.',
-            resena: 'Hernán trabaja como ebanista y diseñador de interiores en Buenos Aires. Esta biblioteca modular puede reconfigurarse según el espacio disponible, manteniendo la coherencia del sistema formal neoplasticista.',
-            instagram: '', behance: 'behance.net/hernangimenez',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-14.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-14.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-15', alias: '@plano.asiento', nombre: 'Ignacio Ruíz', pais: 'Bolivia',
-            descripcion: 'Banqueta apilable en chapa doblada: reducción al plano mínimo y estructura visible.',
-            resena: 'Ignacio desarrolla diseño de producto en La Paz con materiales industriales accesibles. Su banqueta es producible en serie con mínima inversión, democratizando el acceso al diseño neoplasticista.',
-            instagram: '@plano.asiento', behance: '',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-15.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-15.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'di-16', alias: '@neo.contenedor', nombre: 'Sofía Bravo', pais: 'Ecuador',
-            descripcion: 'Macetero de cerámica con patrón geométrico neoplasticista: color y línea como ornamento mínimo.',
-            resena: 'Sofía trabaja en Quito con cerámica artesanal. Su colección de maceteros lleva el lenguaje geométrico del Neoplasticismo al objeto doméstico cotidiano en pequeño formato.',
-            instagram: '@neo.contenedor', behance: 'behance.net/sofiabravo',
-            portada: '../img/6-foroypublicaciones.disenoindustrial-16.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenoindustrial-16.jpg'],
-            rama: 'disenoindustrial', ramaLabel: 'Diseño Industrial', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        }
+        { id:'di-01', alias:'@objeto.neo', nombre:'Felipe Crespo', pais:'España', descripcion:'Lámpara de mesa con estructura modular ortogonal y difusor en los tres colores primarios.', resena:'Felipe es diseñador industrial graduado en Barcelona.', instagram:'@objeto.neo', behance:'behance.net/felipecrespo', portada:'../img/6-foroypublicaciones.disenoindustrial-01.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-01.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-02', alias:'@grid.product', nombre:'Tamara Bloch', pais:'Alemania', descripcion:'Mesa auxiliar de madera maciza: geometría pura, color primario en los planos de apoyo.', resena:'Tamara diseña desde Berlín objetos de mobiliario.', instagram:'', behance:'behance.net/tamarabloch', portada:'../img/6-foroypublicaciones.disenoindustrial-02.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-02.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-03', alias:'@forma.util', nombre:'Nicolás Paz', pais:'Argentina', descripcion:'Set de vajilla con decoración geométrica neoplasticista en cerámica.', resena:'Nicolás trabaja en Mendoza con cerámica artesanal.', instagram:'@forma.util', behance:'', portada:'../img/6-foroypublicaciones.disenoindustrial-03.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-03.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-04', alias:'@estructura.visible', nombre:'Clara Muñoz', pais:'Colombia', descripcion:'Silla de líneas ortogonales en varilla metálica: la estructura como ornamento.', resena:'Clara investiga la relación entre estructura y forma en el mobiliario.', instagram:'@estructura.visible', behance:'behance.net/claramunoz', portada:'../img/6-foroypublicaciones.disenoindustrial-04.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-04.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-05', alias:'@modulo.rojo', nombre:'Agustín Vera', pais:'Chile', descripcion:'Sistema modular de estantería con piezas intercambiables en los cuatro colores neoplasticistas.', resena:'Agustín desarrolló este sistema como proyecto de tesis.', instagram:'@modulo.rojo', behance:'', portada:'../img/6-foroypublicaciones.disenoindustrial-05.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-05.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-06', alias:'@plano.tactil', nombre:'Renata Souza', pais:'Brasil', descripcion:'Colección de almohadones y textiles con pattern neoplasticista.', resena:'Renata diseña textiles en São Paulo.', instagram:'@plano.tactil', behance:'behance.net/renatasouza', portada:'../img/6-foroypublicaciones.disenoindustrial-06.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-06.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-07', alias:'@neo.objeto', nombre:'Emilio Fonseca', pais:'Portugal', descripcion:'Luminaria de techo en acero lacado con planos de colores primarios suspendidos.', resena:'Emilio trabaja en Lisboa en diseño de iluminación.', instagram:'@neo.objeto', behance:'', portada:'../img/6-foroypublicaciones.disenoindustrial-07.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-07.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-08', alias:'@cubo.util', nombre:'Mariana Lopes', pais:'México', descripcion:'Organizador modular ortogonal en madera natural y color primario.', resena:'Mariana diseña objetos de escritorio en Ciudad de México.', instagram:'@cubo.util', behance:'behance.net/marianalopes', portada:'../img/6-foroypublicaciones.disenoindustrial-08.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-08.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-09', alias:'@eje.vertical', nombre:'Ricardo Alves', pais:'Venezuela', descripcion:'Perchero de pie con estructura de varillas en ángulo recto y perillas de color primario.', resena:'Ricardo trabaja el diseño de mobiliario desde Caracas.', instagram:'', behance:'behance.net/ricardoalves', portada:'../img/6-foroypublicaciones.disenoindustrial-09.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-09.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-10', alias:'@trama.neo', nombre:'Julia Navarro', pais:'Uruguay', descripcion:'Alfombra tejida en lana con composición geométrica neoplasticista de 200×200 cm.', resena:'Julia combina la tradición artesanal del tejido uruguayo con el lenguaje del Neoplasticismo.', instagram:'@trama.neo', behance:'', portada:'../img/6-foroypublicaciones.disenoindustrial-10.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-10.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-11', alias:'@volumen.primario', nombre:'Pablo Sáez', pais:'Argentina', descripcion:'Mesa de centro en acrílico de colores primarios con estructura de acero negro.', resena:'Pablo trabaja en la intersección del diseño industrial y la escultura.', instagram:'@volumen.primario', behance:'behance.net/pablosaez', portada:'../img/6-foroypublicaciones.disenoindustrial-11.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-11.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-13', alias:'@linea.objeto', nombre:'Carla Medina', pais:'Paraguay', descripcion:'Portarretratos modulares en madera y acrílico con sistema de ensamble sin tornillos.', resena:'Carla diseña en Asunción objetos para el hogar.', instagram:'@linea.objeto', behance:'', portada:'../img/6-foroypublicaciones.disenoindustrial-13.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-13.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-14', alias:'@neo.mueble', nombre:'Hernán Giménez', pais:'Argentina', descripcion:'Biblioteca de pared en módulos de madera con frentes pintados en color primario.', resena:'Hernán trabaja como ebanista y diseñador de interiores en Buenos Aires.', instagram:'', behance:'behance.net/hernangimenez', portada:'../img/6-foroypublicaciones.disenoindustrial-14.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-14.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-15', alias:'@plano.asiento', nombre:'Ignacio Ruíz', pais:'Bolivia', descripcion:'Banqueta apilable en chapa doblada: reducción al plano mínimo y estructura visible.', resena:'Ignacio desarrolla diseño de producto en La Paz.', instagram:'@plano.asiento', behance:'', portada:'../img/6-foroypublicaciones.disenoindustrial-15.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-15.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'di-16', alias:'@neo.contenedor', nombre:'Sofía Bravo', pais:'Ecuador', descripcion:'Macetero de cerámica con patrón geométrico neoplasticista.', resena:'Sofía trabaja en Quito con cerámica artesanal.', instagram:'@neo.contenedor', behance:'behance.net/sofiabravo', portada:'../img/6-foroypublicaciones.disenoindustrial-16.jpg', fotos:['../img/6-foroypublicaciones.disenoindustrial-16.jpg'], rama:'disenoindustrial', ramaLabel:'Diseño Industrial', ramaIcono:'../img/a-img-icono-disenoindustrial.png' }
     ],
-
     disenografico: [
-        {
-            id: 'dg-01', alias: '@grid.type', nombre: 'Elena Mora', pais: 'España',
-            descripcion: 'Sistema de identidad visual para estudio de arte basado en la grilla neoplasticista.',
-            resena: 'Elena es diseñadora gráfica en Madrid. Su sistema de identidad visual recupera los principios tipográficos y compositivos del Neoplasticismo para articular la comunicación de un estudio de arte contemporáneo.',
-            instagram: '@grid.type', behance: 'behance.net/elenamora',
-            portada: '../img/6-foroypublicaciones.disenografico-01.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenografico-01.jpg'],
-            rama: 'disenografico', ramaLabel: 'Diseño Gráfico', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'dg-02', alias: '@tipografia.pura', nombre: 'Marcos Vidal', pais: 'Argentina',
-            descripcion: 'Familia tipográfica modular construida sobre grilla cuadrada de inspiración neoplasticista.',
-            resena: 'Marcos investiga el diseño tipográfico desde Buenos Aires. Su alfabeto modular toma como punto de partida el trabajo tipográfico de Van Doesburg, actualizando sus principios con herramientas digitales contemporáneas.',
-            instagram: '@tipografia.pura', behance: 'behance.net/marcosvidal',
-            portada: '../img/6-foroypublicaciones.disenografico-02.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenografico-02.jpg'],
-            rama: 'disenografico', ramaLabel: 'Diseño Gráfico', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'dg-03', alias: '@analisis.neo', nombre: 'Valentina Rueda',
-            pais: 'Colombia',
-            descripcion: 'Análisis compositivo de obras neoplasticistas: deconstrucción de la grilla, el color y la proporción.',
-            resena: 'Valentina es estudiante de Diseño Gráfico en la Universidad de los Andes. Este trabajo académico descompone la estructura compositiva de tres obras clave del Neoplasticismo, revelando los sistemas formales subyacentes.',
-            instagram: '', behance: 'behance.net/valentinarueda',
-            portada: '../img/6-foroypublicaciones.disenografico-03.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenografico-03.jpg'],
-            rama: 'disenografico', ramaLabel: 'Diseño Gráfico', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'dg-04', alias: '@afiche.puro', nombre: 'Luciana Pont', pais: 'Argentina',
-            descripcion: 'Serie de afiches de conciertos de música contemporánea con lenguaje visual De Stijl.',
-            resena: 'Luciana es diseñadora gráfica en Córdoba. Su serie de afiches para ciclos de música contemporánea aplica el vocabulario visual neoplasticista —grilla, tipografía de palo seco, color primario— al campo del diseño editorial para espectáculos.',
-            instagram: '@afiche.puro', behance: '',
-            portada: '../img/6-foroypublicaciones.disenografico-04.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenografico-04.jpg'],
-            rama: 'disenografico', ramaLabel: 'Diseño Gráfico', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'dg-05', alias: '@retícula.viva', nombre: 'Diego Soto', pais: 'Chile',
-            descripcion: 'Packaging para línea de productos orgánicos: austeridad formal y color primario como señal de identidad.',
-            resena: 'Diego trabaja en Santiago en diseño de packaging. Su propuesta para una línea de productos orgánicos rompe con los códigos visuales habituales del sector, apostando por la austeridad geométrica del Neoplasticismo como diferenciador.',
-            instagram: '@reticula.viva', behance: 'behance.net/diegosoto',
-            portada: '../img/6-foroypublicaciones.disenografico-05.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenografico-05.jpg'],
-            rama: 'disenografico', ramaLabel: 'Diseño Gráfico', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'dg-06', alias: '@neo.editorial', nombre: 'Paula Espinosa', pais: 'México',
-            descripcion: 'Diseño editorial de catálogo de arte con sistema modular de grilla neoplasticista.',
-            resena: 'Paula diseña publicaciones de arte en Ciudad de México. Su catálogo aplica un sistema de grilla estricta y jerarquía tipográfica inspirada en la tradición editorial De Stijl.',
-            instagram: '@neo.editorial', behance: 'behance.net/paulaespinosa',
-            portada: '../img/6-foroypublicaciones.disenografico-06.jpg',
-            fotos: ['../img/6-foroypublicaciones.disenografico-06.jpg'],
-            rama: 'disenografico', ramaLabel: 'Diseño Gráfico', ramaIcono: '../img/a-img-icono-disenografico.png'
-        }
+        { id:'dg-01', alias:'@grid.type', nombre:'Elena Mora', pais:'España', descripcion:'Sistema de identidad visual para estudio de arte basado en la grilla neoplasticista.', resena:'Elena es diseñadora gráfica en Madrid.', instagram:'@grid.type', behance:'behance.net/elenamora', portada:'../img/6-foroypublicaciones.disenografico-01.jpg', fotos:['../img/6-foroypublicaciones.disenografico-01.jpg'], rama:'disenografico', ramaLabel:'Diseño Gráfico', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'dg-02', alias:'@tipografia.pura', nombre:'Marcos Vidal', pais:'Argentina', descripcion:'Familia tipográfica modular construida sobre grilla cuadrada de inspiración neoplasticista.', resena:'Marcos investiga el diseño tipográfico desde Buenos Aires.', instagram:'@tipografia.pura', behance:'behance.net/marcosvidal', portada:'../img/6-foroypublicaciones.disenografico-02.jpg', fotos:['../img/6-foroypublicaciones.disenografico-02.jpg'], rama:'disenografico', ramaLabel:'Diseño Gráfico', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'dg-03', alias:'@analisis.neo', nombre:'Valentina Rueda', pais:'Colombia', descripcion:'Análisis compositivo de obras neoplasticistas: deconstrucción de la grilla, el color y la proporción.', resena:'Valentina es estudiante de Diseño Gráfico en la Universidad de los Andes.', instagram:'', behance:'behance.net/valentinarueda', portada:'../img/6-foroypublicaciones.disenografico-03.jpg', fotos:['../img/6-foroypublicaciones.disenografico-03.jpg'], rama:'disenografico', ramaLabel:'Diseño Gráfico', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'dg-04', alias:'@afiche.puro', nombre:'Luciana Pont', pais:'Argentina', descripcion:'Serie de afiches de conciertos con lenguaje visual De Stijl.', resena:'Luciana es diseñadora gráfica en Córdoba.', instagram:'@afiche.puro', behance:'', portada:'../img/6-foroypublicaciones.disenografico-04.jpg', fotos:['../img/6-foroypublicaciones.disenografico-04.jpg'], rama:'disenografico', ramaLabel:'Diseño Gráfico', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'dg-05', alias:'@reticula.viva', nombre:'Diego Soto', pais:'Chile', descripcion:'Packaging para línea de productos orgánicos con austeridad formal y color primario.', resena:'Diego trabaja en Santiago en diseño de packaging.', instagram:'@reticula.viva', behance:'behance.net/diegosoto', portada:'../img/6-foroypublicaciones.disenografico-05.jpg', fotos:['../img/6-foroypublicaciones.disenografico-05.jpg'], rama:'disenografico', ramaLabel:'Diseño Gráfico', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'dg-06', alias:'@neo.editorial', nombre:'Paula Espinosa', pais:'México', descripcion:'Diseño editorial de catálogo de arte con sistema modular de grilla neoplasticista.', resena:'Paula diseña publicaciones de arte en Ciudad de México.', instagram:'@neo.editorial', behance:'behance.net/paulaespinosa', portada:'../img/6-foroypublicaciones.disenografico-06.jpg', fotos:['../img/6-foroypublicaciones.disenografico-06.jpg'], rama:'disenografico', ramaLabel:'Diseño Gráfico', ramaIcono:'../img/a-img-icono-disenografico.png' }
     ],
-
     indumentaria: [
-        {
-            id: 'ind-01', alias: '@costura.neo', nombre: 'Romina Farías', pais: 'Argentina',
-            descripcion: 'Colección cápsula de cinco prendas con aplicaciones geométricas en los colores primarios del Neoplasticismo.',
-            resena: 'Romina es diseñadora de indumentaria egresada de la Universidad de Palermo. Su colección cápsula dialoga explícitamente con los principios formales del Neoplasticismo, llevando la grilla y el color primario a la construcción de la prenda.',
-            instagram: '@costura.neo', behance: '',
-            portada: '../img/6-foroypublicaciones.indumentaria-01.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-01.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-02', alias: '@plano.textil', nombre: 'Andrea Gómez', pais: 'Colombia',
-            descripcion: 'Serie de 5 looks con construcción geométrica y paleta primaria sobre base blanca.',
-            resena: 'Andrea trabaja en Bogotá como diseñadora de moda. Su serie de cinco looks aplica los principios compositivos del Neoplasticismo a la construcción de la prenda, tratando cada pieza como un plano en el espacio tridimensional del cuerpo.',
-            instagram: '@plano.textil', behance: 'behance.net/andreagomez',
-            portada: '../img/6-foroypublicaciones.indumentaria-02.jpg',
-            fotos: [
-                '../img/6-foroypublicaciones.indumentaria-02.jpg',
-                '../img/6-foroypublicaciones.indumentaria-03.jpg',
-                '../img/6-foroypublicaciones.indumentaria-04.jpg',
-                '../img/6-foroypublicaciones.indumentaria-05.jpg',
-                '../img/6-foroypublicaciones.indumentaria-06.jpg'
-            ],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-07', alias: '@construccion.forma', nombre: 'Natalia Ibáñez', pais: 'Chile',
-            descripcion: 'Dos prendas estructuradas con volumen geométrico y color primario como eje constructivo.',
-            resena: 'Natalia investiga la construcción de volumen en la indumentaria desde Santiago. Sus prendas exploran la tridimensionalidad de la geometría neoplasticista aplicada al cuerpo como soporte.',
-            instagram: '@construccion.forma', behance: '',
-            portada: '../img/6-foroypublicaciones.indumentaria-07a.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-07a.jpg', '../img/6-foroypublicaciones.indumentaria-07b.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-08', alias: '@tejido.geo', nombre: 'Paula Ramos', pais: 'Perú',
-            descripcion: 'Tejido jacquard con patrón geométrico neoplasticista integrado en la trama del textil.',
-            resena: 'Paula combina la tradición textil andina con la geometría del Neoplasticismo. Su tejido jacquard integra el patrón en la estructura misma del textil, sin intervención posterior.',
-            instagram: '@tejido.geo', behance: 'behance.net/paularamos',
-            portada: '../img/6-foroypublicaciones.indumentaria-08.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-08.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-09', alias: '@accesorio.primo', nombre: 'Lucía Vargas', pais: 'Brasil',
-            descripcion: 'Colección de accesorios —cinturones, collares y carteras— con motivos neoplasticistas en cuero y acrílico.',
-            resena: 'Lucía diseña accesorios en Río de Janeiro. Su colección lleva el lenguaje geométrico del Neoplasticismo al accesorio de moda, trabajando con cuero natural y acrílico de color primario.',
-            instagram: '@accesorio.primo', behance: '',
-            portada: '../img/6-foroypublicaciones.indumentaria-09.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-09.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-10', alias: '@patron.geometrico', nombre: 'Sofía Quispe', pais: 'Bolivia',
-            descripcion: 'Estampado digital de patrón neoplasticista aplicado sobre tela de algodón para confección.',
-            resena: 'Sofía diseña estampados digitales en Cochabamba. Su patrón neoplasticista está disponible para licenciar a productoras textiles que quieran incorporar este lenguaje a sus colecciones.',
-            instagram: '@patron.geometrico', behance: 'behance.net/sofiaquispe',
-            portada: '../img/6-foroypublicaciones.indumentaria-10.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-10.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-11', alias: '@neo.wearable', nombre: 'Carla Pereira', pais: 'Portugal',
-            descripcion: 'Colección de joyería geométrica en latón con acabados en color primario.',
-            resena: 'Carla trabaja en Porto en el campo de la joyería contemporánea. Su colección lleva la abstracción geométrica del Neoplasticismo a la joya, construyendo piezas que funcionan como esculturas mínimas portables.',
-            instagram: '@neo.wearable', behance: '',
-            portada: '../img/6-foroypublicaciones.indumentaria-11.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-11.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-12', alias: '@cuerpo.plano', nombre: 'Jimena Salinas', pais: 'Argentina',
-            descripcion: 'Exploración de la silueta plana y el corte recto como lenguaje formal en la construcción de la prenda.',
-            resena: 'Jimena es estudiante avanzada de Diseño de Indumentaria en la UBA. Este proyecto de tesis explora la silueta plana y el corte recto como lenguaje formal coherente con los principios del Neoplasticismo.',
-            instagram: '@cuerpo.plano', behance: 'behance.net/jimenasalinas',
-            portada: '../img/6-foroypublicaciones.indumentaria-12.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-12.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        },
-        {
-            id: 'ind-13', alias: '@zapatilla.intervenida', nombre: 'Tomás Mercado', pais: 'Argentina',
-            descripcion: 'Intervención artística de zapatilla base: pintura acrílica con composición neoplasticista sobre calzado.',
-            resena: 'Tomás trabaja en Buenos Aires interviniendo objetos de consumo masivo con el lenguaje del Neoplasticismo. Esta pieza única, sobre una zapatilla de marca comercial, cuestiona el límite entre el arte, el diseño y la cultura popular.',
-            instagram: '@zapatilla.intervenida', behance: '',
-            portada: '../img/6-foroypublicaciones.indumentaria-13.jpg',
-            fotos: ['../img/6-foroypublicaciones.indumentaria-13.jpg'],
-            rama: 'indumentaria', ramaLabel: 'Indumentaria', ramaIcono: '../img/a-img-icono-disenoindustrial.png'
-        }
+        { id:'ind-01', alias:'@costura.neo', nombre:'Romina Farías', pais:'Argentina', descripcion:'Colección cápsula de cinco prendas con aplicaciones geométricas en colores primarios.', resena:'Romina es diseñadora de indumentaria egresada de la Universidad de Palermo.', instagram:'@costura.neo', behance:'', portada:'../img/6-foroypublicaciones.indumentaria-01.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-01.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-02', alias:'@plano.textil', nombre:'Andrea Gómez', pais:'Colombia', descripcion:'Serie de 5 looks con construcción geométrica y paleta primaria sobre base blanca.', resena:'Andrea trabaja en Bogotá como diseñadora de moda.', instagram:'@plano.textil', behance:'behance.net/andreagomez', portada:'../img/6-foroypublicaciones.indumentaria-02.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-02.jpg','../img/6-foroypublicaciones.indumentaria-03.jpg','../img/6-foroypublicaciones.indumentaria-04.jpg','../img/6-foroypublicaciones.indumentaria-05.jpg','../img/6-foroypublicaciones.indumentaria-06.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-07', alias:'@construccion.forma', nombre:'Natalia Ibáñez', pais:'Chile', descripcion:'Dos prendas estructuradas con volumen geométrico y color primario como eje constructivo.', resena:'Natalia investiga la construcción de volumen en la indumentaria desde Santiago.', instagram:'@construccion.forma', behance:'', portada:'../img/6-foroypublicaciones.indumentaria-07a.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-07a.jpg','../img/6-foroypublicaciones.indumentaria-07b.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-08', alias:'@tejido.geo', nombre:'Paula Ramos', pais:'Perú', descripcion:'Tejido jacquard con patrón geométrico neoplasticista integrado en la trama del textil.', resena:'Paula combina la tradición textil andina con la geometría del Neoplasticismo.', instagram:'@tejido.geo', behance:'behance.net/paularamos', portada:'../img/6-foroypublicaciones.indumentaria-08.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-08.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-09', alias:'@accesorio.primo', nombre:'Lucía Vargas', pais:'Brasil', descripcion:'Colección de accesorios con motivos neoplasticistas en cuero y acrílico.', resena:'Lucía diseña accesorios en Río de Janeiro.', instagram:'@accesorio.primo', behance:'', portada:'../img/6-foroypublicaciones.indumentaria-09.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-09.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-10', alias:'@patron.geometrico', nombre:'Sofía Quispe', pais:'Bolivia', descripcion:'Estampado digital de patrón neoplasticista sobre tela de algodón.', resena:'Sofía diseña estampados digitales en Cochabamba.', instagram:'@patron.geometrico', behance:'behance.net/sofiaquispe', portada:'../img/6-foroypublicaciones.indumentaria-10.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-10.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-11', alias:'@neo.wearable', nombre:'Carla Pereira', pais:'Portugal', descripcion:'Colección de joyería geométrica en latón con acabados en color primario.', resena:'Carla trabaja en Porto en el campo de la joyería contemporánea.', instagram:'@neo.wearable', behance:'', portada:'../img/6-foroypublicaciones.indumentaria-11.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-11.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-12', alias:'@cuerpo.plano', nombre:'Jimena Salinas', pais:'Argentina', descripcion:'Exploración de la silueta plana y el corte recto como lenguaje formal.', resena:'Jimena es estudiante avanzada de Diseño de Indumentaria en la UBA.', instagram:'@cuerpo.plano', behance:'behance.net/jimenasalinas', portada:'../img/6-foroypublicaciones.indumentaria-12.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-12.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' },
+        { id:'ind-13', alias:'@zapatilla.intervenida', nombre:'Tomás Mercado', pais:'Argentina', descripcion:'Intervención artística de zapatilla base con composición neoplasticista.', resena:'Tomás trabaja en Buenos Aires interviniendo objetos de consumo masivo.', instagram:'@zapatilla.intervenida', behance:'', portada:'../img/6-foroypublicaciones.indumentaria-13.jpg', fotos:['../img/6-foroypublicaciones.indumentaria-13.jpg'], rama:'indumentaria', ramaLabel:'Indumentaria', ramaIcono:'../img/a-img-icono-disenoindustrial.png' }
     ],
-
     otros: [
-        {
-            id: 'pub-01', alias: '@neo.publicidad', nombre: 'Renato Vargas', pais: 'Perú',
-            descripcion: 'Campaña publicitaria para marca de agua mineral: austeridad formal neoplasticista como posicionamiento premium.',
-            resena: 'Renato es director creativo en Lima. Su campaña aplica el vocabulario austero del Neoplasticismo —planos de color, tipografía de palo seco, grilla estricta— al brief de una marca de agua mineral premium.',
-            instagram: '@neo.publicidad', behance: 'behance.net/renatovargaz',
-            portada: '../img/6-foroypublicaciones.publicidad-01.jpg',
-            fotos: ['../img/6-foroypublicaciones.publicidad-01.jpg'],
-            rama: 'otros', ramaLabel: 'Otros', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'pub-02', alias: '@motion.geo', nombre: 'Camilo Nieto', pais: 'Colombia',
-            descripcion: 'Motion graphics con composiciones animadas inspiradas en la dinámica formal del Neoplasticismo.',
-            resena: 'Camilo trabaja en motion design en Medellín. Sus piezas animadas llevan la composición estática del Neoplasticismo al movimiento, explorando la temporalidad como nueva dimensión del lenguaje formal del movimiento.',
-            instagram: '@motion.geo', behance: 'behance.net/camilonieto',
-            portada: '../img/6-foroypublicaciones.publicidad-02.jpg',
-            fotos: ['../img/6-foroypublicaciones.publicidad-02.jpg'],
-            rama: 'otros', ramaLabel: 'Otros', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'pub-03', alias: '@neo.mural', nombre: 'Ignacio Valdés', pais: 'Chile',
-            descripcion: 'Mural de intervención urbana de 40 m²: Neoplasticismo en el espacio público de Santiago.',
-            resena: 'Ignacio trabaja el muralismo urbano desde Santiago. Esta intervención en el barrio Italia recupera el lenguaje formal del Neoplasticismo para el espacio público, dialogando con la tradición del muralismo latinoamericano.',
-            instagram: '@neo.mural', behance: '',
-            portada: '../img/6-foroypublicaciones.publicidad-03.jpg',
-            fotos: ['../img/6-foroypublicaciones.publicidad-03.jpg'],
-            rama: 'otros', ramaLabel: 'Otros', ramaIcono: '../img/a-img-icono-disenografico.png'
-        },
-        {
-            id: 'pub-04', alias: '@instalacion.neo', nombre: 'Gabriela Font', pais: 'España',
-            descripcion: 'Instalación site-specific en galería: planos de color suspendidos que componen en el espacio tridimensional.',
-            resena: 'Gabriela trabaja el arte de instalación en Barcelona. Su obra site-specific para galería lleva la composición neoplasticista al espacio tridimensional, convirtiendo al espectador en parte de la composición misma.',
-            instagram: '@instalacion.neo', behance: 'behance.net/gabrielafont',
-            portada: '../img/6-foroypublicaciones.publicidad-04.jpg',
-            fotos: [
-                '../img/6-foroypublicaciones.publicidad-04.jpg',
-                '../img/6-foroypublicaciones.publicidad-05.jpg',
-                '../img/6-foroypublicaciones.publicidad-06.jpg'
-            ],
-            rama: 'otros', ramaLabel: 'Otros', ramaIcono: '../img/a-img-icono-disenografico.png'
-        }
+        { id:'pub-01', alias:'@neo.publicidad', nombre:'Renato Vargas', pais:'Perú', descripcion:'Campaña publicitaria para marca de agua mineral con austeridad formal neoplasticista.', resena:'Renato es director creativo en Lima.', instagram:'@neo.publicidad', behance:'behance.net/renatovargaz', portada:'../img/6-foroypublicaciones.publicidad-01.jpg', fotos:['../img/6-foroypublicaciones.publicidad-01.jpg'], rama:'otros', ramaLabel:'Otros', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'pub-02', alias:'@motion.geo', nombre:'Camilo Nieto', pais:'Colombia', descripcion:'Motion graphics con composiciones animadas inspiradas en el Neoplasticismo.', resena:'Camilo trabaja en motion design en Medellín.', instagram:'@motion.geo', behance:'behance.net/camilonieto', portada:'../img/6-foroypublicaciones.publicidad-02.jpg', fotos:['../img/6-foroypublicaciones.publicidad-02.jpg'], rama:'otros', ramaLabel:'Otros', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'pub-03', alias:'@neo.mural', nombre:'Ignacio Valdés', pais:'Chile', descripcion:'Mural de intervención urbana de 40 m² en el espacio público de Santiago.', resena:'Ignacio trabaja el muralismo urbano desde Santiago.', instagram:'@neo.mural', behance:'', portada:'../img/6-foroypublicaciones.publicidad-03.jpg', fotos:['../img/6-foroypublicaciones.publicidad-03.jpg'], rama:'otros', ramaLabel:'Otros', ramaIcono:'../img/a-img-icono-disenografico.png' },
+        { id:'pub-04', alias:'@instalacion.neo', nombre:'Gabriela Font', pais:'España', descripcion:'Instalación site-specific: planos de color suspendidos en el espacio tridimensional.', resena:'Gabriela trabaja el arte de instalación en Barcelona.', instagram:'@instalacion.neo', behance:'behance.net/gabrielafont', portada:'../img/6-foroypublicaciones.publicidad-04.jpg', fotos:['../img/6-foroypublicaciones.publicidad-04.jpg','../img/6-foroypublicaciones.publicidad-05.jpg','../img/6-foroypublicaciones.publicidad-06.jpg'], rama:'otros', ramaLabel:'Otros', ramaIcono:'../img/a-img-icono-disenografico.png' }
     ]
 };
 
-/* ============================================================
-   LABELS Y CONFIGURACIÓN DE RAMAS
-============================================================ */
-
-const ramasConfig = {
-    pintura:          { label: 'pintura', icono: '../img/a-img-icono-pintura.png' },
-    arquitectura:     { label: 'arquitectura', icono: '../img/a-img-icono-arquitectura.png' },
+/* ---- CONFIG RAMAS ---- */
+var ramasConfig = {
+    pintura:          { label: 'pintura',           icono: '../img/a-img-icono-pintura.png' },
+    arquitectura:     { label: 'arquitectura',      icono: '../img/a-img-icono-arquitectura.png' },
     disenoindustrial: { label: 'diseño industrial', icono: '../img/a-img-icono-disenoindustrial.png' },
-    disenografico:    { label: 'diseño gráfico', icono: '../img/a-img-icono-disenografico.png' },
-    indumentaria:     { label: 'indumentaria', icono: '../img/a-img-icono-disenoindustrial.png' },
-    otros:            { label: 'otros', icono: '../img/a-img-icono-disenografico.png' }
+    disenografico:    { label: 'diseño gráfico',    icono: '../img/a-img-icono-disenografico.png' },
+    indumentaria:     { label: 'indumentaria',      icono: '../img/a-img-icono-disenoindustrial.png' },
+    otros:            { label: 'otros',             icono: '../img/a-img-icono-disenografico.png' }
 };
 
-let ramaActiva = 'pintura';
-let pubActual  = null;
+var ramaActiva = 'pintura';
+var pubActual  = null;
 
-/* ============================================================
-   FILTRAR RAMA Y RENDERIZAR CARRUSEL
-============================================================ */
-
-function filtrarRama(rama, btnEl) {
+/* ---- FILTRAR RAMA ---- */
+window.filtrarRama = function(rama, btnEl) {
     ramaActiva = rama;
 
     document.querySelectorAll('.foro-card-btn').forEach(function(b) {
@@ -1470,45 +977,58 @@ function filtrarRama(rama, btnEl) {
     });
     if (btnEl) btnEl.classList.add('activo');
 
-    const config = ramasConfig[rama];
-    document.getElementById('foro-rama-icono').src = config.icono;
-    document.getElementById('foro-rama-nombre').textContent = config.label;
-
+    var config = ramasConfig[rama];
+    if (config) {
+        var iconoEl  = document.getElementById('foro-rama-icono');
+        var nombreEl = document.getElementById('foro-rama-nombre');
+        if (iconoEl)  iconoEl.src          = config.icono;
+        if (nombreEl) nombreEl.textContent = config.label;
+    }
     renderizarTrack(rama);
-}
+};
 
+/* ---- RENDERIZAR CARDS ---- */
 function renderizarTrack(rama) {
-    const track = document.getElementById('foro-track');
-    const pubs  = publicacionesData[rama] || [];
+    var track = document.getElementById('foro-track');
+    if (!track) return;
 
+    var pubs = publicacionesData[rama] || [];
     track.innerHTML = '';
 
     pubs.forEach(function(pub, i) {
-        const redes = construirRedesCard(pub);
-
-        const card = document.createElement('div');
+        var card = document.createElement('div');
         card.className = 'foro-card' + (i === 0 ? ' activo' : '');
 
-        /* Imagen de fondo */
-        card.style.backgroundImage  = 'url("' + pub.portada + '")';
-        card.style.backgroundSize   = 'cover';
-        card.style.backgroundPosition = 'center center';
+        /* — CLAVE: setear el background-image directamente como atributo style — */
+        card.setAttribute('style',
+            'background-image:url("' + pub.portada + '");' +
+            'background-size:cover;' +
+            'background-position:center center;' +
+            'background-repeat:no-repeat;'
+        );
 
         card.setAttribute('data-id',   pub.id);
         card.setAttribute('data-rama', rama);
+
+        var redesHtml = '';
+        if (pub.instagram) {
+            redesHtml += '<a href="https://instagram.com/' + pub.instagram.replace('@','') + '" target="_blank" class="foro-card-red-icono" title="Instagram" onclick="event.stopPropagation()"><i class="bi bi-instagram"></i></a>';
+        }
+        if (pub.behance) {
+            redesHtml += '<a href="https://' + pub.behance + '" target="_blank" class="foro-card-red-icono" title="Behance" onclick="event.stopPropagation()"><i class="bi bi-behance"></i></a>';
+        }
 
         card.innerHTML =
             '<div class="foro-card-desc">' +
                 '<span class="foro-card-alias">' + pub.alias + '</span>' +
                 '<p class="foro-card-texto">' + pub.descripcion + '</p>' +
-                '<div class="foro-card-redes">' + redes + '</div>' +
-                '<button class="foro-card-btn-mas" onclick="abrirPub(\'' + pub.id + '\', \'' + rama + '\')">' +
+                '<div class="foro-card-redes">' + redesHtml + '</div>' +
+                '<button class="foro-card-btn-mas" onclick="event.stopPropagation(); abrirPub(\'' + pub.id + '\', \'' + rama + '\')">' +
                     'más información <i class="bi bi-arrow-right"></i>' +
                 '</button>' +
             '</div>';
 
-        card.addEventListener('click', function(e) {
-            if (e.target.closest('.foro-card-btn-mas')) return;
+        card.addEventListener('click', function() {
             document.querySelectorAll('#foro-track .foro-card').forEach(function(c) {
                 c.classList.remove('activo');
             });
@@ -1519,192 +1039,156 @@ function renderizarTrack(rama) {
     });
 }
 
-function construirRedesCard(pub) {
-    let html = '';
-    if (pub.instagram) {
-        html += `<a href="https://instagram.com/${pub.instagram.replace('@','')}" target="_blank" class="foro-card-red-icono" title="Instagram"><i class="bi bi-instagram"></i></a>`;
-    }
-    if (pub.behance) {
-        html += `<a href="https://${pub.behance}" target="_blank" class="foro-card-red-icono" title="Behance"><i class="bi bi-behance"></i></a>`;
-    }
-    return html;
-}
-
-/* ============================================================
-   MODAL PUBLICACIÓN
-============================================================ */
-
-function abrirPub(id, rama) {
-    const pubs = publicacionesData[rama] || [];
-    const pub  = pubs.find(function(p) { return p.id === id; });
+/* ---- ABRIR MODAL ---- */
+window.abrirPub = function(id, rama) {
+    var pubs = publicacionesData[rama] || [];
+    var pub  = pubs.find(function(p) { return p.id === id; });
     if (!pub) return;
 
     pubActual = pub;
 
-    document.getElementById('pub-rama-icono').src       = pub.ramaIcono;
+    document.getElementById('pub-rama-icono').src         = pub.ramaIcono;
     document.getElementById('pub-rama-label').textContent = pub.ramaLabel;
-    document.getElementById('pub-alias').textContent    = pub.alias;
-    document.getElementById('pub-nombre').textContent   = pub.nombre;
-    document.getElementById('pub-pais').textContent     = pub.pais;
-    document.getElementById('pub-resena').textContent   = pub.resena;
+    document.getElementById('pub-alias').textContent      = pub.alias;
+    document.getElementById('pub-nombre').textContent     = pub.nombre;
+    document.getElementById('pub-pais').textContent       = pub.pais;
+    document.getElementById('pub-resena').textContent     = pub.resena;
 
-    /* Redes */
-    const redesEl = document.getElementById('pub-redes');
+    var redesEl = document.getElementById('pub-redes');
     redesEl.innerHTML = '';
     if (pub.instagram) {
-        redesEl.innerHTML += `<a href="https://instagram.com/${pub.instagram.replace('@','')}" target="_blank" class="modal-pub-red-link"><i class="bi bi-instagram"></i> ${pub.instagram}</a>`;
+        redesEl.innerHTML += '<a href="https://instagram.com/' + pub.instagram.replace('@','') + '" target="_blank" class="modal-pub-red-link"><i class="bi bi-instagram"></i> ' + pub.instagram + '</a>';
     }
     if (pub.behance) {
-        redesEl.innerHTML += `<a href="https://${pub.behance}" target="_blank" class="modal-pub-red-link"><i class="bi bi-behance"></i> ${pub.behance}</a>`;
+        redesEl.innerHTML += '<a href="https://' + pub.behance + '" target="_blank" class="modal-pub-red-link"><i class="bi bi-behance"></i> ' + pub.behance + '</a>';
     }
 
-    /* Carrusel imágenes */
-    const inner = document.getElementById('carrusel-pub-inner');
-    const dots  = document.getElementById('carrusel-pub-dots');
+    var inner = document.getElementById('carrusel-pub-inner');
+    var dots  = document.getElementById('carrusel-pub-dots');
     inner.innerHTML = '';
     dots.innerHTML  = '';
 
     pub.fotos.forEach(function(foto, i) {
-        inner.innerHTML += `<div class="carousel-item ${i === 0 ? 'active' : ''}"><img src="${foto}" alt="${pub.alias}"></div>`;
-        dots.innerHTML  += `<button type="button" data-bs-target="#carruselPub" data-bs-slide-to="${i}" ${i === 0 ? 'class="active"' : ''} aria-label="Imagen ${i+1}"></button>`;
+        inner.innerHTML += '<div class="carousel-item ' + (i === 0 ? 'active' : '') + '"><img src="' + foto + '" alt="' + pub.alias + '"></div>';
+        dots.innerHTML  += '<button type="button" data-bs-target="#carruselPub" data-bs-slide-to="' + i + '" ' + (i === 0 ? 'class="active"' : '') + ' aria-label="Imagen ' + (i+1) + '"></button>';
     });
 
-    const carruselEl = document.getElementById('carruselPub');
-    const carruselInst = bootstrap.Carousel.getOrCreateInstance(carruselEl);
+    var carruselEl   = document.getElementById('carruselPub');
+    var carruselInst = bootstrap.Carousel.getOrCreateInstance(carruselEl);
     carruselInst.to(0);
 
-    /* Valoración */
     document.getElementById('estrellas-input').setAttribute('data-pub-id', pub.id);
     renderizarEstrellas(pub.id);
     actualizarPromedio(pub.id);
-
-    /* Comentarios */
     renderizarComentarios(pub.id);
-    const sesion = localStorage.getItem('neo_sesion');
-    document.getElementById('comentario-form').style.display  = sesion ? 'flex' : 'none';
-    document.getElementById('comentario-aviso').style.display = sesion ? 'none' : 'block';
+
+    var sesion = localStorage.getItem('neo_sesion');
+    document.getElementById('comentario-form').style.display  = sesion ? 'flex'  : 'none';
+    document.getElementById('comentario-aviso').style.display = sesion ? 'none'  : 'block';
 
     document.getElementById('modal-pub').classList.add('activo');
     document.body.style.overflow = 'hidden';
-}
+};
 
-function cerrarPub() {
+window.cerrarPub = function() {
     document.getElementById('modal-pub').classList.remove('activo');
     document.body.style.overflow = 'auto';
     pubActual = null;
-}
+};
 
-document.getElementById('modal-pub').addEventListener('click', function(e) {
-    if (e.target === this) cerrarPub();
+/* Cerrar modal al click fuera */
+document.addEventListener('DOMContentLoaded', function() {
+    var modalPubEl = document.getElementById('modal-pub');
+    if (modalPubEl) {
+        modalPubEl.addEventListener('click', function(e) {
+            if (e.target === this) window.cerrarPub();
+        });
+    }
 });
 
-/* ============================================================
-   SISTEMA DE VALORACIÓN (localStorage)
-============================================================ */
-
+/* ---- VALORACIÓN ---- */
 function renderizarEstrellas(pubId) {
-    const contenedor = document.getElementById('estrellas-input');
-    const valoraciones = JSON.parse(localStorage.getItem('neo_valoraciones') || '{}');
-    const sesion       = localStorage.getItem('neo_sesion');
-    let miVoto = 0;
-
+    var contenedor   = document.getElementById('estrellas-input');
+    if (!contenedor) return;
+    var valoraciones = JSON.parse(localStorage.getItem('neo_valoraciones') || '{}');
+    var sesion       = localStorage.getItem('neo_sesion');
+    var miVoto = 0;
     if (sesion) {
-        const usuario = JSON.parse(sesion);
-        const key     = pubId + '_' + usuario.alias;
-        miVoto = valoraciones[key] || 0;
+        var usuario = JSON.parse(sesion);
+        miVoto = valoraciones[pubId + '_' + usuario.alias] || 0;
     }
-
     contenedor.innerHTML = '';
-    for (let i = 1; i <= 5; i++) {
-        const btn = document.createElement('button');
-        btn.className  = 'estrella-btn' + (i <= miVoto ? ' activo' : '');
+    for (var i = 1; i <= 5; i++) {
+        var btn = document.createElement('button');
+        btn.className   = 'estrella-btn' + (i <= miVoto ? ' activo' : '');
         btn.textContent = '★';
-        btn.setAttribute('data-valor', i);
-        btn.onclick = function() { votar(pubId, i); };
+        (function(valor) {
+            btn.onclick = function() { votar(pubId, valor); };
+        })(i);
         contenedor.appendChild(btn);
     }
 }
 
 function votar(pubId, valor) {
-    const sesion = localStorage.getItem('neo_sesion');
-    if (!sesion) { abrirAuth('login'); return; }
-
-    const usuario      = JSON.parse(sesion);
-    const valoraciones = JSON.parse(localStorage.getItem('neo_valoraciones') || '{}');
-    const key          = pubId + '_' + usuario.alias;
-
-    valoraciones[key] = valor;
+    var sesion = localStorage.getItem('neo_sesion');
+    if (!sesion) { window.abrirAuth('login'); return; }
+    var usuario      = JSON.parse(sesion);
+    var valoraciones = JSON.parse(localStorage.getItem('neo_valoraciones') || '{}');
+    valoraciones[pubId + '_' + usuario.alias] = valor;
     localStorage.setItem('neo_valoraciones', JSON.stringify(valoraciones));
-
     renderizarEstrellas(pubId);
     actualizarPromedio(pubId);
 }
 
 function actualizarPromedio(pubId) {
-    const valoraciones = JSON.parse(localStorage.getItem('neo_valoraciones') || '{}');
-    const votos = Object.keys(valoraciones)
-        .filter(function(k) { return k.startsWith(pubId + '_'); })
+    var valoraciones = JSON.parse(localStorage.getItem('neo_valoraciones') || '{}');
+    var votos = Object.keys(valoraciones)
+        .filter(function(k) { return k.indexOf(pubId + '_') === 0; })
         .map(function(k) { return valoraciones[k]; });
-
     if (votos.length === 0) {
-        document.getElementById('pub-promedio').textContent  = '—';
+        document.getElementById('pub-promedio').textContent   = '—';
         document.getElementById('pub-cant-votos').textContent = 'sin valoraciones aún';
         return;
     }
-
-    const suma     = votos.reduce(function(a, b) { return a + b; }, 0);
-    const promedio = (suma / votos.length).toFixed(1);
-    document.getElementById('pub-promedio').textContent  = '★ ' + promedio;
+    var suma     = votos.reduce(function(a,b) { return a+b; }, 0);
+    var promedio = (suma / votos.length).toFixed(1);
+    document.getElementById('pub-promedio').textContent   = '★ ' + promedio;
     document.getElementById('pub-cant-votos').textContent = votos.length + (votos.length === 1 ? ' valoración' : ' valoraciones');
 }
 
-/* ============================================================
-   SISTEMA DE COMENTARIOS (localStorage)
-============================================================ */
-
+/* ---- COMENTARIOS ---- */
 function renderizarComentarios(pubId) {
-    const todosLosComentarios = JSON.parse(localStorage.getItem('neo_comentarios') || '{}');
-    const comentarios = todosLosComentarios[pubId] || [];
-    const lista = document.getElementById('comentarios-lista');
-
+    var todos       = JSON.parse(localStorage.getItem('neo_comentarios') || '{}');
+    var comentarios = todos[pubId] || [];
+    var lista       = document.getElementById('comentarios-lista');
+    if (!lista) return;
     if (comentarios.length === 0) {
         lista.innerHTML = '<p style="font-family:DMSans,sans-serif;font-size:12px;color:#888;margin:0;">Todavía no hay comentarios. ¡Sé el primero!</p>';
         return;
     }
-
     lista.innerHTML = comentarios.map(function(c) {
-        return `<div class="comentario-item">
-                    <p class="comentario-item-alias">${c.alias}</p>
-                    <p class="comentario-item-texto">${c.texto}</p>
-                </div>`;
+        return '<div class="comentario-item"><p class="comentario-item-alias">' + c.alias + '</p><p class="comentario-item-texto">' + c.texto + '</p></div>';
     }).join('');
 }
 
-function enviarComentario() {
-    const sesion = localStorage.getItem('neo_sesion');
+window.enviarComentario = function() {
+    var sesion = localStorage.getItem('neo_sesion');
     if (!sesion || !pubActual) return;
-
-    const usuario = JSON.parse(sesion);
-    const texto   = document.getElementById('comentario-input').value.trim();
+    var usuario = JSON.parse(sesion);
+    var texto   = document.getElementById('comentario-input').value.trim();
     if (!texto) return;
-
-    const todosLosComentarios = JSON.parse(localStorage.getItem('neo_comentarios') || '{}');
-    if (!todosLosComentarios[pubActual.id]) todosLosComentarios[pubActual.id] = [];
-
-    todosLosComentarios[pubActual.id].push({
-        alias: usuario.alias || usuario.nombre,
-        texto: texto
-    });
-
-    localStorage.setItem('neo_comentarios', JSON.stringify(todosLosComentarios));
+    var todos = JSON.parse(localStorage.getItem('neo_comentarios') || '{}');
+    if (!todos[pubActual.id]) todos[pubActual.id] = [];
+    todos[pubActual.id].push({ alias: usuario.alias || usuario.nombre, texto: texto });
+    localStorage.setItem('neo_comentarios', JSON.stringify(todos));
     document.getElementById('comentario-input').value = '';
     renderizarComentarios(pubActual.id);
-}
+};
 
-/* ============================================================
-   INICIALIZACIÓN AL CARGAR LA PÁGINA
-============================================================ */
-
-(function initForo() {
-    filtrarRama('pintura', document.querySelector('.foro-card-btn.activo'));
-})();
+/* ---- INIT ---- */
+document.addEventListener('DOMContentLoaded', function() {
+    var track = document.getElementById('foro-track');
+    if (!track) return;
+    var btnActivo = document.querySelector('.foro-card-btn.activo');
+    window.filtrarRama('pintura', btnActivo);
+});
