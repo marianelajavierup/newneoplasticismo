@@ -19,303 +19,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-/* ============================================================
-   SISTEMA DE AUTENTICACIÓN — LOGIN / REGISTRO / SESIÓN
-============================================================ */
-
-/* --- Utilidades --- */
-
-function mostrarError(id, msg) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = msg;
-}
-
-function limpiarErrores(ids) {
-    ids.forEach(function(id) { mostrarError(id, ''); });
-}
-
-function marcarInvalido(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('invalido');
-}
-
-function limpiarInvalido(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.remove('invalido');
-}
-
-function validarEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function validarPassword(pass) {
-    return {
-        largo:    pass.length >= 6,
-        mayus:    /[A-Z]/.test(pass),
-        numero:   /[0-9]/.test(pass),
-        especial: /[^A-Za-z0-9]/.test(pass)
-    };
-}
-
-/* --- Abrir / cerrar panel --- */
-
-function abrirAuth(tab) {
-    document.getElementById('auth-overlay').classList.add('activo');
-    document.body.style.overflow = 'hidden';
-    switchTab(tab || 'login');
-}
-
-function cerrarAuth() {
-    document.getElementById('auth-overlay').classList.remove('activo');
-    document.body.style.overflow = 'auto';
-}
-
-function cerrarAuthOverlay(e) {
-    if (e.target === document.getElementById('auth-overlay')) cerrarAuth();
-}
-
-/* --- Tabs --- */
-
-function switchTab(tab) {
-    const forms = ['form-login', 'form-registro', 'form-recuperar', 'auth-exito'];
-    const tabs  = ['tab-login',  'tab-registro'];
-
-    forms.forEach(function(id) {
-        const el = document.getElementById(id);
-        if (el) el.style.display = 'none';
-    });
-    tabs.forEach(function(id) {
-        const el = document.getElementById(id);
-        if (el) el.classList.remove('activo');
-    });
-
-    if (tab === 'login') {
-        document.getElementById('form-login').style.display = 'flex';
-        document.getElementById('tab-login').classList.add('activo');
-    } else if (tab === 'registro') {
-        document.getElementById('form-registro').style.display = 'flex';
-        document.getElementById('tab-registro').classList.add('activo');
-    } else if (tab === 'recuperar') {
-        document.getElementById('form-recuperar').style.display = 'flex';
-    } else if (tab === 'exito') {
-        document.getElementById('auth-exito').style.display = 'flex';
-    }
-}
-
-/* --- Mostrar/ocultar contraseña --- */
-
-function togglePass(inputId, btn) {
-    const input = document.getElementById(inputId);
-    const icon  = btn.querySelector('i');
-    if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.replace('bi-eye', 'bi-eye-slash');
-    } else {
-        input.type = 'password';
-        icon.classList.replace('bi-eye-slash', 'bi-eye');
-    }
-}
-
-/* --- Requisitos contraseña en tiempo real --- */
-
-const regPassInput = document.getElementById('reg-pass');
-if (regPassInput) {
-    regPassInput.addEventListener('input', function() {
-        const v = validarPassword(this.value);
-        document.getElementById('req-largo').classList.toggle('cumplido', v.largo);
-        document.getElementById('req-mayus').classList.toggle('cumplido', v.mayus);
-        document.getElementById('req-numero').classList.toggle('cumplido', v.numero);
-        document.getElementById('req-especial').classList.toggle('cumplido', v.especial);
-    });
-}
-
-/* --- Mostrar campo "otro" en rama --- */
-
-const regRamaSelect = document.getElementById('reg-rama');
-if (regRamaSelect) {
-    regRamaSelect.addEventListener('change', function() {
-        const campoOtro = document.getElementById('campo-rama-otro');
-        if (campoOtro) {
-            campoOtro.style.display = this.value === 'otro' ? 'flex' : 'none';
-        }
-    });
-}
-
-/* --- Fecha máxima de nacimiento (hoy) --- */
-
-const regNacimiento = document.getElementById('reg-nacimiento');
-if (regNacimiento) {
-    regNacimiento.max = new Date().toISOString().split('T')[0];
-}
-
-/* --- LOGIN --- */
-
-function handleLogin(e) {
-    e.preventDefault();
-
-    const usuario = document.getElementById('login-usuario').value.trim();
-    const pass    = document.getElementById('login-pass').value;
-    let valido    = true;
-
-    limpiarErrores(['err-login-usuario', 'err-login-pass']);
-    limpiarInvalido('login-usuario');
-    limpiarInvalido('login-pass');
-
-    if (!usuario) {
-        mostrarError('err-login-usuario', 'Ingresá tu usuario o email.');
-        marcarInvalido('login-usuario');
-        valido = false;
-    }
-    if (!pass) {
-        mostrarError('err-login-pass', 'Ingresá tu contraseña.');
-        marcarInvalido('login-pass');
-        valido = false;
-    }
-
-    if (!valido) return;
-
-    /* Buscar usuario en localStorage */
-    const usuarios = JSON.parse(localStorage.getItem('neo_usuarios') || '[]');
-    const encontrado = usuarios.find(function(u) {
-        return (u.alias === usuario || u.email === usuario) && u.pass === pass;
-    });
-
-    if (!encontrado) {
-        mostrarError('err-login-pass', 'Usuario o contraseña incorrectos.');
-        marcarInvalido('login-pass');
-        return;
-    }
-
-    /* Guardar sesión */
-    localStorage.setItem('neo_sesion', JSON.stringify(encontrado));
-    activarSesion(encontrado);
-    cerrarAuth();
-}
-
-/* --- REGISTRO --- */
-
-function handleRegistro(e) {
-    e.preventDefault();
-
-    const errIds = [
-        'err-reg-nombre', 'err-reg-apellido', 'err-reg-alias',
-        'err-reg-nacionalidad', 'err-reg-nacimiento', 'err-reg-email',
-        'err-reg-email-confirm', 'err-reg-rama', 'err-reg-pass',
-        'err-reg-pass-confirm', 'err-reg-consentimiento'
-    ];
-    limpiarErrores(errIds);
-
-    const campos = [
-        'reg-nombre', 'reg-apellido', 'reg-alias', 'reg-nacionalidad',
-        'reg-nacimiento', 'reg-email', 'reg-email-confirm',
-        'reg-pass', 'reg-pass-confirm'
-    ];
-    campos.forEach(function(id) { limpiarInvalido(id); });
-
-    const nombre       = document.getElementById('reg-nombre').value.trim();
-    const apellido     = document.getElementById('reg-apellido').value.trim();
-    const alias        = document.getElementById('reg-alias').value.trim();
-    const nacionalidad = document.getElementById('reg-nacionalidad').value.trim();
-    const nacimiento   = document.getElementById('reg-nacimiento').value;
-    const email        = document.getElementById('reg-email').value.trim();
-    const emailConf    = document.getElementById('reg-email-confirm').value.trim();
-    const telefono     = document.getElementById('reg-telefono').value.trim();
-    const instagram    = document.getElementById('reg-instagram').value.trim();
-    const behance      = document.getElementById('reg-behance').value.trim();
-    const rama         = document.getElementById('reg-rama').value;
-    const ramaOtro     = document.getElementById('reg-rama-otro').value.trim();
-    const pass         = document.getElementById('reg-pass').value;
-    const passConf     = document.getElementById('reg-pass-confirm').value;
-    const consentimiento = document.getElementById('reg-consentimiento').checked;
-
-    let valido = true;
-
-    if (!nombre)       { mostrarError('err-reg-nombre',       'Campo requerido.'); marcarInvalido('reg-nombre');       valido = false; }
-    if (!apellido)     { mostrarError('err-reg-apellido',     'Campo requerido.'); marcarInvalido('reg-apellido');     valido = false; }
-    if (!alias)        { mostrarError('err-reg-alias',        'Elegí un alias.');  marcarInvalido('reg-alias');        valido = false; }
-    if (!nacionalidad) { mostrarError('err-reg-nacionalidad', 'Campo requerido.'); marcarInvalido('reg-nacionalidad'); valido = false; }
-    if (!nacimiento)   { mostrarError('err-reg-nacimiento',   'Seleccioná tu fecha de nacimiento.'); marcarInvalido('reg-nacimiento'); valido = false; }
-    if (!rama)         { mostrarError('err-reg-rama',         'Seleccioná una rama.'); marcarInvalido('reg-rama');     valido = false; }
-
-    if (!email || !validarEmail(email)) {
-        mostrarError('err-reg-email', 'Ingresá un email válido.');
-        marcarInvalido('reg-email');
-        valido = false;
-    }
-    if (email !== emailConf) {
-        mostrarError('err-reg-email-confirm', 'Los emails no coinciden.');
-        marcarInvalido('reg-email-confirm');
-        valido = false;
-    }
-
-    const v = validarPassword(pass);
-    if (!v.largo || !v.mayus || !v.numero || !v.especial) {
-        mostrarError('err-reg-pass', 'La contraseña no cumple los requisitos.');
-        marcarInvalido('reg-pass');
-        valido = false;
-    }
-    if (pass !== passConf) {
-        mostrarError('err-reg-pass-confirm', 'Las contraseñas no coinciden.');
-        marcarInvalido('reg-pass-confirm');
-        valido = false;
-    }
-    if (!consentimiento) {
-        mostrarError('err-reg-consentimiento', 'Debés aceptar para continuar.');
-        valido = false;
-    }
-
-    if (!valido) return;
-
-    /* Verificar alias y email únicos */
-    const usuarios = JSON.parse(localStorage.getItem('neo_usuarios') || '[]');
-    if (usuarios.find(function(u) { return u.alias === alias; })) {
-        mostrarError('err-reg-alias', 'Ese alias ya está en uso.');
-        marcarInvalido('reg-alias');
-        return;
-    }
-    if (usuarios.find(function(u) { return u.email === email; })) {
-        mostrarError('err-reg-email', 'Ese email ya está registrado.');
-        marcarInvalido('reg-email');
-        return;
-    }
-
-    /* Guardar usuario */
-    const nuevoUsuario = {
-        nombre, apellido, alias, nacionalidad, nacimiento,
-        email, telefono, instagram, behance,
-        rama: rama === 'otro' ? ramaOtro : rama,
-        pass
-    };
-
-    usuarios.push(nuevoUsuario);
-    localStorage.setItem('neo_usuarios', JSON.stringify(usuarios));
-    localStorage.setItem('neo_sesion', JSON.stringify(nuevoUsuario));
-
-    /* Mostrar éxito */
-    document.getElementById('auth-exito-texto').textContent =
-        '¡Hola, ' + (alias || nombre) + '! Tu cuenta fue creada. Ya podés explorar el Neoplasticismo.';
-    switchTab('exito');
-    activarSesion(nuevoUsuario);
-}
-
-/* --- RECUPERAR CONTRASEÑA --- */
-
-function handleRecuperar(e) {
-    e.preventDefault();
-    const email = document.getElementById('rec-email').value.trim();
-    limpiarErrores(['err-rec-email']);
-    limpiarInvalido('rec-email');
-
-    if (!email || !validarEmail(email)) {
-        mostrarError('err-rec-email', 'Ingresá un email válido.');
-        marcarInvalido('rec-email');
-        return;
-    }
-
-    /* En producción esto iría al servidor — por ahora mostramos confirmación */
-    alert('Si ese email está registrado, recibirás las instrucciones pronto.');
-    switchTab('login');
-}
 
 /* --- ACTIVAR SESIÓN EN NAVBAR --- */
 
@@ -846,3 +549,339 @@ document.querySelectorAll('.obras-hotspot').forEach(function(btn) {
         abrirObra(id);
     });
 });
+
+/* E-AUTH */
+/* ============================================================
+   SISTEMA DE AUTENTICACIÓN — LOGIN / REGISTRO / SESIÓN
+============================================================ */
+
+/* --- Utilidades --- */
+
+function mostrarError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = msg;
+}
+
+function limpiarErrores(ids) {
+    ids.forEach(function(id) { mostrarError(id, ''); });
+}
+
+function marcarInvalido(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('invalido');
+}
+
+function limpiarInvalido(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('invalido');
+}
+
+function validarEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validarPassword(pass) {
+    return {
+        largo:    pass.length >= 6,
+        mayus:    /[A-Z]/.test(pass),
+        numero:   /[0-9]/.test(pass),
+        especial: /[^A-Za-z0-9]/.test(pass)
+    };
+}
+
+/* --- Abrir / cerrar panel --- */
+
+function abrirAuth(tab) {
+    document.getElementById('auth-overlay').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+    switchTab(tab || 'login');
+}
+
+function cerrarAuth() {
+    document.getElementById('auth-overlay').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+function cerrarAuthOverlay(e) {
+    if (e.target === document.getElementById('auth-overlay')) cerrarAuth();
+}
+
+/* --- Tabs --- */
+
+function switchTab(tab) {
+    const forms = ['form-login', 'form-registro', 'form-recuperar', 'auth-exito'];
+    const tabs  = ['tab-login',  'tab-registro'];
+
+    forms.forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
+    tabs.forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('activo');
+    });
+
+    if (tab === 'login') {
+        document.getElementById('form-login').style.display = 'flex';
+        document.getElementById('tab-login').classList.add('activo');
+    } else if (tab === 'registro') {
+        document.getElementById('form-registro').style.display = 'flex';
+        document.getElementById('tab-registro').classList.add('activo');
+    } else if (tab === 'recuperar') {
+        document.getElementById('form-recuperar').style.display = 'flex';
+    } else if (tab === 'exito') {
+        document.getElementById('auth-exito').style.display = 'flex';
+    }
+}
+
+/* --- Mostrar/ocultar contraseña --- */
+
+function togglePass(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const icon  = btn.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('bi-eye', 'bi-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.replace('bi-eye-slash', 'bi-eye');
+    }
+}
+
+/* --- Requisitos contraseña en tiempo real --- */
+
+const regPassInput = document.getElementById('reg-pass');
+if (regPassInput) {
+    regPassInput.addEventListener('input', function() {
+        const v = validarPassword(this.value);
+        document.getElementById('req-largo').classList.toggle('cumplido', v.largo);
+        document.getElementById('req-mayus').classList.toggle('cumplido', v.mayus);
+        document.getElementById('req-numero').classList.toggle('cumplido', v.numero);
+        document.getElementById('req-especial').classList.toggle('cumplido', v.especial);
+    });
+}
+
+/* --- Mostrar campo "otro" en rama --- */
+
+const regRamaSelect = document.getElementById('reg-rama');
+if (regRamaSelect) {
+    regRamaSelect.addEventListener('change', function() {
+        const campoOtro = document.getElementById('campo-rama-otro');
+        if (campoOtro) {
+            campoOtro.style.display = this.value === 'otro' ? 'flex' : 'none';
+        }
+    });
+}
+
+/* --- Fecha máxima de nacimiento (hoy) --- */
+
+const regNacimiento = document.getElementById('reg-nacimiento');
+if (regNacimiento) {
+    regNacimiento.max = new Date().toISOString().split('T')[0];
+}
+
+/* --- LOGIN --- */
+
+function handleLogin(e) {
+    e.preventDefault();
+
+    const usuario = document.getElementById('login-usuario').value.trim();
+    const pass    = document.getElementById('login-pass').value;
+    let valido    = true;
+
+    limpiarErrores(['err-login-usuario', 'err-login-pass']);
+    limpiarInvalido('login-usuario');
+    limpiarInvalido('login-pass');
+
+    if (!usuario) {
+        mostrarError('err-login-usuario', 'Ingresá tu usuario o email.');
+        marcarInvalido('login-usuario');
+        valido = false;
+    }
+    if (!pass) {
+        mostrarError('err-login-pass', 'Ingresá tu contraseña.');
+        marcarInvalido('login-pass');
+        valido = false;
+    }
+
+    if (!valido) return;
+
+    /* Buscar usuario en localStorage */
+    const usuarios = JSON.parse(localStorage.getItem('neo_usuarios') || '[]');
+    const encontrado = usuarios.find(function(u) {
+        return (u.alias === usuario || u.email === usuario) && u.pass === pass;
+    });
+
+    if (!encontrado) {
+        mostrarError('err-login-pass', 'Usuario o contraseña incorrectos.');
+        marcarInvalido('login-pass');
+        return;
+    }
+
+    /* Guardar sesión */
+    localStorage.setItem('neo_sesion', JSON.stringify(encontrado));
+    activarSesion(encontrado);
+    cerrarAuth();
+}
+
+/* --- REGISTRO --- */
+
+function handleRegistro(e) {
+    e.preventDefault();
+
+    const errIds = [
+        'err-reg-nombre', 'err-reg-apellido', 'err-reg-alias',
+        'err-reg-nacionalidad', 'err-reg-nacimiento', 'err-reg-email',
+        'err-reg-email-confirm', 'err-reg-rama', 'err-reg-pass',
+        'err-reg-pass-confirm', 'err-reg-consentimiento'
+    ];
+    limpiarErrores(errIds);
+
+    const campos = [
+        'reg-nombre', 'reg-apellido', 'reg-alias', 'reg-nacionalidad',
+        'reg-nacimiento', 'reg-email', 'reg-email-confirm',
+        'reg-pass', 'reg-pass-confirm'
+    ];
+    campos.forEach(function(id) { limpiarInvalido(id); });
+
+    const nombre       = document.getElementById('reg-nombre').value.trim();
+    const apellido     = document.getElementById('reg-apellido').value.trim();
+    const alias        = document.getElementById('reg-alias').value.trim();
+    const nacionalidad = document.getElementById('reg-nacionalidad').value.trim();
+    const nacimiento   = document.getElementById('reg-nacimiento').value;
+    const email        = document.getElementById('reg-email').value.trim();
+    const emailConf    = document.getElementById('reg-email-confirm').value.trim();
+    const telefono     = document.getElementById('reg-telefono').value.trim();
+    const instagram    = document.getElementById('reg-instagram').value.trim();
+    const behance      = document.getElementById('reg-behance').value.trim();
+    const rama         = document.getElementById('reg-rama').value;
+    const ramaOtro     = document.getElementById('reg-rama-otro').value.trim();
+    const pass         = document.getElementById('reg-pass').value;
+    const passConf     = document.getElementById('reg-pass-confirm').value;
+    const consentimiento = document.getElementById('reg-consentimiento').checked;
+
+    let valido = true;
+
+    if (!nombre)       { mostrarError('err-reg-nombre',       'Campo requerido.'); marcarInvalido('reg-nombre');       valido = false; }
+    if (!apellido)     { mostrarError('err-reg-apellido',     'Campo requerido.'); marcarInvalido('reg-apellido');     valido = false; }
+    if (!alias)        { mostrarError('err-reg-alias',        'Elegí un alias.');  marcarInvalido('reg-alias');        valido = false; }
+    if (!nacionalidad) { mostrarError('err-reg-nacionalidad', 'Campo requerido.'); marcarInvalido('reg-nacionalidad'); valido = false; }
+    if (!nacimiento)   { mostrarError('err-reg-nacimiento',   'Seleccioná tu fecha de nacimiento.'); marcarInvalido('reg-nacimiento'); valido = false; }
+    if (!rama)         { mostrarError('err-reg-rama',         'Seleccioná una rama.'); marcarInvalido('reg-rama');     valido = false; }
+
+    if (!email || !validarEmail(email)) {
+        mostrarError('err-reg-email', 'Ingresá un email válido.');
+        marcarInvalido('reg-email');
+        valido = false;
+    }
+    if (email !== emailConf) {
+        mostrarError('err-reg-email-confirm', 'Los emails no coinciden.');
+        marcarInvalido('reg-email-confirm');
+        valido = false;
+    }
+
+    const v = validarPassword(pass);
+    if (!v.largo || !v.mayus || !v.numero || !v.especial) {
+        mostrarError('err-reg-pass', 'La contraseña no cumple los requisitos.');
+        marcarInvalido('reg-pass');
+        valido = false;
+    }
+    if (pass !== passConf) {
+        mostrarError('err-reg-pass-confirm', 'Las contraseñas no coinciden.');
+        marcarInvalido('reg-pass-confirm');
+        valido = false;
+    }
+    if (!consentimiento) {
+        mostrarError('err-reg-consentimiento', 'Debés aceptar para continuar.');
+        valido = false;
+    }
+
+    if (!valido) return;
+
+    /* Verificar alias y email únicos */
+    const usuarios = JSON.parse(localStorage.getItem('neo_usuarios') || '[]');
+    if (usuarios.find(function(u) { return u.alias === alias; })) {
+        mostrarError('err-reg-alias', 'Ese alias ya está en uso.');
+        marcarInvalido('reg-alias');
+        return;
+    }
+    if (usuarios.find(function(u) { return u.email === email; })) {
+        mostrarError('err-reg-email', 'Ese email ya está registrado.');
+        marcarInvalido('reg-email');
+        return;
+    }
+
+    /* Guardar usuario */
+    const nuevoUsuario = {
+        nombre, apellido, alias, nacionalidad, nacimiento,
+        email, telefono, instagram, behance,
+        rama: rama === 'otro' ? ramaOtro : rama,
+        pass
+    };
+
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem('neo_usuarios', JSON.stringify(usuarios));
+    localStorage.setItem('neo_sesion', JSON.stringify(nuevoUsuario));
+
+    /* Mostrar éxito */
+    document.getElementById('auth-exito-texto').textContent =
+        '¡Hola, ' + (alias || nombre) + '! Tu cuenta fue creada. Ya podés explorar el Neoplasticismo.';
+    switchTab('exito');
+    activarSesion(nuevoUsuario);
+}
+
+/* --- RECUPERAR CONTRASEÑA --- */
+
+function handleRecuperar(e) {
+    e.preventDefault();
+    const email = document.getElementById('rec-email').value.trim();
+    limpiarErrores(['err-rec-email']);
+    limpiarInvalido('rec-email');
+
+    if (!email || !validarEmail(email)) {
+        mostrarError('err-rec-email', 'Ingresá un email válido.');
+        marcarInvalido('rec-email');
+        return;
+    }
+
+    /* En producción esto iría al servidor — por ahora mostramos confirmación */
+    alert('Si ese email está registrado, recibirás las instrucciones pronto.');
+    switchTab('login');
+}
+
+/* --- ACTIVAR SESIÓN EN NAVBAR --- */
+
+function activarSesion(usuario) {
+    const btnIngresar = document.getElementById('btn-abrir-auth');
+    const navUsuario  = document.getElementById('navbar-usuario');
+    const navNombre   = document.getElementById('navbar-usuario-nombre');
+
+    if (btnIngresar) btnIngresar.style.display = 'none';
+    if (navUsuario)  navUsuario.style.display  = 'flex';
+    if (navNombre)   navNombre.textContent = usuario.alias || usuario.nombre;
+}
+
+/* --- CERRAR SESIÓN --- */
+
+function cerrarSesion() {
+    localStorage.removeItem('neo_sesion');
+
+    const btnIngresar = document.getElementById('btn-abrir-auth');
+    const navUsuario  = document.getElementById('navbar-usuario');
+
+    if (btnIngresar) btnIngresar.style.display = 'flex';
+    if (navUsuario)  navUsuario.style.display  = 'none';
+}
+
+/* --- VERIFICAR SESIÓN AL CARGAR LA PÁGINA --- */
+
+function verificarSesionAlCargar() {
+    const sesion = localStorage.getItem('neo_sesion');
+    if (sesion) {
+        try {
+            activarSesion(JSON.parse(sesion));
+        } catch(e) {
+            localStorage.removeItem('neo_sesion');
+        }
+    }
+};

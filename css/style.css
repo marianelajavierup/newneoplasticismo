@@ -2024,3 +2024,434 @@ html {
     color: var(--color-blanco);
 }
 
+/* ============================================================
+   15. NAVBAR — BOTÓN INGRESAR + ESTADO USUARIO
+============================================================ */
+
+.navbar-btn-ingresar {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--color-negro);
+    background: none;
+    border: 2px solid var(--color-negro);
+    padding: 4px 18px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    line-height: 1.4;
+}
+
+.navbar-btn-ingresar:hover {
+    background-color: var(--color-negro);
+    color: var(--color-amarillo);
+    transform: scale(1.04);
+}
+
+.navbar-usuario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-usuario-icono {
+    height: 28px;
+    width: auto;
+}
+
+.navbar-usuario-nombre {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--color-negro);
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navbar-btn-salir {
+    background: var(--color-negro);
+    color: var(--color-amarillo);
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.navbar-btn-salir:hover {
+    background-color: var(--color-rojo);
+}
+
+/* ============================================================
+   16. PANEL AUTH — OVERLAY + PANEL
+============================================================ */
+
+.auth-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.82);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-overlay.activo {
+    display: flex;
+}
+
+.auth-panel {
+    position: relative;
+    width: 560px;
+    max-width: 100%;
+    max-height: 92vh;
+    background-color: var(--color-blanco);
+    border: 4px solid var(--color-negro);
+    overflow-y: auto;
+    padding: 40px 36px 32px 36px;
+    animation: authSlideIn 0.3s ease forwards;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-negro) var(--color-blanco);
+}
+
+@keyframes authSlideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-panel::-webkit-scrollbar { width: 4px; }
+.auth-panel::-webkit-scrollbar-thumb { background: var(--color-negro); }
+
+/* CERRAR */
+.auth-cerrar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease;
+    z-index: 2;
+}
+
+.auth-cerrar:hover {
+    background-color: var(--color-rojo);
+}
+
+/* TABS */
+.auth-tabs {
+    display: flex;
+    border-bottom: 3px solid var(--color-negro);
+    margin-bottom: 28px;
+}
+
+.auth-tab {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #888888;
+    background: none;
+    border: none;
+    padding: 6px 20px 10px 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-right: 16px;
+    position: relative;
+}
+
+.auth-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-negro);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.auth-tab.activo {
+    color: var(--color-negro);
+}
+
+.auth-tab.activo::after {
+    transform: scaleX(1);
+}
+
+/* CAMPOS */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.auth-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.auth-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.auth-campo label {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-negro);
+}
+
+.auth-campo input,
+.auth-campo select {
+    font-family: 'DMSans', sans-serif;
+    font-size: 14px;
+    color: var(--color-negro);
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-negro);
+    border-radius: 0;
+    padding: 9px 12px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.auth-campo input:focus,
+.auth-campo select:focus {
+    border-color: var(--color-azul);
+    box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.15);
+}
+
+.auth-campo input.invalido,
+.auth-campo select.invalido {
+    border-color: var(--color-rojo);
+}
+
+.auth-campo input[type="date"] {
+    cursor: pointer;
+}
+
+/* Input con ojo (contraseña) */
+.auth-input-pass {
+    position: relative;
+}
+
+.auth-input-pass input {
+    padding-right: 44px;
+}
+
+.auth-toggle-pass {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888888;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.auth-toggle-pass:hover {
+    color: var(--color-negro);
+}
+
+/* Requisitos contraseña */
+.auth-pass-requisitos {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.req {
+    font-family: 'DMSans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #aaaaaa;
+    border: 1.5px solid #cccccc;
+    padding: 2px 6px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.req.cumplido {
+    color: var(--color-azul);
+    border-color: var(--color-azul);
+}
+
+/* Errores */
+.auth-error {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    color: var(--color-rojo);
+    font-weight: 700;
+    min-height: 14px;
+    display: block;
+}
+
+/* Textos auxiliares */
+.auth-req { color: var(--color-rojo); }
+.auth-opcional { color: #888888; font-weight: 400; font-style: italic; }
+
+.auth-forgot {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: #555555;
+    margin: 0;
+    text-align: left;
+}
+
+.auth-link-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-azul);
+    padding: 0;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.auth-link-btn:hover {
+    color: var(--color-rojo);
+}
+
+/* Consentimiento */
+.auth-consentimiento {
+    background-color: #f5f5f5;
+    border-left: 4px solid var(--color-amarillo);
+    padding: 10px 12px;
+}
+
+.auth-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: var(--color-negro);
+    line-height: 1.5;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.auth-checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--color-negro);
+    border: 2px solid var(--color-negro);
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Botón submit */
+.auth-submit {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 6px;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.auth-submit:hover {
+    background-color: var(--color-azul);
+    transform: translateY(-1px);
+}
+
+.auth-switch {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: #555555;
+    text-align: center;
+    margin: 4px 0 0 0;
+}
+
+/* Recuperar contraseña */
+.auth-recuperar-desc {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    text-align: left;
+}
+
+/* Mensaje éxito */
+.auth-exito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.auth-exito-icono {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.auth-exito-titulo {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 28px;
+    color: var(--color-negro);
+    margin: 0;
+}
+
+.auth-exito-texto {
+    font-family: 'DMSans', sans-serif;
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+}
+

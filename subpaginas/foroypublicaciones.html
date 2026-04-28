@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neoplasticismo</title>
+
+        <!-- BOOTSTRAP CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- BOOTSTRAP ICONS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- CSS NEOPLASTICISMO -->
+        <link rel="stylesheet" href="../css/style.css">
+
+    </head>
+    
+    <body>
+
+        <!-- HEADER -->
+        <header id="top" class="header-principal">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <!-- LOGO -->
+                    <div class="col-2">
+                        <a href="../sitio/index.html">
+                            <img src="../img/a-img-icono-logo.png" alt="Logo Neoplasticismo" class="logo-img">
+                        </a>
+                    </div>
+
+                    <!-- BARRA DE BÚSQUEDA -->
+                    <div class="col-6">
+                        <div class="input-group buscador">
+                            <span class="input-group-text buscador-icono">
+                                <img src="../img/a-img-icono-buscar.png" alt="Buscar" class="icono-lupa">
+                            </span>
+                            <input type="text" class="form-control buscador-input" placeholder="Buscar...">
+                        </div>
+                    </div>
+
+                    <!-- ICONOS NAVEGACIÓN -->
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="../subpaginas/contextohistorico.html">
+                            <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/destijl.html">
+                            <img src="../img/a-img-icono-destijl.png" alt="De Stijl" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/autores.html">
+                            <img src="../img/a-img-icono-autores.png" alt="Autores" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/obras.html">
+                            <img src="../img/a-img-icono-obras.png" alt="Obras" class="icono-nav">
+                        </a>
+                        <a href="../subpaginas/fotoypublicaciones.html">
+                            <img src="../img/a-img-icono-foropublicaciones.png" alt="Foro y Publicaciones" class="icono-nav">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVBAR -->
+        <nav class="navbar-principal">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- BLOQUE AZUL + ROJO con texto encima -->
+                    <div class="col-auto navbar-bloque-izquierda">
+                        <span class="navbar-titulo">NEOPLASTICISMO</span>
+                        <div class="navbar-bloques-color">
+                            <div class="navbar-bloque-azul"></div>
+                            <div class="navbar-bloque-rojo"></div>
+                        </div>
+                    </div>
+
+                    <!-- BLOQUE BLANCO (relleno) -->
+                    <div class="col navbar-bloque-blanco"></div>
+
+                    <!-- BLOQUE AMARILLO — botón ingresar o estado usuario -->
+                    <div class="col-auto navbar-bloque-amarillo d-flex align-items-center justify-content-center">
+
+                        <!-- Estado: NO logueado -->
+                        <button class="navbar-btn-ingresar" id="btn-abrir-auth" onclick="abrirAuth('login')">
+                            ingresar
+                        </button>
+
+                        <!-- Estado: logueado (oculto por defecto) -->
+                        <div class="navbar-usuario" id="navbar-usuario" style="display:none;">
+                            <img src="../img/a-img-icono-autores.png" alt="Usuario" class="navbar-usuario-icono">
+                            <span class="navbar-usuario-nombre" id="navbar-usuario-nombre"></span>
+                            <button class="navbar-btn-salir" onclick="cerrarSesion()" title="Cerrar sesión">✕</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- ============================================================
+            PANEL AUTH — LOGIN / REGISTRO
+        ============================================================ -->
+        <div class="auth-overlay" id="auth-overlay" onclick="cerrarAuthOverlay(event)">
+            <div class="auth-panel" id="auth-panel">
+
+                <!-- CERRAR -->
+                <button class="auth-cerrar" onclick="cerrarAuth()" aria-label="Cerrar">✕</button>
+
+                <!-- TABS -->
+                <div class="auth-tabs">
+                    <button class="auth-tab activo" id="tab-login" onclick="switchTab('login')">ingresar</button>
+                    <button class="auth-tab" id="tab-registro" onclick="switchTab('registro')">registrarse</button>
+                </div>
+
+                <!-- ---- FORMULARIO LOGIN ---- -->
+                <form class="auth-form" id="form-login" onsubmit="handleLogin(event)" novalidate>
+
+                    <div class="auth-campo">
+                        <label for="login-usuario">usuario o email</label>
+                        <input type="text" id="login-usuario" placeholder="tu alias o email" autocomplete="username">
+                        <span class="auth-error" id="err-login-usuario"></span>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="login-pass">contraseña</label>
+                        <div class="auth-input-pass">
+                            <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password">
+                            <button type="button" class="auth-toggle-pass" onclick="togglePass('login-pass', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <span class="auth-error" id="err-login-pass"></span>
+                    </div>
+
+                    <p class="auth-forgot">¿Olvidaste tu contraseña?
+                        <button type="button" class="auth-link-btn" onclick="switchTab('recuperar')">Restablecela</button>
+                    </p>
+
+                    <button type="submit" class="auth-submit">ingresar</button>
+
+                    <p class="auth-switch">¿No tenés cuenta?
+                        <button type="button" class="auth-link-btn" onclick="switchTab('registro')">Registrate aquí</button>
+                    </p>
+
+                </form>
+
+                <!-- ---- FORMULARIO REGISTRO ---- -->
+                <form class="auth-form" id="form-registro" onsubmit="handleRegistro(event)" novalidate style="display:none;">
+
+                    <div class="auth-grid-2">
+                        <div class="auth-campo">
+                            <label for="reg-nombre">nombre <span class="auth-req">*</span></label>
+                            <input type="text" id="reg-nombre" placeholder="tu nombre">
+                            <span class="auth-error" id="err-reg-nombre"></span>
+                        </div>
+                        <div class="auth-campo">
+                            <label for="reg-apellido">apellido <span class="auth-req">*</span></label>
+                            <input type="text" id="reg-apellido" placeholder="tu apellido">
+                            <span class="auth-error" id="err-reg-apellido"></span>
+                        </div>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-alias">alias / username <span class="auth-req">*</span></label>
+                        <input type="text" id="reg-alias" placeholder="cómo querés que te llamen">
+                        <span class="auth-error" id="err-reg-alias"></span>
+                    </div>
+
+                    <div class="auth-grid-2">
+                        <div class="auth-campo">
+                            <label for="reg-nacionalidad">nacionalidad <span class="auth-req">*</span></label>
+                            <input type="text" id="reg-nacionalidad" placeholder="tu país">
+                            <span class="auth-error" id="err-reg-nacionalidad"></span>
+                        </div>
+                        <div class="auth-campo">
+                            <label for="reg-nacimiento">fecha de nacimiento <span class="auth-req">*</span></label>
+                            <input type="date" id="reg-nacimiento" max="">
+                            <span class="auth-error" id="err-reg-nacimiento"></span>
+                        </div>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-email">email <span class="auth-req">*</span></label>
+                        <input type="email" id="reg-email" placeholder="tu@email.com" autocomplete="email">
+                        <span class="auth-error" id="err-reg-email"></span>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-email-confirm">confirmá tu email <span class="auth-req">*</span></label>
+                        <input type="email" id="reg-email-confirm" placeholder="repetí tu email">
+                        <span class="auth-error" id="err-reg-email-confirm"></span>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-telefono">teléfono <span class="auth-opcional">(opcional)</span></label>
+                        <input type="tel" id="reg-telefono" placeholder="+54 341 000-0000">
+                    </div>
+
+                    <div class="auth-grid-2">
+                        <div class="auth-campo">
+                            <label for="reg-instagram">instagram <span class="auth-opcional">(opcional)</span></label>
+                            <input type="text" id="reg-instagram" placeholder="@usuario">
+                        </div>
+                        <div class="auth-campo">
+                            <label for="reg-behance">behance <span class="auth-opcional">(opcional)</span></label>
+                            <input type="text" id="reg-behance" placeholder="behance.net/usuario">
+                        </div>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-rama">rama artística <span class="auth-req">*</span></label>
+                        <select id="reg-rama">
+                            <option value="" disabled selected>seleccioná una rama</option>
+                            <option value="pintura">Pintura</option>
+                            <option value="arquitectura">Arquitectura / Diseño Interior</option>
+                            <option value="disenoindustrial">Diseño Industrial</option>
+                            <option value="disenografico">Diseño Gráfico</option>
+                            <option value="indumentaria">Diseño de Indumentaria</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <span class="auth-error" id="err-reg-rama"></span>
+                    </div>
+
+                    <!-- Campo "otro" que aparece si eligen Otro -->
+                    <div class="auth-campo" id="campo-rama-otro" style="display:none;">
+                        <label for="reg-rama-otro">especificá tu rama</label>
+                        <input type="text" id="reg-rama-otro" placeholder="escribí tu disciplina">
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-pass">contraseña <span class="auth-req">*</span></label>
+                        <div class="auth-input-pass">
+                            <input type="password" id="reg-pass" placeholder="mín. 6 car. con mayúsc. y símbolo" autocomplete="new-password">
+                            <button type="button" class="auth-toggle-pass" onclick="togglePass('reg-pass', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <div class="auth-pass-requisitos">
+                            <span id="req-largo" class="req">6+ caracteres</span>
+                            <span id="req-mayus" class="req">1 mayúscula</span>
+                            <span id="req-numero" class="req">1 número</span>
+                            <span id="req-especial" class="req">1 carácter especial</span>
+                        </div>
+                        <span class="auth-error" id="err-reg-pass"></span>
+                    </div>
+
+                    <div class="auth-campo">
+                        <label for="reg-pass-confirm">confirmá contraseña <span class="auth-req">*</span></label>
+                        <div class="auth-input-pass">
+                            <input type="password" id="reg-pass-confirm" placeholder="repetí tu contraseña" autocomplete="new-password">
+                            <button type="button" class="auth-toggle-pass" onclick="togglePass('reg-pass-confirm', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <span class="auth-error" id="err-reg-pass-confirm"></span>
+                    </div>
+
+                    <div class="auth-campo auth-consentimiento">
+                        <label class="auth-checkbox-label">
+                            <input type="checkbox" id="reg-consentimiento">
+                            <span>Acepto que mis datos sean guardados y utilizados en esta base de datos educativa.</span>
+                        </label>
+                        <span class="auth-error" id="err-reg-consentimiento"></span>
+                    </div>
+
+                    <button type="submit" class="auth-submit">crear cuenta</button>
+
+                    <p class="auth-switch">¿Ya tenés cuenta?
+                        <button type="button" class="auth-link-btn" onclick="switchTab('login')">Ingresá aquí</button>
+                    </p>
+
+                </form>
+
+                <!-- ---- FORMULARIO RECUPERAR CONTRASEÑA ---- -->
+                <form class="auth-form" id="form-recuperar" onsubmit="handleRecuperar(event)" novalidate style="display:none;">
+
+                    <p class="auth-recuperar-desc">Ingresá tu email y te enviaremos las instrucciones para restablecer tu contraseña.</p>
+
+                    <div class="auth-campo">
+                        <label for="rec-email">email registrado <span class="auth-req">*</span></label>
+                        <input type="email" id="rec-email" placeholder="tu@email.com">
+                        <span class="auth-error" id="err-rec-email"></span>
+                    </div>
+
+                    <button type="submit" class="auth-submit">enviar instrucciones</button>
+
+                    <p class="auth-switch">
+                        <button type="button" class="auth-link-btn" onclick="switchTab('login')">← Volver al inicio</button>
+                    </p>
+
+                </form>
+
+                <!-- ---- MENSAJE ÉXITO REGISTRO ---- -->
+                <div class="auth-exito" id="auth-exito" style="display:none;">
+                    <div class="auth-exito-icono">✓</div>
+                    <h3 class="auth-exito-titulo">¡bienvenido/a!</h3>
+                    <p class="auth-exito-texto" id="auth-exito-texto"></p>
+                    <button class="auth-submit" onclick="cerrarAuth()">comenzar</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FLECHA SCROLL TOP -->
+        <a href="#top" class="scroll-to-top">
+            <i class="bi bi-arrow-up-square-fill"></i>
+        </a>
+        
+        <!-- FOOTER -->
+        <!-- SEPARADOR FOOTER -->
+        <div class="separador-neo"></div>
+        
+        <footer class="footer">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+
+                    <!-- BLOQUES DE COLOR -->
+                    <div class="col-1 footer-bloque-azul"></div>
+                    <div class="col-1 footer-bloque-rojo"></div>
+
+                    <!-- NAVEGACIÓN + INSTAGRAM -->
+                    <div class="col-10 footer-nav">
+
+                        <nav class="footer-links">
+                            <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
+                            <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
+                            <a href="../subpaginas/autores.html" class="footer-link">Autores</a>
+                            <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
+                            <a href="../subpaginas/fotoypublicaciones.html" class="footer-link">Publicaciones</a>
+                        </nav>
+
+                        <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BARRA DE CONTACTO -->
+            <div class="footer-contacto">
+                <p>© 2026 LAVORATORIO DE DISEÑO II | Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
+            </div>
+
+        </footer>
+
+        <!-- BOOTSTRAP JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+         <!-- JS NEOPLASTICISMO -->
+         <script src="../js/script.js"></script>
+
+
+    </body>
+</html>
