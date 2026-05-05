@@ -3,34 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Neoplasticismo</title>
+        <title>Foro y Publicaciones — Neoplasticismo</title>
 
         <!-- BOOTSTRAP CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
         <!-- BOOTSTRAP ICONS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
         <!-- CSS NEOPLASTICISMO -->
         <link rel="stylesheet" href="../css/style.css">
-
     </head>
-    
+
     <body>
 
-        <!-- HEADER -->
+        <!-- ================================================
+             HEADER
+        ================================================ -->
         <header id="top" class="header-principal">
             <div class="container-fluid">
                 <div class="row align-items-center">
 
-                    <!-- LOGO -->
                     <div class="col-2">
                         <a href="../sitio/index.html">
                             <img src="../img/a-img-icono-logo2.png" alt="Logo Neoplasticismo" class="logo-img">
                         </a>
                     </div>
 
-                    <!-- BARRA DE BÚSQUEDA -->
                     <div class="col-6">
                         <div class="input-group buscador">
                             <span class="input-group-text buscador-icono">
@@ -40,7 +37,6 @@
                         </div>
                     </div>
 
-                    <!-- ICONOS NAVEGACIÓN -->
                     <div class="col-4 d-flex justify-content-end align-items-center gap-3">
                         <a href="../subpaginas/contextohistorico.html">
                             <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
@@ -63,12 +59,13 @@
             </div>
         </header>
 
-        <!-- NAVBAR / con registro de usuario -->
+        <!-- ================================================
+             NAVBAR
+        ================================================ -->
         <nav class="navbar-principal">
             <div class="container-fluid p-0">
                 <div class="row g-0">
 
-                    <!-- BLOQUE AZUL + ROJO con texto encima -->
                     <div class="col-auto navbar-bloque-izquierda">
                         <span class="navbar-titulo">NEOPLASTICISMO</span>
                         <div class="navbar-bloques-color">
@@ -77,54 +74,43 @@
                         </div>
                     </div>
 
-                    <!-- BLOQUE BLANCO (relleno) -->
                     <div class="col navbar-bloque-blanco"></div>
 
-                    <!-- BLOQUE AMARILLO — botón ingresar o estado usuario -->
                     <div class="col-auto navbar-bloque-amarillo d-flex align-items-center justify-content-center">
-
-                        <!-- Estado: NO logueado -->
                         <button class="navbar-btn-ingresar" id="btn-abrir-auth" onclick="abrirAuth('login')">
                             ingresar
                         </button>
-
-                        <!-- Estado: logueado (oculto por defecto) -->
                         <div class="navbar-usuario" id="navbar-usuario" style="display:none;">
                             <img src="../img/a-img-icono-login.png" alt="Usuario" class="navbar-usuario-icono">
                             <span class="navbar-usuario-nombre" id="navbar-usuario-nombre"></span>
                             <button class="navbar-btn-salir" onclick="cerrarSesion()" title="Cerrar sesión">✕</button>
                         </div>
-
                     </div>
 
                 </div>
             </div>
         </nav>
 
-        <!-- ============================================================
-            PANEL AUTH — LOGIN / REGISTRO
-        ============================================================ -->
+        <!-- ================================================
+             PANEL AUTH
+        ================================================ -->
         <div class="auth-overlay" id="auth-overlay" onclick="cerrarAuthOverlay(event)">
             <div class="auth-panel" id="auth-panel">
 
-                <!-- CERRAR -->
-                <button class="auth-cerrar" onclick="cerrarAuth()" aria-label="Cerrar">✕</button>
+                <button class="auth-cerrar" onclick="cerrarAuth()">✕</button>
 
-                <!-- TABS -->
                 <div class="auth-tabs">
                     <button class="auth-tab activo" id="tab-login" onclick="switchTab('login')">ingresar</button>
                     <button class="auth-tab" id="tab-registro" onclick="switchTab('registro')">registrarse</button>
                 </div>
 
-                <!-- ---- FORMULARIO LOGIN ---- -->
+                <!-- LOGIN -->
                 <form class="auth-form" id="form-login" onsubmit="handleLogin(event)" novalidate>
-
                     <div class="auth-campo">
                         <label for="login-usuario">usuario o email</label>
                         <input type="text" id="login-usuario" placeholder="tu alias o email" autocomplete="username">
                         <span class="auth-error" id="err-login-usuario"></span>
                     </div>
-
                     <div class="auth-campo">
                         <label for="login-pass">contraseña</label>
                         <div class="auth-input-pass">
@@ -135,22 +121,17 @@
                         </div>
                         <span class="auth-error" id="err-login-pass"></span>
                     </div>
-
                     <p class="auth-forgot">¿Olvidaste tu contraseña?
                         <button type="button" class="auth-link-btn" onclick="switchTab('recuperar')">Restablecela</button>
                     </p>
-
                     <button type="submit" class="auth-submit">ingresar</button>
-
                     <p class="auth-switch">¿No tenés cuenta?
                         <button type="button" class="auth-link-btn" onclick="switchTab('registro')">Registrate aquí</button>
                     </p>
-
                 </form>
 
-                <!-- ---- FORMULARIO REGISTRO ---- -->
+                <!-- REGISTRO -->
                 <form class="auth-form" id="form-registro" onsubmit="handleRegistro(event)" novalidate style="display:none;">
-
                     <div class="auth-grid-2">
                         <div class="auth-campo">
                             <label for="reg-nombre">nombre <span class="auth-req">*</span></label>
@@ -163,13 +144,11 @@
                             <span class="auth-error" id="err-reg-apellido"></span>
                         </div>
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-alias">alias / username <span class="auth-req">*</span></label>
                         <input type="text" id="reg-alias" placeholder="cómo querés que te llamen">
                         <span class="auth-error" id="err-reg-alias"></span>
                     </div>
-
                     <div class="auth-grid-2">
                         <div class="auth-campo">
                             <label for="reg-nacionalidad">nacionalidad <span class="auth-req">*</span></label>
@@ -182,24 +161,20 @@
                             <span class="auth-error" id="err-reg-nacimiento"></span>
                         </div>
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-email">email <span class="auth-req">*</span></label>
                         <input type="email" id="reg-email" placeholder="tu@email.com" autocomplete="email">
                         <span class="auth-error" id="err-reg-email"></span>
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-email-confirm">confirmá tu email <span class="auth-req">*</span></label>
                         <input type="email" id="reg-email-confirm" placeholder="repetí tu email">
                         <span class="auth-error" id="err-reg-email-confirm"></span>
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-telefono">teléfono <span class="auth-opcional">(opcional)</span></label>
                         <input type="tel" id="reg-telefono" placeholder="+54 341 000-0000">
                     </div>
-
                     <div class="auth-grid-2">
                         <div class="auth-campo">
                             <label for="reg-instagram">instagram <span class="auth-opcional">(opcional)</span></label>
@@ -210,7 +185,6 @@
                             <input type="text" id="reg-behance" placeholder="behance.net/usuario">
                         </div>
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-rama">rama artística <span class="auth-req">*</span></label>
                         <select id="reg-rama">
@@ -224,13 +198,10 @@
                         </select>
                         <span class="auth-error" id="err-reg-rama"></span>
                     </div>
-
-                    <!-- Campo "otro" que aparece si eligen Otro -->
                     <div class="auth-campo" id="campo-rama-otro" style="display:none;">
                         <label for="reg-rama-otro">especificá tu rama</label>
                         <input type="text" id="reg-rama-otro" placeholder="escribí tu disciplina">
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-pass">contraseña <span class="auth-req">*</span></label>
                         <div class="auth-input-pass">
@@ -247,7 +218,6 @@
                         </div>
                         <span class="auth-error" id="err-reg-pass"></span>
                     </div>
-
                     <div class="auth-campo">
                         <label for="reg-pass-confirm">confirmá contraseña <span class="auth-req">*</span></label>
                         <div class="auth-input-pass">
@@ -258,7 +228,6 @@
                         </div>
                         <span class="auth-error" id="err-reg-pass-confirm"></span>
                     </div>
-
                     <div class="auth-campo auth-consentimiento">
                         <label class="auth-checkbox-label">
                             <input type="checkbox" id="reg-consentimiento">
@@ -266,35 +235,27 @@
                         </label>
                         <span class="auth-error" id="err-reg-consentimiento"></span>
                     </div>
-
                     <button type="submit" class="auth-submit">crear cuenta</button>
-
                     <p class="auth-switch">¿Ya tenés cuenta?
                         <button type="button" class="auth-link-btn" onclick="switchTab('login')">Ingresá aquí</button>
                     </p>
-
                 </form>
 
-                <!-- ---- FORMULARIO RECUPERAR CONTRASEÑA ---- -->
+                <!-- RECUPERAR -->
                 <form class="auth-form" id="form-recuperar" onsubmit="handleRecuperar(event)" novalidate style="display:none;">
-
                     <p class="auth-recuperar-desc">Ingresá tu email y te enviaremos las instrucciones para restablecer tu contraseña.</p>
-
                     <div class="auth-campo">
                         <label for="rec-email">email registrado <span class="auth-req">*</span></label>
                         <input type="email" id="rec-email" placeholder="tu@email.com">
                         <span class="auth-error" id="err-rec-email"></span>
                     </div>
-
                     <button type="submit" class="auth-submit">enviar instrucciones</button>
-
                     <p class="auth-switch">
                         <button type="button" class="auth-link-btn" onclick="switchTab('login')">← Volver al inicio</button>
                     </p>
-
                 </form>
 
-                <!-- ---- MENSAJE ÉXITO REGISTRO ---- -->
+                <!-- ÉXITO -->
                 <div class="auth-exito" id="auth-exito" style="display:none;">
                     <div class="auth-exito-icono">✓</div>
                     <h3 class="auth-exito-titulo">¡bienvenido/a!</h3>
@@ -305,55 +266,46 @@
             </div>
         </div>
 
-        <!-- HERO -->
+        <!-- ================================================
+             HERO
+        ================================================ -->
         <section class="hero">
             <div class="container-fluid p-0">
                 <div class="row g-0">
 
-                    <!-- IZQUIERDA: TEXTO -->
                     <div class="col-7 hero-texto">
-                        <h2 class="hero-titulo">foro y publicaciones</h2>
+                        <h1 class="hero-titulo">foro y publicaciones</h1>
                         <p class="hero-descripcion">Una vidriera de artistas contemporáneos que exploran, interpretan y expanden los principios del Neoplasticismo en todas las disciplinas creativas.</p>
                     </div>
 
-                    <!-- DERECHA: CARRUSEL -->
                     <div class="col-5 p-0">
-                        <div id="carruselHero" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
-
-                            <!-- IMÁGENES -->
+                        <div id="carruselHeroForo" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="../img/5-obras.pintura-mondrian-03.png" class="hero-img" alt="Mondrian 03">
+                                    <img src="../img/6-foroypublicaciones.pintura-01.jpg" class="hero-img" alt="Pintura">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../img/5-obras.arquitectura-rietveldhouseschroderhuis-01.jpg" class="hero-img" alt="Casa Rietveld">
+                                    <img src="../img/6-foroypublicaciones.arquitectura-02.jpg" class="hero-img" alt="Arquitectura">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../img/5-obras.pintura-mondrian-02.jpg" class="hero-img" alt="Mondrian 02">
+                                    <img src="../img/6-foroypublicaciones.indumentaria-01.jpg" class="hero-img" alt="Indumentaria">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../img/5-obras.disenoindustrial-sillarietveld.webp" class="hero-img" alt="Silla Rietveld">
+                                    <img src="../img/6-foroypublicaciones.disenografico-01.jpg" class="hero-img" alt="Diseño Gráfico">
                                 </div>
                             </div>
-
-                            <!-- FLECHAS -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselHero" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Anterior</span>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselHeroForo" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carruselHero" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Siguiente</span>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carruselHeroForo" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
                             </button>
-
-                            <!-- DOTS -->
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="0" class="active"></button>
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="1"></button>
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="2"></button>
-                                <button type="button" data-bs-target="#carruselHero" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carruselHeroForo" data-bs-slide-to="3"></button>
                             </div>
-
                         </div>
                     </div>
 
@@ -361,10 +313,11 @@
             </div>
         </section>
 
-        <!-- SEPARADOR -->
         <div class="separador-neo"></div>
 
-        <!-- CARDS FILTRO DE RAMA (6 botones) -->
+        <!-- ================================================
+             CARDS FILTRO DE RAMA
+        ================================================ -->
         <section class="foro-cards-rama">
             <div class="container-fluid p-0">
                 <div class="row g-0">
@@ -375,35 +328,30 @@
                             <span>pintura</span>
                         </button>
                     </div>
-
                     <div class="col-2">
                         <button class="foro-card-btn foro-card-blanco" onclick="filtrarRama('arquitectura', this)">
                             <img src="../img/a-img-icono-arquitectura.png" alt="Arquitectura" class="foro-card-icono">
                             <span class="foro-span-negro">arquitectura</span>
                         </button>
                     </div>
-
                     <div class="col-2">
                         <button class="foro-card-btn foro-card-azul" onclick="filtrarRama('disenoindustrial', this)">
                             <img src="../img/a-img-icono-disenoindustrial.png" alt="Diseño Industrial" class="foro-card-icono">
                             <span>diseño industrial</span>
                         </button>
                     </div>
-
                     <div class="col-2">
                         <button class="foro-card-btn foro-card-rojo" onclick="filtrarRama('disenografico', this)">
                             <img src="../img/a-img-icono-disenografico.png" alt="Diseño Gráfico" class="foro-card-icono">
                             <span>diseño gráfico</span>
                         </button>
                     </div>
-
                     <div class="col-2">
                         <button class="foro-card-btn foro-card-amarillo" onclick="filtrarRama('indumentaria', this)">
                             <img src="../img/a-img-icono-indumentaria.png" alt="Indumentaria" class="foro-card-icono">
                             <span>indumentaria</span>
                         </button>
                     </div>
-
                     <div class="col-2">
                         <button class="foro-card-btn foro-card-blanco" onclick="filtrarRama('otros', this)">
                             <img src="../img/a-img-icono-otros.png" alt="Otros" class="foro-card-icono">
@@ -415,34 +363,41 @@
             </div>
         </section>
 
-        <!-- SEPARADOR -->
         <div class="separador-neo"></div>
 
-        <!-- HEADER DE RAMA ACTIVA -->
+        <!-- ================================================
+             HEADER RAMA ACTIVA + BOTÓN PUBLICAR
+        ================================================ -->
         <div class="foro-rama-activa" id="foro-rama-activa">
             <img src="../img/a-img-icono-pintura.png" alt="" id="foro-rama-icono" class="foro-rama-activa-icono">
             <h2 class="foro-rama-activa-nombre" id="foro-rama-nombre">pintura</h2>
+            <button class="foro-btn-publicar" onclick="abrirFormularioCarga()">
+                <i class="bi bi-plus-lg"></i> publicar obra
+            </button>
         </div>
 
-        <!-- CARRUSEL TIPO GAME — PUBLICACIONES -->
+        <!-- ================================================
+             CARRUSEL DE PUBLICACIONES
+        ================================================ -->
         <section class="foro-galeria" id="foro-galeria">
             <div class="foro-track-wrapper">
                 <div class="foro-track" id="foro-track">
-                    <!-- Las cards se inyectan por JS -->
+                    <!-- Cards inyectadas por JS -->
                 </div>
             </div>
         </section>
 
-        <!-- SEPARADOR -->
         <div class="separador-neo"></div>
 
-        <!-- MODAL PUBLICACIÓN -->
+        <!-- ================================================
+             MODAL PUBLICACIÓN
+        ================================================ -->
         <div class="modal-pub" id="modal-pub">
             <div class="modal-pub-contenido">
 
                 <button class="modal-pub-cerrar" onclick="cerrarPub()" aria-label="Cerrar">✕</button>
 
-                <!-- Carrusel de imágenes -->
+                <!-- Carrusel lateral -->
                 <div class="modal-pub-carrusel">
                     <div id="carruselPub" class="carousel slide" data-bs-ride="false">
                         <div class="carousel-inner" id="carrusel-pub-inner"></div>
@@ -456,24 +411,43 @@
                     </div>
                 </div>
 
-                <!-- Ficha artista -->
+                <!-- Ficha completa -->
                 <div class="modal-pub-ficha">
 
+                    <!-- Tag rama -->
                     <div class="modal-pub-rama-tag">
                         <img src="" alt="" id="pub-rama-icono" class="modal-pub-rama-icono">
                         <span id="pub-rama-label" class="modal-pub-rama-texto"></span>
                     </div>
 
-                    <h3 class="modal-pub-alias" id="pub-alias"></h3>
-                    <p class="modal-pub-nombre-completo" id="pub-nombre"></p>
-                    <p class="modal-pub-pais" id="pub-pais"></p>
-                    <p class="modal-pub-resena" id="pub-resena"></p>
+                    <!-- Título y año de la obra -->
+                    <h3 class="modal-pub-alias" id="pub-titulo-obra"></h3>
+                    <p class="modal-pub-anio-obra" id="pub-anio-obra"></p>
 
-                    <!-- Redes -->
+                    <!-- Datos del artista -->
+                    <div class="modal-pub-artista-bloque">
+                        <p class="modal-pub-nombre-completo" id="pub-nombre"></p>
+                        <p class="modal-pub-alias-texto" id="pub-alias"></p>
+                        <p class="modal-pub-pais" id="pub-pais"></p>
+                    </div>
+
+                    <!-- Reseña artista -->
+                    <div class="modal-pub-resena-bloque">
+                        <p class="modal-pub-resena-label">sobre el artista</p>
+                        <p class="modal-pub-resena" id="pub-resena-artista"></p>
+                    </div>
+
+                    <!-- Reseña obra -->
+                    <div class="modal-pub-resena-bloque">
+                        <p class="modal-pub-resena-label">sobre la obra</p>
+                        <p class="modal-pub-resena" id="pub-resena-obra"></p>
+                    </div>
+
+                    <!-- Redes (solo logueado) -->
                     <div class="modal-pub-redes" id="pub-redes"></div>
 
-                    <!-- Valoración -->
-                    <div class="modal-pub-valoracion">
+                    <!-- Valoración (solo logueado) -->
+                    <div class="modal-pub-valoracion" id="sec-valoracion" style="display:none;">
                         <p class="modal-pub-valoracion-label">valoración</p>
                         <div class="estrellas-input" id="estrellas-input" data-pub-id=""></div>
                         <div class="estrellas-promedio">
@@ -482,12 +456,13 @@
                         </div>
                     </div>
 
-                    <!-- Comentarios -->
-                    <div class="modal-pub-comentarios">
+                    <!-- Comentarios (solo logueado) -->
+                    <div class="modal-pub-comentarios" id="sec-comentarios" style="display:none;">
                         <p class="modal-pub-valoracion-label">comentarios</p>
                         <div class="comentarios-lista" id="comentarios-lista"></div>
                         <div class="comentario-form" id="comentario-form">
-                            <textarea id="comentario-input" class="comentario-textarea" placeholder="Dejá tu comentario..." maxlength="300" rows="3"></textarea>
+                            <textarea id="comentario-input" class="comentario-textarea"
+                                placeholder="Dejá tu comentario..." maxlength="300" rows="3"></textarea>
                             <button class="comentario-btn" onclick="enviarComentario()">publicar</button>
                         </div>
                         <p class="comentario-login-aviso" id="comentario-aviso" style="display:none;">
@@ -499,27 +474,103 @@
             </div>
         </div>
 
-        
+        <!-- ================================================
+             MODAL CARGA DE OBRA (artistas logueados)
+        ================================================ -->
+        <div class="modal-pub" id="modal-carga-obra">
+            <div class="modal-pub-contenido modal-carga-contenido">
+
+                <button class="modal-pub-cerrar" onclick="cerrarFormularioCarga()" aria-label="Cerrar">✕</button>
+
+                <div class="modal-carga-ficha">
+
+                    <div class="modal-pub-rama-tag">
+                        <i class="bi bi-upload" style="font-size:24px;color:var(--color-negro);"></i>
+                        <span class="modal-pub-rama-texto">publicar obra</span>
+                    </div>
+
+                    <form id="form-carga-obra" onsubmit="handleCargaObra(event)" novalidate>
+
+                        <div class="auth-campo">
+                            <label for="carga-seccion">sección <span class="auth-req">*</span></label>
+                            <select id="carga-seccion">
+                                <option value="" disabled selected>seleccioná una sección</option>
+                                <option value="pintura">Pintura / Escultura</option>
+                                <option value="arquitectura">Arquitectura / Diseño Interior</option>
+                                <option value="disenoindustrial">Diseño Industrial / Objetos / Mobiliario</option>
+                                <option value="disenografico">Diseño Gráfico</option>
+                                <option value="indumentaria">Diseño de Indumentaria</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+
+                        <div class="auth-campo">
+                            <label for="carga-nombre-obra">nombre del trabajo <span class="auth-req">*</span></label>
+                            <input type="text" id="carga-nombre-obra" placeholder="título de tu obra o proyecto">
+                        </div>
+
+                        <div class="auth-campo">
+                            <label for="carga-anio">año de realización <span class="auth-req">*</span></label>
+                            <input type="text" id="carga-anio" placeholder="ej: 2024" maxlength="4">
+                        </div>
+
+                        <div class="auth-campo">
+                            <label for="carga-resena-artista">reseña del artista <span class="auth-req">*</span></label>
+                            <textarea id="carga-resena-artista" class="comentario-textarea" rows="3"
+                                placeholder="Breve descripción sobre vos como artista..." maxlength="400"></textarea>
+                        </div>
+
+                        <div class="auth-campo">
+                            <label for="carga-resena-obra">reseña de la obra <span class="auth-req">*</span></label>
+                            <textarea id="carga-resena-obra" class="comentario-textarea" rows="3"
+                                placeholder="Contanos sobre esta obra o proyecto..." maxlength="400"></textarea>
+                        </div>
+
+                        <div class="auth-campo">
+                            <label for="carga-imagenes">imágenes
+                                <span class="auth-opcional">(máx. 5 archivos — jpg, png, webp)</span>
+                            </label>
+                            <input type="file" id="carga-imagenes" accept="image/jpeg,image/png,image/webp"
+                                multiple style="font-family:'DMSans',sans-serif;font-size:13px;padding:8px 0;">
+                            <span style="font-family:'DMSans',sans-serif;font-size:11px;color:#888888;">
+                                La primera imagen será la portada.
+                            </span>
+                        </div>
+
+                        <div class="auth-campo auth-consentimiento">
+                            <label class="auth-checkbox-label">
+                                <input type="checkbox" id="carga-consentimiento">
+                                <span>Confirmo que este contenido es de mi autoría y acepto las condiciones de publicación.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="auth-submit">enviar obra</button>
+
+                        <p class="auth-switch" style="margin-top:8px;">
+                            <button type="button" class="auth-link-btn" onclick="cerrarFormularioCarga()">Cancelar</button>
+                        </p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- FLECHA SCROLL TOP -->
         <a href="#top" class="scroll-to-top">
             <i class="bi bi-arrow-up-square-fill"></i>
         </a>
-        
-        <!-- FOOTER -->
-        <!-- SEPARADOR FOOTER -->
+
+        <!-- ================================================
+             FOOTER
+        ================================================ -->
         <div class="separador-neo"></div>
-        
+
         <footer class="footer">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <!-- BLOQUES DE COLOR -->
                     <div class="col-1 footer-bloque-azul"></div>
                     <div class="col-1 footer-bloque-rojo"></div>
-
-                    <!-- NAVEGACIÓN + INSTAGRAM -->
                     <div class="col-10 footer-nav">
-
                         <nav class="footer-links">
                             <a href="../subpaginas/contextohistorico.html" class="footer-link">Contexto Histórico</a>
                             <a href="../subpaginas/destijl.html" class="footer-link">DE Stijl</a>
@@ -527,30 +578,21 @@
                             <a href="../subpaginas/obras.html" class="footer-link">Obras</a>
                             <a href="../subpaginas/foroypublicaciones.html" class="footer-link">Publicaciones</a>
                         </nav>
-
                         <a href="https://www.instagram.com/portfolio.marianelajavierup/" target="_blank" class="footer-instagram">
                             <i class="bi bi-instagram"></i>
                         </a>
-
                     </div>
-
                 </div>
             </div>
-
-            <!-- BARRA DE CONTACTO -->
             <div class="footer-contacto">
                 <p>© 2026 LAVORATORIO DE DISEÑO II | Neoplasticismo — Marianela Javier &nbsp;|&nbsp; marianelajavier.portfolio@gmail.com</p>
             </div>
-
         </footer>
 
         <!-- BOOTSTRAP JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-         <!-- JS NEOPLASTICISMO -->
-         <script src="../js/script.js"></script>
-
-
+        <!-- JS NEOPLASTICISMO -->
+        <script src="../js/script.js"></script>
 
     </body>
 </html>
