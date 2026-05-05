@@ -84,7 +84,7 @@ a, span, li {
 
 /* Logo */
 .logo-img {
-    height: 70px;
+    height: 80px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -125,7 +125,7 @@ a, span, li {
     transition: transform 0.3s ease;
 }
 .icono-nav:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 
@@ -148,14 +148,12 @@ a, span, li {
 .navbar-titulo {
     font-family: 'DMSans', sans-serif;
     font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 15px;
+    letter-spacing: 5px;
     color: var(--color-negro);
     background-color: transparent;
-    padding: 3px 8px;
+    padding: 8px 15px;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     z-index: 1;
     line-height: 1;
@@ -167,14 +165,14 @@ a, span, li {
 
 .navbar-bloque-azul {
     background-color: var(--color-azul);
-    width: 80px;
-    height: 28px;
+    width: 120px;
+    height: 32px;
 }
 
 .navbar-bloque-rojo {
     background-color: var(--color-rojo);
-    width: 80px;
-    height: 28px;
+    width: 120px;
+    height: 32px;
 }
 
 .navbar-bloque-blanco {
