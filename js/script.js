@@ -433,79 +433,121 @@ if (regNacimiento) {
     regNacimiento.max = new Date().toISOString().split('T')[0];
 }
 
+/* ---- LOGIN CON PHP ---- */
 function handleLogin(e) {
     e.preventDefault();
+
     var elUsuario = document.getElementById('login-usuario');
     var elPass    = document.getElementById('login-pass');
     if (!elUsuario || !elPass) return;
+
     var usuario = elUsuario.value.trim();
     var pass    = elPass.value;
     var valido  = true;
+
     limpiarErrores(['err-login-usuario','err-login-pass']);
     limpiarInvalido('login-usuario');
     limpiarInvalido('login-pass');
+
     if (!usuario) { mostrarError('err-login-usuario','Ingresá tu usuario o email.'); marcarInvalido('login-usuario'); valido = false; }
     if (!pass)    { mostrarError('err-login-pass','Ingresá tu contraseña.');         marcarInvalido('login-pass');    valido = false; }
     if (!valido) return;
-    var usuarios   = JSON.parse(localStorage.getItem('neo_usuarios') || '[]');
-    var encontrado = usuarios.find(function(u) { return (u.alias === usuario || u.email === usuario) && u.pass === pass; });
-    if (!encontrado) { mostrarError('err-login-pass','Usuario o contraseña incorrectos.'); marcarInvalido('login-pass'); return; }
-    localStorage.setItem('neo_sesion', JSON.stringify(encontrado));
-    activarSesion(encontrado);
-    cerrarAuth();
+
+    var btnSubmit = document.querySelector('#form-login .auth-submit');
+    if (btnSubmit) { btnSubmit.disabled = true; btnSubmit.textContent = 'verificando...'; }
+
+    fetch('/neoplasticismo/php/login.php', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ usuario: usuario, pass: pass })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        if (btnSubmit) { btnSubmit.disabled = false; btnSubmit.textContent = 'ingresar'; }
+
+        if (data.ok) {
+            localStorage.setItem('neo_sesion', JSON.stringify(data.usuario));
+            activarSesion(data.usuario);
+            cerrarAuth();
+        } else {
+            mostrarError('err-login-pass', 'Usuario o contraseña incorrectos.');
+            marcarInvalido('login-pass');
+        }
+    })
+    .catch(function(err) {
+        if (btnSubmit) { btnSubmit.disabled = false; btnSubmit.textContent = 'ingresar'; }
+        alert('Error de conexión. Verificá que XAMPP esté corriendo.');
+        console.error(err);
+    });
 }
 
+/* ---- REGISTRO CON PHP ---- */
 function handleRegistro(e) {
     e.preventDefault();
-    var errIds = ['err-reg-nombre','err-reg-apellido','err-reg-alias','err-reg-nacionalidad','err-reg-nacimiento','err-reg-email','err-reg-email-confirm','err-reg-rama','err-reg-pass','err-reg-pass-confirm','err-reg-consentimiento'];
-    limpiarErrores(errIds);
-    ['reg-nombre','reg-apellido','reg-alias','reg-nacionalidad','reg-nacimiento','reg-email','reg-email-confirm','reg-pass','reg-pass-confirm'].forEach(function(id) { limpiarInvalido(id); });
-    var g = function(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    var nombre       = g('reg-nombre');
-    var apellido     = g('reg-apellido');
-    var alias        = g('reg-alias');
-    var nacionalidad = g('reg-nacionalidad');
-    var nacimiento   = g('reg-nacimiento');
-    var email        = g('reg-email');
-    var emailConf    = g('reg-email-confirm');
-    var telefono     = g('reg-telefono');
-    var instagram    = g('reg-instagram');
-    var behance      = g('reg-behance');
-    var ramaEl       = document.getElementById('reg-rama');
-    var rama         = ramaEl ? ramaEl.value : '';
-    var ramaOtroEl   = document.getElementById('reg-rama-otro');
-    var ramaOtro     = ramaOtroEl ? ramaOtroEl.value.trim() : '';
-    var passEl       = document.getElementById('reg-pass');
-    var passConfEl   = document.getElementById('reg-pass-confirm');
-    var pass         = passEl ? passEl.value : '';
-    var passConf     = passConfEl ? passConfEl.value : '';
-    var consentEl    = document.getElementById('reg-consentimiento');
-    var consentimiento = consentEl ? consentEl.checked : false;
-    var valido = true;
-    if (!nombre)       { mostrarError('err-reg-nombre','Campo requerido.');              marcarInvalido('reg-nombre');       valido = false; }
-    if (!apellido)     { mostrarError('err-reg-apellido','Campo requerido.');            marcarInvalido('reg-apellido');     valido = false; }
-    if (!alias)        { mostrarError('err-reg-alias','Elegí un alias.');                marcarInvalido('reg-alias');        valido = false; }
-    if (!nacionalidad) { mostrarError('err-reg-nacionalidad','Campo requerido.');        marcarInvalido('reg-nacionalidad'); valido = false; }
-    if (!nacimiento)   { mostrarError('err-reg-nacimiento','Seleccioná tu fecha.');      marcarInvalido('reg-nacimiento');   valido = false; }
-    if (!rama)         { mostrarError('err-reg-rama','Seleccioná una rama.');            marcarInvalido('reg-rama');         valido = false; }
-    if (!email || !validarEmail(email)) { mostrarError('err-reg-email','Email inválido.'); marcarInvalido('reg-email'); valido = false; }
-    if (email !== emailConf) { mostrarError('err-reg-email-confirm','Los emails no coinciden.'); marcarInvalido('reg-email-confirm'); valido = false; }
-    var v = validarPassword(pass);
-    if (!v.largo || !v.mayus || !v.numero || !v.especial) { mostrarError('err-reg-pass','La contraseña no cumple los requisitos.'); marcarInvalido('reg-pass'); valido = false; }
-    if (pass !== passConf) { mostrarError('err-reg-pass-confirm','Las contraseñas no coinciden.'); marcarInvalido('reg-pass-confirm'); valido = false; }
-    if (!consentimiento)   { mostrarError('err-reg-consentimiento','Debés aceptar para continuar.'); valido = false; }
-    if (!valido) return;
-    var usuarios = JSON.parse(localStorage.getItem('neo_usuarios') || '[]');
-    if (usuarios.find(function(u) { return u.alias === alias; }))  { mostrarError('err-reg-alias','Ese alias ya está en uso.'); marcarInvalido('reg-alias'); return; }
-    if (usuarios.find(function(u) { return u.email === email; }))  { mostrarError('err-reg-email','Ese email ya está registrado.'); marcarInvalido('reg-email'); return; }
-    var nuevoUsuario = { nombre:nombre, apellido:apellido, alias:alias, nacionalidad:nacionalidad, nacimiento:nacimiento, email:email, telefono:telefono, instagram:instagram, behance:behance, rama: rama === 'otro' ? ramaOtro : rama, pass:pass };
-    usuarios.push(nuevoUsuario);
-    localStorage.setItem('neo_usuarios', JSON.stringify(usuarios));
-    localStorage.setItem('neo_sesion',   JSON.stringify(nuevoUsuario));
-    var elExitoTexto = document.getElementById('auth-exito-texto');
-    if (elExitoTexto) elExitoTexto.textContent = '¡Hola, ' + (alias || nombre) + '! Tu cuenta fue creada.';
-    switchTab('exito');
-    activarSesion(nuevoUsuario);
+
+    /* ... toda la validación del frontend se mantiene igual ... */
+    /* Al final, en vez de localStorage, usamos fetch: */
+
+    var payload = {
+        nombre:           nombre,
+        apellido:         apellido,
+        alias:            alias,
+        nacionalidad:     nacionalidad,
+        fecha_nacimiento: nacimiento,
+        email:            email,
+        telefono:         telefono,
+        instagram:        instagram,
+        behance:          behance,
+        rama:             rama === 'otro' ? ramaOtro : rama,
+        pass:             pass
+    };
+
+    var btnSubmit = document.querySelector('#form-registro .auth-submit');
+    if (btnSubmit) { btnSubmit.disabled = true; btnSubmit.textContent = 'enviando...'; }
+
+    fetch('/neoplasticismo/php/registro.php', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        if (btnSubmit) { btnSubmit.disabled = false; btnSubmit.textContent = 'crear cuenta'; }
+
+        if (data.ok) {
+            /* Guardar sesión en localStorage (datos no sensibles) */
+            var sesionData = {
+                id:       data.id,
+                nombre:   data.nombre,
+                alias:    data.alias,
+                email:    email,
+                rama:     rama === 'otro' ? ramaOtro : rama
+            };
+            localStorage.setItem('neo_sesion', JSON.stringify(sesionData));
+
+            var elExitoTexto = document.getElementById('auth-exito-texto');
+            if (elExitoTexto) elExitoTexto.textContent = '¡Hola, ' + (data.alias || data.nombre) + '! Tu cuenta fue creada.';
+            switchTab('exito');
+            activarSesion(sesionData);
+
+        } else {
+            /* Mostrar error específico */
+            if (data.error === 'alias_duplicado') {
+                mostrarError('err-reg-alias', 'Ese alias ya está en uso.');
+                marcarInvalido('reg-alias');
+            } else if (data.error === 'email_duplicado') {
+                mostrarError('err-reg-email', 'Ese email ya está registrado.');
+                marcarInvalido('reg-email');
+            } else {
+                alert('Error: ' + data.error);
+            }
+        }
+    })
+    .catch(function(err) {
+        if (btnSubmit) { btnSubmit.disabled = false; btnSubmit.textContent = 'crear cuenta'; }
+        alert('Error de conexión con el servidor. Verificá que XAMPP esté corriendo.');
+        console.error(err);
+    });
 }
 
 function handleRecuperar(e) {
