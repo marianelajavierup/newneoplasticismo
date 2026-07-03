@@ -183,58 +183,66 @@ a, span, li {
 .navbar-bloque-amarillo {
     background-color: var(--color-amarillo);
     width: 200px;
+    padding: 0;
 }
-
 
 /* ============================================================
    15. NAVBAR — BOTÓN INGRESAR + ESTADO USUARIO
 ============================================================ */
 
-/* 🔶 CONTENEDOR AMARILLO */
-.navbar-bloque-amarillo {
-    padding: 0; /* elimina el recorte interno */
-}
-
-/* 🔘 BOTÓN INGRESAR (ocupa todo el bloque) */
 .navbar-btn-ingresar {
     font-family: 'ISOCPEUR', sans-serif;
     font-size: 15px;
     letter-spacing: 2px;
-
     width: 100%;
     height: 100%;
-
     color: var(--color-negro);
     background-color: var(--color-amarillo);
-
-    border: none; /* sin borde para evitar “botón dentro de bloque” */
+    border: none;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: font-weight 0.15s ease;
+    white-space: nowrap;
 }
 
-/* 🖱️ HOVER */
 .navbar-btn-ingresar:hover {
-    background-color: var(--color-negro);
-    color: var(--color-amarillo);
+    font-weight: 700;
 }
 
-/* 👤 ESTADO USUARIO */
+.navbar-btn-salir {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    width: 100%;
+    height: 100%;
+    color: var(--color-negro);
+    background-color: var(--color-amarillo);
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: font-weight 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.navbar-btn-salir:hover {
+    font-weight: 700;
+    color: var(--color-rojo);
+}
+
 .navbar-usuario {
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 16px;
 }
 
 .navbar-usuario-icono {
-    height: 28px;
+    height: 24px;
     width: auto;
 }
 
@@ -247,30 +255,6 @@ a, span, li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-/* ❌ BOTÓN SALIR */
-.navbar-btn-salir {
-    background: var(--color-negro);
-    color: var(--color-amarillo);
-    border: none;
-    width: 20px;
-    height: 20px;
-    font-size: 11px;
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-    padding: 0;
-
-    transition: background-color 0.25s ease;
-}
-
-.navbar-btn-salir:hover {
-    background-color: var(--color-rojo);
 }
 
 /* ============================================================
@@ -611,16 +595,11 @@ a, span, li {
     text-align: center;
 }
 
-.auth-exito-icono {
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-azul);
-    color: var(--color-blanco);
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
+.auth-exito lottie-player {
+    width: 150px !important;
+    height: 150px !important;
+    margin: 0 auto;
+    display: block;
 }
 
 .auth-exito-titulo {
@@ -680,7 +659,7 @@ a, span, li {
 
 .hero-titulo {
     font-family: 'ISOCPEUR', sans-serif;
-    font-size: 80px;
+    font-size: 60px;
     color: var(--color-negro);
     line-height: 1;
     margin-bottom: 25px;
@@ -803,6 +782,15 @@ a, span, li {
 
 .card-titulo-negro {
     color: var(--color-negro);
+}
+
+.destijl-portadas {
+    background-color: var(--color-negro);
+    overflow: visible;
+}
+
+.destijl-portadas .row {
+    overflow: visible;
 }
 
 /* ============================================================
@@ -1334,9 +1322,9 @@ html {
 .mondrian-grid {
     display: grid;
     width: 100%;
-    height: 700px;
+    height: 900px;
     grid-template-columns: 2.5fr 1.5fr 1fr 1.5fr;
-    grid-template-rows: 220px 160px 180px 140px;
+    grid-template-rows: 300px 170px 180px 250px;
     border-top: 5px solid var(--color-negro);
     border-left: 5px solid var(--color-negro);
     overflow: hidden;
@@ -1674,20 +1662,19 @@ html {
 }
 
 .btn-ver-obras {
-    font-family: 'DMSans', sans-serif;
+    font-family: 'ISOCPEUR', sans-serif;
     font-size: 13px;
-    font-weight: 700;
+    letter-spacing: 2px;
     color: var(--color-blanco);
     background-color: var(--color-negro);
     padding: 10px 18px;
     text-decoration: none;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     align-self: flex-start;
     margin-top: 6px;
+    transition: background-color 0.25s ease;
 }
 
 .btn-ver-obras:hover {
@@ -1997,92 +1984,52 @@ html {
     margin: 0;
 }
 
-/* Botón Más información */
+/* Botón Más información en AUTORES*/
 .btn-ver-mas {
-    font-family: 'DMSans', sans-serif;
+    font-family: 'ISOCPEUR', sans-serif;
     font-size: 13px;
-    font-weight: 700;
+    letter-spacing: 2px;
     color: var(--color-blanco);
     background-color: var(--color-negro);
+    border: none;
     padding: 10px 18px;
     text-decoration: none;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     align-self: flex-start;
     margin-top: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
 }
 
 .btn-ver-mas:hover {
-    background-color: var(--color-rojo);
+    background-color: var(--color-azul);
     color: var(--color-blanco);
 }
 
-/* ============================================================
-   15. NAVBAR — BOTÓN INGRESAR + ESTADO USUARIO
-============================================================ */
-
-.navbar-btn-ingresar {
-    font-family: 'ISOCPEUR', sans-serif;
-    font-size: 15px;
-    letter-spacing: 2px;
-    color: var(--color-negro);
-    background: none;
-    border: 2px solid var(--color-negro);
-    padding: 4px 18px;
-    cursor: pointer;
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-    line-height: 1.4;
-}
-
-.navbar-btn-ingresar:hover {
-    background-color: var(--color-negro);
-    color: var(--color-amarillo);
-    transform: scale(1.04);
-}
-
-.navbar-usuario {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.navbar-usuario-icono {
-    height: 28px;
-    width: auto;
-}
-
-.navbar-usuario-nombre {
+/* Botón Más información en OBRAS*/
+.btn-obra-mas {
     font-family: 'ISOCPEUR', sans-serif;
     font-size: 13px;
-    letter-spacing: 1px;
-    color: var(--color-negro);
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.navbar-btn-salir {
-    background: var(--color-negro);
-    color: var(--color-amarillo);
+    letter-spacing: 2px;
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
     border: none;
-    width: 20px;
-    height: 20px;
-    font-size: 11px;
-    cursor: pointer;
-    display: flex;
+    padding: 10px 18px;
+    text-decoration: none;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    align-self: flex-start;
+    margin-top: 8px;
+    cursor: pointer;
     transition: background-color 0.25s ease;
-    flex-shrink: 0;
-    padding: 0;
 }
 
-.navbar-btn-salir:hover {
-    background-color: var(--color-rojo);
+.btn-obra-mas:hover {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
 }
 
 /* ============================================================
@@ -3164,6 +3111,7 @@ html {
 }
 
 /* Modal carga obra */
+/* Modal carga obra */
 .modal-carga-contenido {
     max-width: 600px;
     width: 96%;
@@ -3217,4 +3165,228 @@ html {
 .modal-carga-ficha .auth-campo input:focus,
 .modal-carga-ficha .auth-campo select:focus {
     border-color: var(--color-azul);
+}
+
+.modal-carga-ficha .auth-consentimiento {
+    background-color: #f5f5f5;
+    border-left: 4px solid var(--color-amarillo);
+    padding: 10px 12px;
+    overflow: visible;
+}
+
+.modal-carga-ficha .auth-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: nowrap;
+    white-space: normal;
+}
+
+.modal-carga-ficha .auth-checkbox-label span {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    color: var(--color-negro);
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.modal-carga-ficha .auth-checkbox-label input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    appearance: auto;
+    -webkit-appearance: checkbox;
+}
+
+/* ============================================================
+   DE STIJL — GALERÍA PORTADAS
+============================================================ */
+
+.destijl-portadas {
+    background-color: var(--color-negro);
+}
+
+.destijl-portada-item {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    cursor: pointer;
+    background-color: var(--color-negro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.destijl-portada-img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: grayscale(30%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.destijl-portada-item:hover .destijl-portada-img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+}
+
+.destijl-portada-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 16px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.destijl-portada-anio {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--color-amarillo);
+}
+
+.destijl-portada-desc {
+    font-family: 'DMSans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--color-blanco);
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   BUSCADOR — PANEL DE RESULTADOS
+============================================================ */
+
+.buscador {
+    position: relative;
+}
+
+.buscador-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: var(--color-blanco);
+    border: 2px solid var(--color-negro);
+    z-index: 9999;
+    max-height: 420px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-negro) var(--color-blanco);
+}
+
+.buscador-panel.activo {
+    display: block;
+}
+
+.buscador-resultado-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #eeeeee;
+    transition: background-color 0.2s ease;
+}
+
+.buscador-resultado-item:last-child {
+    border-bottom: none;
+}
+
+.buscador-resultado-item:hover {
+    background-color: #f5f5f5;
+}
+
+.buscador-resultado-img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid #eeeeee;
+}
+
+.buscador-resultado-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.buscador-resultado-tipo {
+    font-family: 'DMSans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-blanco);
+    padding: 2px 6px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.buscador-resultado-titulo {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--color-negro);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buscador-resultado-desc {
+    font-family: 'DMSans', sans-serif;
+    font-size: 11px;
+    color: #666666;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buscador-resultado-btn {
+    font-family: 'ISOCPEUR', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
+    padding: 6px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.buscador-resultado-btn:hover {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+}
+
+.buscador-sin-resultados {
+    font-family: 'DMSans', sans-serif;
+    font-size: 13px;
+    color: #888888;
+    padding: 16px;
+    margin: 0;
+    text-align: center;
+}
+
+.buscador-mark {
+    background-color: var(--color-amarillo);
+    color: var(--color-negro);
+    padding: 0 2px;
+    font-style: normal;
 }

@@ -11,6 +11,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
         <!-- CSS NEOPLASTICISMO -->
         <link rel="stylesheet" href="../css/style.css">
+        <!-- AOS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
 
     <body>
@@ -19,20 +21,14 @@
         <header id="top" class="header-principal">
             <div class="container-fluid">
                 <div class="row align-items-center">
+                    <!-- LOGO -->
                     <div class="col-2">
-                        <a href="../sitio/index.html">
+                        <a href="../index.html">
                             <img src="../img/a-img-icono-logo2.png" alt="Logo Neoplasticismo" class="logo-img">
                         </a>
                     </div>
-                    <div class="col-6">
-                        <div class="input-group buscador">
-                            <span class="input-group-text buscador-icono">
-                                <img src="../img/a-img-icono-buscar.png" alt="Buscar" class="icono-lupa">
-                            </span>
-                            <input type="text" class="form-control buscador-input" placeholder="Buscar...">
-                        </div>
-                    </div>
-                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                    <!-- ICONOS NAVEGACIÓN -->
+                    <div class="col-10 d-flex justify-content-end align-items-center gap-3">
                         <a href="../subpaginas/contextohistorico.html">
                             <img src="../img/a-img-icono-contextohistorico.png" alt="Contexto Histórico" class="icono-nav">
                         </a>
@@ -52,6 +48,7 @@
                 </div>
             </div>
         </header>
+
 
         <!-- NAVBAR / sin registro de usuario -->
         <nav class="navbar-principal">
@@ -82,7 +79,7 @@
                         <div id="carruselDestijl" class="carousel slide hero-carrusel" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="../img/5-obras.disenoindustrial-sillarietveld.webp" class="hero-img" alt="De Stijl">
+                                    <img src="../img/hero-01.png" class="hero-img" alt="De Stijl">
                                 </div>
                                 <div class="carousel-item">
                                     <img src="../img/5-obras.pintura-mondrian-02.jpg" class="hero-img" alt="Mondrian">
@@ -110,38 +107,89 @@
             </div>
         </section>
 
-        <!-- SEPARADOR -->
-        <div class="separador-neo"></div>
-
-        <!-- CARDS MANIFIESTOS -->
-        <section class="seccion-cards">
+        <!-- GALERÍA PORTADAS MANIFIESTOS -->
+        <section class="destijl-portadas">
             <div class="container-fluid p-0">
                 <div class="row g-0">
 
-                    <!-- CARD 1er MANIFIESTO -->
-                    <div class="col-4">
-                        <div class="card-neo card-amarillo card-link" onclick="abrirManifiesto(1)">
-                            <span class="card-neo-titulo">1er Manifiesto</span>
+                    <div class="col-3">
+                        <div class="destijl-portada-item" data-aos="fade-up" data-aos-delay="0">
+                            <img src="../img/de-stijl-img-manifiesto-1917.jpg" alt="Manifiesto 1917" class="destijl-portada-img">
+                            <div class="destijl-portada-caption">
+                                <span class="destijl-portada-anio">1917</span>
+                                <span class="destijl-portada-desc">Primer Manifiesto</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- CARD 2do MANIFIESTO -->
-                    <div class="col-4">
-                        <div class="card-neo card-blanco card-link" onclick="abrirManifiesto(2)">
-                            <span class="card-neo-titulo card-titulo-negro">2do Manifiesto</span>
+                    <div class="col-3">
+                        <div class="destijl-portada-item" data-aos="fade-up" data-aos-delay="150">
+                            <img src="../img/de-stijl-img-manifiesto-1921-1.jpg" alt="Manifiesto 1921" class="destijl-portada-img">
+                            <div class="destijl-portada-caption">
+                                <span class="destijl-portada-anio">1921</span>
+                                <span class="destijl-portada-desc">Revista De Stijl</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- CARD 3er MANIFIESTO -->
-                    <div class="col-4">
-                        <div class="card-neo card-azul card-link" onclick="abrirManifiesto(3)">
-                            <span class="card-neo-titulo">3er Manifiesto</span>
+                    <div class="col-3">
+                        <div class="destijl-portada-item" data-aos="fade-up" data-aos-delay="300">
+                            <img src="../img/de-stijl-img-manifiesto-1921-2.jpg" alt="Manifiesto 1921 — 2" class="destijl-portada-img">
+                            <div class="destijl-portada-caption">
+                                <span class="destijl-portada-anio">1921</span>
+                                <span class="destijl-portada-desc">Revista De Stijl</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="destijl-portada-item" data-aos="fade-up" data-aos-delay="450">
+                            <img src="../img/de-stijl-img-manifiesto-1925.jpg" alt="Manifiesto 1925" class="destijl-portada-img">
+                            <div class="destijl-portada-caption">
+                                <span class="destijl-portada-anio">1925</span>
+                                <span class="destijl-portada-desc">Revista De Stijl</span>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
         </section>
+
+                <!-- SEPARADOR -->
+                <div class="separador-neo"></div>
+
+                <!-- CARDS MANIFIESTOS -->
+                <section class="seccion-cards">
+                    <div class="container-fluid p-0">
+                        <div class="row g-0">
+
+                            <!-- CARD 1er MANIFIESTO -->
+                            <div class="col-4" data-aos="fade-right">
+                                <div class="card-neo card-amarillo card-link" onclick="abrirManifiesto(1)">
+                                    <span class="card-neo-titulo">1er Manifiesto</span>
+                                </div>
+                            </div>
+
+                            <!-- CARD 2do MANIFIESTO -->
+                            <div class="col-4" data-aos="fade-up" data-aos-delay="150">
+                                <div class="card-neo card-blanco card-link" onclick="abrirManifiesto(2)">
+                                    <span class="card-neo-titulo card-titulo-negro">2do Manifiesto</span>
+                                </div>
+                            </div>
+
+                            <!-- CARD 3er MANIFIESTO -->
+                            <div class="col-4" data-aos="fade-left" data-aos-delay="300">
+                                <div class="card-neo card-azul card-link" onclick="abrirManifiesto(3)">
+                                    <span class="card-neo-titulo">3er Manifiesto</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </section>
+
 
         <!-- SEPARADOR -->
         <div class="separador-neo"></div>
@@ -215,6 +263,9 @@
             </div>
         </footer>
 
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>AOS.init({ duration: 800, once: true });</script>
         <!-- BOOTSTRAP JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <!-- JS NEOPLASTICISMO -->
